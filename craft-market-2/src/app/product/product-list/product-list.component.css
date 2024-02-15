@@ -1,0 +1,28 @@
+.product-list-container {
+  margin: 0 auto; /* Center the container horizontally */
+  max-width: 800px; /* Limit the width of the container */
+  padding: 20px; /* Add some padding around the content */
+}
+
+table {
+  width: 100%; /* Make the table fill the container */
+  border-collapse: collapse; /* Collapse table borders */
+}
+
+th, td {
+  padding: 8px; /* Add padding to table cells */
+  border-bottom: 1px solid #ddd; /* Add bottom border to table rows */
+}
+
+th {
+  text-align: left; /* Align table header text to the left */
+  background-color: #f2f2f2; /* Light gray background color for table header */
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Alternate row background color */
+}
+
+tr:hover {
+  background-color: #ddd; /* Highlight row on hover */
+}

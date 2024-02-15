@@ -1,0 +1,50 @@
+.taskbar ul {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  list-style-type: none; /* Remove default list styles */
+  padding: 0;
+}
+
+.taskbar li {
+  margin-right: 20px; /* Add spacing between items */
+}
+
+.taskbar li:last-child {
+  margin-right: 0; /* Remove margin from the last item */
+}
+
+.taskbar {
+  background-color: #fff; /* Set background color */
+  padding: 10px 0; /* Add padding for spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.taskbar ul {
+  list-style-type: none; /* Remove default list styles */
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Center the list items horizontally */
+}
+
+.taskbar li {
+  display: inline-block; /* Display list items horizontally */
+  margin-right: 20px; /* Add spacing between items */
+}
+
+.taskbar li:last-child {
+  margin-right: 0; /* Remove margin from the last item */
+}
+
+.taskbar a {
+  text-decoration: none; /* Remove underlines from links */
+  color: #333; /* Set link color */
+  font-weight: bold; /* Make the text bold */
+  font-size: 16px; /* Adjust font size */
+  padding: 5px 10px; /* Add padding for clickable area */
+  border-radius: 5px; /* Add rounded corners */
+  transition: background-color 0.3s ease; /* Add smooth transition for background color */
+}
+
+.taskbar a:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+}

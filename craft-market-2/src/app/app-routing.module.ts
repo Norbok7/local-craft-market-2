@@ -11,16 +11,17 @@ import { OrderListComponent } from './order/order-list/order-list.component';
 import { OrderDetailsComponent } from './order/order-details/order-details.component';
 import { ReviewListComponent } from './review/review-list/review-list.component';
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
+import { HomeComponent } from './shared/home/home.component'; // Import HomeComponent
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to the default landing page
-  { path: 'home', component: ProductListComponent }, // Home page displaying products
+  { path: '', component: HomeComponent }, // Set HomeComponent as the default route
+  { path: 'home', component: HomeComponent }, // Add this route
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'user-orders', component: UserOrdersComponent },
   { path: 'user-reviews', component: UserReviewsComponent },
   { path: 'artisan-profile', component: ArtisanProfileComponent },
   { path: 'artisan-products', component: ArtisanProductsComponent },
-  { path: 'products', redirectTo: '/home', pathMatch: 'full' }, // Redirect /products to the home page
+  { path: 'products', component: ProductListComponent }, // Updated this line
   { path: 'products/:category', component: ProductListComponent }, // Display products based on category
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'orders', component: OrderListComponent },
@@ -34,7 +35,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-
-
-

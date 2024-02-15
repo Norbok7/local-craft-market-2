@@ -1,1 +1,26 @@
-<p>product-list works!</p>
+<div class="product-list-container">
+  <h2>Product List</h2>
+
+  <div *ngIf="products.length > 0; else noProducts">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.title }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noProducts>
+    <p>No products available.</p>
+  </ng-template>
+</div>

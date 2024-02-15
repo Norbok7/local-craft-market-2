@@ -1,0 +1,12 @@
+.top-title {
+  text-align: center; /* Center the text horizontally */
+  padding: 20px 0; /* Add padding for spacing */
+  background-color: #f0f0f0; /* Add background color */
+}
+
+.top-title h1 {
+  margin: 0; /* Remove default margin */
+  font-size: 24px; /* Adjust font size */
+  color: #333; /* Set text color */
+  font-family: Arial, sans-serif; /* Set font family */
+}
