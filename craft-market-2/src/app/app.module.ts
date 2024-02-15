@@ -10,14 +10,17 @@ import { SharedModule } from './shared/shared.module';
 import { TopTitleComponent } from './shared/top-title/top-title.component';
 import { TaskbarComponent } from './shared/taskbar/taskbar.component';
 import { ProductListComponent } from './product/product-list/product-list.component'; // Import ProductListComponent
-
+import { RouterModule } from '@angular/router';
+import { ArtisanProfileComponent } from './artisan/artisan-profile/artisan-profile.component';
+import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-products.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserProfileComponent,
     TopTitleComponent,
     TaskbarComponent,
-    ProductListComponent // Include ProductListComponent here
+    ProductListComponent, // Include ProductListComponent here
+    ArtisanProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { ProductListComponent } from './product/product-list/product-list.compon
     CommonModule, // Ensure CommonModule is imported
     FormsModule,
     SharedModule,
+    RouterModule,
   ],
   providers: [
     provideClientHydration(),

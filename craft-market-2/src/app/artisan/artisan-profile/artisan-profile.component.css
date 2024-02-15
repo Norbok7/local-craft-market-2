@@ -1,0 +1,19 @@
+/* Style for the container of each artisan */
+.artisan-info {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Style for the list of artisans */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style for the no artisans message */
+p.no-artisans {
+  color: #999;
+  font-style: italic;
+}

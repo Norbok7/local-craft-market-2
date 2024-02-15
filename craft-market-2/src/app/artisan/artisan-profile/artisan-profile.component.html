@@ -1,1 +1,17 @@
-<p>artisan-profile works!</p>
+<h2>Artisans</h2>
+
+<div *ngIf="artisans.length > 0; else noArtisans">
+  <ul>
+    <li *ngFor="let artisan of artisans">
+      <div class="artisan-info">
+        <p>Artisan ID: {{ artisan.id }}</p>
+        <p>Name: {{ artisan.artisan_name }}</p>
+        <p>Location: {{ artisan.location }}</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noArtisans>
+  <p>No artisans available.</p>
+</ng-template>

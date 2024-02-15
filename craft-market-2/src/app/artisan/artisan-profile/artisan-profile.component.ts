@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ArtisanService } from '../artisan.service';
+import { Artisan } from '../artisan.model';
 
 @Component({
   selector: 'app-artisan-profile',
-  standalone: true,
-  imports: [],
   templateUrl: './artisan-profile.component.html',
-  styleUrl: './artisan-profile.component.css'
+  styleUrls: ['./artisan-profile.component.css']
 })
-export class ArtisanProfileComponent {
+export class ArtisanProfileComponent implements OnInit {
+  artisans: Artisan[] = [];
 
+  constructor(private artisanService: ArtisanService) { }
+
+  ngOnInit(): void {
+    this.getArtisans();
+  }
+
+  getArtisans(): void {
+    this.artisanService.getArtisans().subscribe(artisans => {
+      this.artisans = artisans;
+    });
+  }
 }
