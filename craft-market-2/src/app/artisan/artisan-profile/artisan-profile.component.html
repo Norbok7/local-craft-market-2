@@ -4,9 +4,7 @@
   <ul>
     <li *ngFor="let artisan of artisans">
       <div class="artisan-info">
-        <p>Artisan ID: {{ artisan.id }}</p>
-        <p>Name: {{ artisan.artisan_name }}</p>
-        <p>Location: {{ artisan.location }}</p>
+        {{artisan.id}} <a [routerLink]="['/artisans', artisan.id, 'products']">{{ artisan.artisan_name }}</a> - {{ artisan.location }}
       </div>
     </li>
   </ul>

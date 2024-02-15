@@ -1,1 +1,18 @@
-<p>artisan-products works!</p>
+<h2>Artisan Products</h2>
+
+<div *ngIf="products.length > 0; else noProducts">
+  <ul>
+    <li *ngFor="let product of products">
+      <div class="product-info">
+        <p>Title: {{ product.title }}</p>
+        <p>Description: {{ product.description }}</p>
+        <p>Category: {{ product.category }}</p>
+        <p>Price: {{ product.price }}</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noProducts>
+  <p>No products available for this artisan.</p>
+</ng-template>
