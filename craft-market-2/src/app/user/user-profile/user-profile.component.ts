@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,6 +10,8 @@ import { CommonModule } from '@angular/common';
 export class UserProfileComponent implements OnInit {
   users: User[] | undefined;
   newUser: User = { username: '', password: '', email: '', user_type: '' };
+  updatedUser: User = { username: '', password: '', email: '', user_type: '' };
+  selectedUser: User | undefined;
 
   constructor(private userService: UserService) { }
 
@@ -32,24 +33,27 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  selectUser(): void {
+    // No need to do anything here, since selectedUser is already bound via ngModel
+  }
+
   updateUser(): void {
-    const userToUpdate = this.users ? this.users[0] : null; // Get the first user (if available)
-    if (userToUpdate) {
-      userToUpdate.username = 'updatedUsername'; // Example: update username
-      this.userService.updateUser(userToUpdate).subscribe(updatedUser => {
+    if (this.selectedUser && this.selectedUser.id) { // Check if selectedUser and its id are defined
+      this.userService.updateUser(this.selectedUser.id, this.selectedUser).subscribe(updatedUser => {
         console.log('User updated:', updatedUser);
         this.getUsers();
+        this.selectedUser = { username: '', password: '', email: '', user_type: '' }; // Reset updated user object
       });
     }
   }
 
   deleteUser(): void {
-    const userIdToDelete = this.users ? this.users[0]?.id : null; // Get the ID of the first user (if available)
-    if (userIdToDelete) {
-      this.userService.deleteUser(userIdToDelete).subscribe(() => {
+    if (this.selectedUser && this.selectedUser.id) { // Check if selectedUser and its id are defined
+      this.userService.deleteUser(this.selectedUser.id).subscribe(() => {
         console.log('User deleted successfully');
         this.getUsers();
       });
     }
   }
+
 }

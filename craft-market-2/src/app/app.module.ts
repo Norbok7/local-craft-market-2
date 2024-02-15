@@ -4,6 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS, provideHttpClient } from '@angular
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { FormsModule } from '@angular/forms'; // Add this line
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CommonModule } from '@angular/common';import { UserProfileComponent } f
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
+    FormsModule,
 
 
 
