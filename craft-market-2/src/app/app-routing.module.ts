@@ -13,18 +13,20 @@ import { ReviewListComponent } from './review/review-list/review-list.component'
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/user-profile', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to the default landing page
+  { path: 'home', component: ProductListComponent }, // Home page displaying products
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'user-orders', component: UserOrdersComponent },
   { path: 'user-reviews', component: UserReviewsComponent },
   { path: 'artisan-profile', component: ArtisanProfileComponent },
   { path: 'artisan-products', component: ArtisanProductsComponent },
-  { path: 'products', component: ProductListComponent },
+  { path: 'products', redirectTo: '/home', pathMatch: 'full' }, // Redirect /products to the home page
+  { path: 'products/:category', component: ProductListComponent }, // Display products based on category
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'orders', component: OrderListComponent },
   { path: 'orders/:id', component: OrderDetailsComponent },
   { path: 'reviews', component: ReviewListComponent },
-  { path: 'reviews/:id', component: ReviewDetailsComponent },
+  { path: 'reviews/:id', component: ReviewDetailsComponent }
 ];
 
 @NgModule({
@@ -32,3 +34,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+
+
