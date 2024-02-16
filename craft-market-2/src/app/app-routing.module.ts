@@ -13,7 +13,7 @@ import { ReviewListComponent } from './review/review-list/review-list.component'
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
 import { HomeComponent } from './shared/home/home.component'; // Import HomeComponent
 import { AuthGuard } from './shared/login/auth.guard';
-
+import { ArtisanAuthGuard } from './shared/login/artisan-auth.guard';
 const routes: Routes = [
   { path: '', component: HomeComponent }, // Set HomeComponent as the default route
   { path: 'home', component: HomeComponent }, // Add this route
@@ -35,8 +35,6 @@ const routes: Routes = [
   { path: 'user-reviews', component: UserReviewsComponent, canActivate: [AuthGuard] },
   { path: 'artisan-profile', component: ArtisanProfileComponent, canActivate: [ArtisanAuthGuard] },
   { path: 'artisan-products', component: ArtisanProductsComponent, canActivate: [ArtisanAuthGuard] },
-...
-
 
 ];
 
