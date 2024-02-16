@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from './shared/shared.module';
 import { TopTitleComponent } from './shared/top-title/top-title.component';
 import { TaskbarComponent } from './shared/taskbar/taskbar.component';
 import { ProductListComponent } from './product/product-list/product-list.component'; // Import ProductListComponent
@@ -15,6 +14,7 @@ import { ArtisanProfileComponent } from './artisan/artisan-profile/artisan-profi
 import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-products.component';
 import { ArtisanRegistrationComponent } from './artisan/artisan-registration/artisan-registration.component';
 import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,6 @@ import { UserRegistrationComponent } from './user/user-registration/user-registr
     HttpClientModule,
     CommonModule, // Ensure CommonModule is imported
     FormsModule,
-    SharedModule,
     RouterModule,
   ],
   providers: [

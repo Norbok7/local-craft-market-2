@@ -30,4 +30,10 @@ export class ArtisanService {
   deleteArtisan(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/artisans/${id}`);
   }
+  isArtisanAuthenticated(): boolean {
+    // Check if artisan is authenticated based on your authentication logic
+    // For example, you can check if the artisan's token is stored in local storage
+    const token = localStorage.getItem('artisanToken');
+    return !!token; // Return true if token exists, otherwise false
+  }
 }
