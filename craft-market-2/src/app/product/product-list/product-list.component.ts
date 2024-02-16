@@ -3,7 +3,7 @@ import { ProductService } from '../product.service';
 import { Product } from '../product.model';
 
 @Component({
-  selector: 'app-product-list',
+  selector: 'app-product-list', // Make sure this selector matches the component's selector in the module
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.getProducts(); // Always fetch all products
+    this.getProducts(); // Fetch all products when component initializes
   }
 
   getProducts(): void {

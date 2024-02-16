@@ -13,6 +13,8 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { RouterModule } from '@angular/router';
 import { ArtisanProfileComponent } from './artisan/artisan-profile/artisan-profile.component';
 import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-products.component';
+import { ArtisanRegistrationComponent } from './artisan/artisan-registration/artisan-registration.component';
+import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +23,9 @@ import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-pro
     TaskbarComponent,
     ProductListComponent, // Include ProductListComponent here
     ArtisanProfileComponent,
+    ArtisanProductsComponent,
+    ArtisanRegistrationComponent,
+    UserRegistrationComponent,
   ],
   imports: [
     BrowserModule,

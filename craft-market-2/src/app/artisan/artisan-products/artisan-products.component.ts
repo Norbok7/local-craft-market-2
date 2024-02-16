@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../product/product.service';
 import { Product } from '../../product/product.model';
 
-
 @Component({
   selector: 'app-artisan-products',
   templateUrl: './artisan-products.component.html',
@@ -14,20 +13,19 @@ export class ArtisanProductsComponent implements OnInit {
   products: Product[] = [];
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.route.params.subscribe(params => {
+      this.artisanId = +params['id']; // Get the artisan ID from the route parameters
+      this.getArtisanProducts();
+    });
   }
 
-  // ngOnInit(): void {
-  //   this.route.params.subscribe(params => {
-  //     this.artisanId = +params['id']; // Get the artisan ID from the route parameters
-  //     this.getArtisanProducts();
-  //   });
-  // }
-
-  // getArtisanProducts(): void {
-  //   this.productService.getProductsByArtisan(this.artisanId).subscribe(products => {
-  //     this.products = products;
-  //   });
-  // }
+  getArtisanProducts(): void {
+    if (this.artisanId) {
+      this.productService.getProductsByCategory(this.artisanId.toString()).subscribe(products => {
+        this.products = products;
+      });
+    }
+  }
 }
