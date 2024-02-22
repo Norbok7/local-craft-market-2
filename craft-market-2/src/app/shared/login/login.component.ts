@@ -1,24 +1,20 @@
 import { Component } from '@angular/core';
-import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  credentials = { username: '', password: '' };
 
-  constructor(private authService: AuthService) {}
+  constructor(private router: Router) {}
 
-  login(): void {
-    this.authService.login(this.credentials).subscribe(
-      () => {
-        // Redirect to the desired route after successful login
-      },
-      error => {
-        console.error('Login failed:', error);
-        // Handle login error (e.g., display error message to the user)
-      }
-    );
+  redirectToUserLogin(): void {
+    this.router.navigate(['/user-login']);
+  }
+
+  redirectToArtisanLogin(): void {
+    this.router.navigate(['/artisan-login']);
   }
 }

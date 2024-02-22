@@ -14,6 +14,9 @@ import { ReviewDetailsComponent } from './review/review-details/review-details.c
 import { HomeComponent } from './shared/home/home.component'; // Import HomeComponent
 import { AuthGuard } from './shared/login/auth.guard';
 import { ArtisanAuthGuard } from './shared/login/artisan-auth.guard';
+import { UserLoginComponent } from './user/user-login/user-login.component';
+import { ArtisanLoginComponent } from './artisan/artisan-login/artisan-login.component';
+import { LoginComponent } from './shared/login/login.component';
 const routes: Routes = [
   { path: '', component: HomeComponent }, // Set HomeComponent as the default route
   { path: 'home', component: HomeComponent }, // Add this route
@@ -35,6 +38,9 @@ const routes: Routes = [
   { path: 'user-reviews', component: UserReviewsComponent, canActivate: [AuthGuard] },
   { path: 'artisan-profile', component: ArtisanProfileComponent, canActivate: [ArtisanAuthGuard] },
   { path: 'artisan-products', component: ArtisanProductsComponent, canActivate: [ArtisanAuthGuard] },
+  { path: 'login/user', component: UserLoginComponent },
+  { path: 'login/artisan', component: ArtisanLoginComponent },
+  { path: 'login', component: LoginComponent }, // Add this route for the LoginComponent
 
 ];
 

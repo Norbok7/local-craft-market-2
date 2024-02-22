@@ -15,6 +15,7 @@ import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-pro
 import { ArtisanRegistrationComponent } from './artisan/artisan-registration/artisan-registration.component';
 import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
 import { ArtisanLoginComponent } from './artisan/artisan-login/artisan-login.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { ArtisanLoginComponent } from './artisan/artisan-login/artisan-login.com
     ArtisanRegistrationComponent,
     UserRegistrationComponent,
     ArtisanLoginComponent,
+    UserLoginComponent,
 
   ],
   imports: [
