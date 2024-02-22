@@ -10,3 +10,28 @@
   </div>
   <button type="submit">Login</button>
 </form>
+
+<hr>
+
+<form (ngSubmit)="registerUser()" #userRegistrationForm="ngForm">
+  <div>
+    <label for="regUsername">Username:</label>
+    <input type="text" id="regUsername" name="regUsername" [(ngModel)]="user.username" required>
+  </div>
+  <div>
+    <label for="regPassword">Password:</label>
+    <input type="password" id="regPassword" name="regPassword" [(ngModel)]="user.password" required>
+  </div>
+  <div>
+    <label for="regEmail">Email:</label>
+    <input type="email" id="regEmail" name="regEmail" [(ngModel)]="user.email" required>
+  </div>
+  <div>
+    <label for="regUserType">User Type:</label>
+    <select id="regUserType" name="regUserType" [(ngModel)]="user.user_type" required>
+      <option value="Artisan">Artisan</option>
+      <option value="Buyer">Buyer</option>
+    </select>
+  </div>
+  <button type="submit">Register</button>
+</form>
