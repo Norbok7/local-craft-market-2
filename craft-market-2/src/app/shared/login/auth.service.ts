@@ -15,12 +15,16 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   login(credentials: { username: string; password: string }): Observable<any> {
-    // Adjust the endpoint URL to match your backend route
-    return this.http.post<any>(`${this.apiUrl}/sessions`, credentials).pipe(
+    // Adjust the endpoint URL to match your backend login route
+    return this.http.post<any>(`${this.apiUrl}/login`, credentials).pipe(
       tap(response => {
-        // Store authentication token or user session information
-        localStorage.setItem('token', response.token);
-        this.loggedIn.next(true);
+        // Check if the response contains a token
+        if (response && response.token) {
+          // Store authentication token
+          localStorage.setItem('token', response.token);
+          // Set logged in status
+          this.loggedIn.next(true);
+        }
       })
     );
   }
@@ -32,11 +36,17 @@ export class AuthService {
   logout(): void {
     // Clear user session information
     localStorage.removeItem('token');
+    // Set logged out status
     this.loggedIn.next(false);
-    this.router.navigate(['/login']); // Redirect to the login page after logout
+    // Redirect to the login page after logout
+    this.router.navigate(['/login']);
   }
 
   isLoggedIn(): Observable<boolean> {
     return this.loggedIn.asObservable();
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 }

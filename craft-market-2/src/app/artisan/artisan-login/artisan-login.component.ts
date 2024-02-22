@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../shared/login/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-artisan-login',
@@ -13,10 +14,19 @@ export class ArtisanLoginComponent {
   location: string = '';
   bio: string = ''; // Add bio property
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   loginArtisan(): void {
-    this.authService.login({ username: this.username, password: this.password });
+    this.authService.login({ username: this.username, password: this.password }).subscribe(
+      () => {
+        // Redirect to artisan profile page upon successful login
+        this.router.navigate(['/artisan-profile']);
+      },
+      (error) => {
+        // Handle login error
+        console.error('Error logging in:', error);
+      }
+    );
   }
 
   signupArtisan(): void {
