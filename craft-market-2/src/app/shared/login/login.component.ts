@@ -11,10 +11,10 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   redirectToUserLogin(): void {
-    this.router.navigate(['/user-login']);
+    this.router.navigate(['/login/user']);
   }
 
   redirectToArtisanLogin(): void {
-    this.router.navigate(['/artisan-login']);
+    this.router.navigate(['/login/artisan']);
   }
 }
