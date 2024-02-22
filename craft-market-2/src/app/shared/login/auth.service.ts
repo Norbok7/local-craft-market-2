@@ -15,13 +15,18 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   login(credentials: { username: string; password: string }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, credentials).pipe(
+    // Adjust the endpoint URL to match your backend route
+    return this.http.post<any>(`${this.apiUrl}/sessions`, credentials).pipe(
       tap(response => {
         // Store authentication token or user session information
         localStorage.setItem('token', response.token);
         this.loggedIn.next(true);
       })
     );
+  }
+
+  signup(artisan: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/artisans`, artisan);
   }
 
   logout(): void {

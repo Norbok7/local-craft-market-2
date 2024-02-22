@@ -1,4 +1,4 @@
-<!-- artisan-login.component.html -->
+<h2>Login Artisan</h2>
 <form (ngSubmit)="loginArtisan()" #artisanLoginForm="ngForm">
   <div>
     <label for="username">Username:</label>
@@ -10,3 +10,22 @@
   </div>
   <button type="submit">Login</button>
 </form>
+
+<h2>Create Artisan</h2>
+<form (ngSubmit)="signupArtisan()" #artisanSignupForm="ngForm">
+  <div>
+    <label for="artisan_name">Artisan Name:</label>
+    <input type="text" id="artisan_name" name="artisan_name" [(ngModel)]="artisanName" required>
+  </div>
+  <div>
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" [(ngModel)]="location" required>
+  </div>
+  <div>
+    <label for="bio">Bio:</label>
+    <textarea id="bio" name="bio" [(ngModel)]="bio" required></textarea>
+  </div>
+  <!-- Add other artisan fields as needed -->
+  <button type="submit">Sign Up</button>
+</form>
+
