@@ -6,4 +6,6 @@ export interface Product {
   price: number; // Price of the product
   quantity: number; // Quantity available for the product
   artisanId: number; // ID of the artisan who created the product
+  image_url: string; 
+
 }
