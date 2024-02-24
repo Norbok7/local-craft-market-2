@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 
-@Injectable() // Add this decorator
+@Injectable()
 export class TokenInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
@@ -16,6 +17,16 @@ export class TokenInterceptor implements HttpInterceptor {
         }
       });
     }
-    return next.handle(request);
+    return next.handle(request).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          // Handle 401 error, e.g., logout the user or redirect to the login page
+          // this.authService.logout();
+          // this.router.navigate(['/login']);
+          console.error('Unauthorized request:', error.error);
+        }
+        return throwError(error);
+      })
+    );
   }
 }

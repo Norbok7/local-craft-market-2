@@ -1,28 +1,63 @@
 .product-list-container {
   margin: 0 auto; /* Center the container horizontally */
-  max-width: 800px; /* Limit the width of the container */
+  max-width: 1200px; /* Limit the width of the container */
   padding: 20px; /* Add some padding around the content */
 }
 
-table {
-  width: 100%; /* Make the table fill the container */
-  border-collapse: collapse; /* Collapse table borders */
+.filters {
+  margin-bottom: 20px;
 }
 
-th, td {
-  padding: 8px; /* Add padding to table cells */
-  border-bottom: 1px solid #ddd; /* Add bottom border to table rows */
+.filters label {
+  font-weight: bold;
+  margin-right: 10px;
 }
 
-th {
-  text-align: left; /* Align table header text to the left */
-  background-color: #f2f2f2; /* Light gray background color for table header */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2; /* Alternate row background color */
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-tr:hover {
-  background-color: #ddd; /* Highlight row on hover */
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-details {
+  padding: 15px;
+}
+
+.product-details h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.product-details p {
+  margin-bottom: 5px;
+}
+
+.product-details button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-details button:hover {
+  background-color: #0056b3;
+}
+
+.no-products {
+  text-align: center;
+  margin-top: 20px;
 }

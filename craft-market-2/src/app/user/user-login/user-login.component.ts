@@ -18,9 +18,15 @@ export class UserLoginComponent {
 
   loginUser(): void {
     this.authService.login({ username: this.username, password: this.password }).subscribe(
-      () => {
-        // Redirect to user profile page upon successful login
-        this.router.navigate(['/user-profile']);
+      (response) => {
+        // Check if the response contains the user ID
+        if (response && response.user_id) {
+          // Redirect to user profile page with user ID
+          this.router.navigate(['/users', response.user_id]);
+        } else {
+          console.error('Invalid response after login:', response);
+          // Handle unexpected response
+        }
       },
       (error) => {
         // Handle login error

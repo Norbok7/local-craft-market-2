@@ -20,7 +20,7 @@ import { LoginComponent } from './shared/login/login.component';
 const routes: Routes = [
   { path: '', component: HomeComponent }, // Set HomeComponent as the default route
   { path: 'home', component: HomeComponent }, // Add this route
-  { path: 'user-profile', component: UserProfileComponent },
+  { path: 'users/:id', component: UserProfileComponent }, // Add this route
   { path: 'user-orders', component: UserOrdersComponent },
   { path: 'user-reviews', component: UserReviewsComponent },
   { path: 'artisan-profile', component: ArtisanProfileComponent },

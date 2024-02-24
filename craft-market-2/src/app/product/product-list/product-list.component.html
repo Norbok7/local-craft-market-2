@@ -1,32 +1,34 @@
 <div class="product-list-container">
   <h2>Product List</h2>
 
-  <ng-container *ngIf="products.length > 0; else noProducts">
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Category</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Artisan ID</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of products">
-          <td>{{ product.title }}</td>
-          <td>{{ product.description }}</td>
-          <td>{{ product.category }}</td>
-          <td>{{ product.price }}</td>
-          <td>{{ product.quantity }}</td>
-          <td>{{ product.artisanId }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </ng-container>
+  <div class="filters">
+    <label>Sort by:</label>
+    <select [(ngModel)]="selectedSortOption" (change)="applyFilter()">
+      <option value="priceLowToHigh">Price: Low to High</option>
+      <option value="priceHighToLow">Price: High to Low</option>
+      <option value="quantityLowToHigh">Quantity: Low to High</option>
+      <option value="quantityHighToLow">Quantity: High to Low</option>
+      <option value="titleAZ">Title: A to Z</option>
+      <option value="titleZA">Title: Z to A</option>
+      <!-- Add more options for other criteria -->
+    </select>
+  </div>
 
-  <ng-template #noProducts>
+  <div class="product-grid">
+    <div *ngFor="let product of filteredProducts" class="product-card">
+      <!-- <img [src]="product.image" alt="{{ product.title }}"> -->
+      <div class="product-details">
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price }}</p>
+        <p>Quantity: {{ product.quantity }}</p>
+        <!-- Add more details if needed -->
+        <button (click)="navigateToProductDetails(product.id)">View Details</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="filteredProducts.length === 0">
     <p>No products available.</p>
-  </ng-template>
+  </ng-container>
 </div>

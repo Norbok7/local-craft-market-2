@@ -14,7 +14,7 @@ export class LoginComponent {
     this.router.navigate(['/login/user']);
   }
 
-  redirectToArtisanLogin(): void {
-    this.router.navigate(['/login/artisan']);
-  }
+  // redirectToArtisanLogin(): void {
+  //   this.router.navigate(['/login/artisan']);
+  // }
 }
