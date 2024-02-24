@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; // Remove provideHttpClient
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // Remove provideHttpClient
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
@@ -14,6 +14,7 @@ import { ArtisanProfileComponent } from './artisan/artisan-profile/artisan-profi
 import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-products.component';
 import { ArtisanLoginComponent } from './artisan/artisan-login/artisan-login.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { TokenInterceptor } from './shared/login/token-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +36,13 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
     FormsModule,
     RouterModule,
   ],
-  providers: [
-    provideClientHydration(),
-  ],
-  bootstrap: [AppComponent]
+providers: [
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true, // Set to true if you have multiple interceptors
+  },
+],
+bootstrap: [AppComponent]
 })
 export class AppModule { }
