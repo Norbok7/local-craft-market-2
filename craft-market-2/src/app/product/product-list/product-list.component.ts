@@ -55,13 +55,14 @@ export class ProductListComponent implements OnInit {
   }
 
   navigateToProductDetails(productId: number | undefined): void {
-    if (productId !== undefined) {
+    if (productId) {
       this.router.navigate(['/products', productId]);
     } else {
       console.error('Product ID is undefined');
       // Handle the case where product ID is undefined
     }
   }
+
   addToCart(product: Product): void { // Method to add product to cart
     this.cartService.addToCart(product); // Call addToCart method in CartService
     // Optionally, you can provide feedback to the user that the product has been added to the cart

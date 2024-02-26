@@ -4,11 +4,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { AppComponent } from '../app.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+
     HomeComponent,
 
   ],
@@ -19,6 +18,6 @@ import { AppComponent } from '../app.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }

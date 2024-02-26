@@ -17,31 +17,30 @@ import { ArtisanAuthGuard } from './shared/login/artisan-auth.guard';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { ArtisanLoginComponent } from './artisan/artisan-login/artisan-login.component';
 import { LoginComponent } from './shared/login/login.component';
+import { CartComponent } from './product/cart/cart.component';
+
 const routes: Routes = [
-  { path: '', component: HomeComponent }, // Set HomeComponent as the default route
-  { path: 'home', component: HomeComponent }, // Add this route
-  { path: 'users/:id', component: UserProfileComponent }, // Add this route
-  { path: 'user-orders', component: UserOrdersComponent },
-  { path: 'user-reviews', component: UserReviewsComponent },
-  { path: 'artisan-profile', component: ArtisanProfileComponent },
-  { path: 'artisan-products', component: ArtisanProductsComponent },
-  { path: 'products', component: ProductListComponent }, // Updated this line
-  { path: 'products/:category', component: ProductListComponent }, // Display products based on category
-  { path: 'products/:id', component: ProductDetailsComponent },
-  { path: 'orders', component: OrderListComponent },
-  { path: 'orders/:id', component: OrderDetailsComponent },
-  { path: 'reviews', component: ReviewListComponent },
-  { path: 'reviews/:id', component: ReviewDetailsComponent },
-  { path: 'artisans/:id/products', component: ArtisanProductsComponent },
-  { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent },
+  { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'user-orders', component: UserOrdersComponent, canActivate: [AuthGuard] },
   { path: 'user-reviews', component: UserReviewsComponent, canActivate: [AuthGuard] },
   { path: 'artisan-profile', component: ArtisanProfileComponent, canActivate: [ArtisanAuthGuard] },
   { path: 'artisan-products', component: ArtisanProductsComponent, canActivate: [ArtisanAuthGuard] },
+  { path: 'products', component: ProductListComponent },
+  { path: 'products/:id', component: ProductDetailsComponent },
+  { path: 'products/:category', component: ProductListComponent },
+  { path: 'orders', component: OrderListComponent, canActivate: [AuthGuard] },
+  { path: 'orders/:id', component: OrderDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'reviews', component: ReviewListComponent, canActivate: [AuthGuard] },
+  { path: 'reviews/:id', component: ReviewDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'artisans/:id/products', component: ArtisanProductsComponent },
+  { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'login/user', component: UserLoginComponent },
   { path: 'login/artisan', component: ArtisanLoginComponent },
-  { path: 'login', component: LoginComponent }, // Add this route for the LoginComponent
-
+  { path: 'login', component: LoginComponent },
+  { path: 'cart', component: CartComponent }, // Add this route for the CartComponent
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
+  { path: '**', redirectTo: '/home' } // Handle invalid routes
 ];
 
 @NgModule({

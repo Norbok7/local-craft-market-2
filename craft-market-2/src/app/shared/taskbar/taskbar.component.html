@@ -2,13 +2,13 @@
   <ul>
     <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
     <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
-    <li><a routerLink="/artisan-profile" routerLinkActive="active">Artisans</a></li>
     <li *ngIf="!(isLoggedIn$ | async)">
       <a routerLink="/login/user" routerLinkActive="active">Login</a>
     </li>
-    <li *ngIf="(isLoggedIn$ | async)">
-      <a routerLink="/user-profile" routerLinkActive="active">User Profile</a>
+    <li>
+      <a [routerLink]="['/users', userId]" routerLinkActive="active">User Profile</a>
     </li>
+    <li><a routerLink="/cart" routerLinkActive="active">Cart ({{ cartItemCount }})</a></li>
   </ul>
 </div>
 <div class="spacer"></div>

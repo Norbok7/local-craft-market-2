@@ -15,6 +15,8 @@ import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-pro
 import { ArtisanLoginComponent } from './artisan/artisan-login/artisan-login.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { TokenInterceptor } from './shared/login/token-interceptor.service';
+import { ProductDetailsComponent } from './product/product-details/product-details.component';
+import { CartComponent } from './product/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,9 @@ import { TokenInterceptor } from './shared/login/token-interceptor.service';
     ArtisanProductsComponent,
     ArtisanLoginComponent,
     UserLoginComponent,
+    ProductDetailsComponent,
+    CartComponent,
+    
 
   ],
   imports: [
@@ -46,3 +51,4 @@ providers: [
 bootstrap: [AppComponent]
 })
 export class AppModule { }
+
