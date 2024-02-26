@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product.model';
 import { Router } from '@angular/router';
+import { CartService } from '../cartservice.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,7 +14,7 @@ export class ProductListComponent implements OnInit {
   filteredProducts: Product[] = [];
   selectedSortOption: string = '';
 
-  constructor(private productService: ProductService, private router: Router) { }
+  constructor(private cartService: CartService, private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -60,5 +61,9 @@ export class ProductListComponent implements OnInit {
       console.error('Product ID is undefined');
       // Handle the case where product ID is undefined
     }
+  }
+  addToCart(product: Product): void { // Method to add product to cart
+    this.cartService.addToCart(product); // Call addToCart method in CartService
+    // Optionally, you can provide feedback to the user that the product has been added to the cart
   }
 }

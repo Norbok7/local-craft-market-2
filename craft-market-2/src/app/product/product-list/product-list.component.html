@@ -22,7 +22,8 @@
         <p>{{ product.description }}</p>
         <p>Price: ${{ product.price }}</p>
         <p>Quantity: {{ product.quantity }}</p>
-        <button (click)="navigateToProductDetails(product.id)">View Details</button>
+        <button (click)="addToCart(product)">Add to Cart</button> <!-- Add to Cart button -->
+        <button (click)="navigateToProductDetails(product.id)">View Details</button> <!-- View Details button -->
       </div>
     </div>
   </div>

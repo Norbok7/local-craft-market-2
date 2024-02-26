@@ -1,4 +1,3 @@
-// user.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -31,5 +30,13 @@ export class UserService {
 
   deleteUser(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/users/${id}`);
+  }
+
+  updateUserProfile(userId: number, updatedUser: Partial<User>): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/users/${userId}`, updatedUser);
+  }
+
+  changeUserPassword(userId: number, newPassword: string): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/users/${userId}/change-password`, { newPassword });
   }
 }
