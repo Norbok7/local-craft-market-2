@@ -5,8 +5,7 @@ import { Product } from '../product.model';
 import { Review } from '../../review/review.model';
 import { CartService } from '../cartservice.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import FormBuilder and FormGroup for form handling
-import { ReviewService } from '../review.service'; // Import the ReviewService
-
+import { ReviewService } from '../../review/review.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -65,38 +64,5 @@ export class ProductDetailsComponent implements OnInit {
     this.showReviewForm = !this.showReviewForm;
   }
 
-  // Method to submit the review form
-  submitReview(): void {
-    if (this.reviewForm.valid) {
-      // Get the form values
-      const rating = this.reviewForm.get('rating')?.value;
-      const comment = this.reviewForm.get('comment')?.value;
-
-      // Create a new review object
-      const newReview: Review = {
-        rating: rating,
-        comment: comment,
-        productId: this.productData!.id!, // Assuming productData is not null here
-        userId: 1 // You can set the user ID here, replace it with the actual user ID from your authentication system
-      };
-
-      // Call the review service to create the review
-      this.reviewService.createReview(newReview).subscribe(
-        (createdReview) => {
-          console.log('Review created successfully:', createdReview);
-          // Optionally, you can refresh the product reviews here after adding the new review
-          this.getProductReviews(this.productData!.id!);
-          // Reset the review form after submission
-          this.reviewForm.reset();
-        },
-        (error) => {
-          console.error('Failed to create review:', error);
-        }
-      );
-    } else {
-      // Handle form validation errors or display validation messages
-      // For example, mark form controls as touched to show validation messages
-      this.reviewForm.markAllAsTouched();
-    }
-  }
+  submitReview(){};
 }

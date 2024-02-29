@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { CartService } from '../cartservice.service';
+import { Router } from '@angular/router'; // Import Router
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { CartService } from '../cartservice.service';
 export class CartComponent implements OnInit {
   cartItems: Product[] = [];
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
@@ -26,5 +27,14 @@ export class CartComponent implements OnInit {
     this.cartService.clearCart();
     // Update cart items after clearing
     this.cartItems = [];
+  }
+
+  navigateToProductDetails(productId: number): void {
+    if (productId) {
+      this.router.navigate(['/products', productId]);
+    } else {
+      console.error('Product ID is undefined');
+      // Handle the case where product ID is undefined
+    }
   }
 }
