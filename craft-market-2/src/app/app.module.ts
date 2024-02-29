@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TopTitleComponent } from './shared/top-title/top-title.component';
 import { TaskbarComponent } from './shared/taskbar/taskbar.component';
 import { ProductListComponent } from './product/product-list/product-list.component'; // Import ProductListComponent
@@ -17,6 +17,7 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
 import { TokenInterceptor } from './shared/login/token-interceptor.service';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { CartComponent } from './product/cart/cart.component';
+import { ReviewDetailsComponent } from './review/review-details/review-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { CartComponent } from './product/cart/cart.component';
     UserLoginComponent,
     ProductDetailsComponent,
     CartComponent,
-    
+    ReviewDetailsComponent,
+
 
   ],
   imports: [
@@ -40,6 +42,8 @@ import { CartComponent } from './product/cart/cart.component';
     CommonModule, // Ensure CommonModule is imported
     FormsModule,
     RouterModule,
+    ReactiveFormsModule,
+
   ],
 providers: [
   {

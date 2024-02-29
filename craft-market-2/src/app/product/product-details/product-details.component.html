@@ -1,21 +1,32 @@
+<!-- Product Details Section -->
 <div *ngIf="productData" class="product-details-container">
   <h2>{{ productData.title }}</h2>
   <div class="product-details">
-    <img [src]="productData.image_url" alt="{{ productData.title }}">
+    <!-- Display product details -->
     <p>Description: {{ productData.description }}</p>
     <p>Price: ${{ productData.price }}</p>
     <p>Quantity: {{ productData.quantity }}</p>
-    <button *ngIf="productData" (click)="addToCart(productData)">Add to Cart</button> <!-- Add to Cart button -->
+    <button *ngIf="productData" (click)="addToCart(productData)">Add to Cart</button>
   </div>
 
-  <!-- <h3>Product Reviews</h3>
-  <div *ngIf="productData.reviews && productData.reviews.length > 0" class="review-list">
-    <div *ngFor="let review of productData.reviews" class="review-item">
-      <p><strong>{{ review.user }}</strong>: {{ review.comment }}</p>
+  <!-- Add Review Button -->
+  <div>
+    <h2>Add Review</h2>
+    <button (click)="openReviewForm()">+</button> <!-- Button to toggle review form -->
+    <form *ngIf="showReviewForm" [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+      <!-- Review form controls -->
+    </form>
+  </div>
+  <!-- Product Reviews Section -->
+  <h3>Product Reviews</h3>
+  <div *ngIf="reviews.length > 0" class="review-list">
+    <div *ngFor="let review of reviews" class="review-item">
+      <p><strong>User: {{ review.user }}</strong></p>
+      <p>Comment: {{ review.comment }}</p>
       <p>Rating: {{ review.rating }}/5</p>
     </div>
   </div>
-  <div *ngIf="!productData.reviews || productData.reviews.length === 0" class="no-reviews">
+  <div *ngIf="reviews.length === 0" class="no-reviews">
     <p>No reviews available for this product yet.</p>
   </div>
-</div> -->
+</div>

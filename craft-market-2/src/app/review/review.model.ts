@@ -5,4 +5,5 @@ export interface Review {
   date?: string; // Optional property for the date of the review
   productId: number; // ID of the product being reviewed
   userId: number; // ID of the user who submitted the review
+  user: string; // Name of the user who submitted the review
 }

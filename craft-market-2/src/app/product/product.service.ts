@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from './product.model';
+import { Review } from '../review/review.model';
 import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = environment.apiUrl; // Use apiUrl from environment
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -32,7 +33,11 @@ export class ProductService {
     return this.http.delete<void>(`${this.apiUrl}/products/${id}`);
   }
 
-  // New method to fetch products by category
+  // New method to fetch product reviews by product ID
+  getProductReviews(productId: number): Observable<Review[]> {
+    return this.http.get<Review[]>(`${this.apiUrl}/products/${productId}/reviews`);
+  }
+
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiUrl}/products?category=${category}`);
   }

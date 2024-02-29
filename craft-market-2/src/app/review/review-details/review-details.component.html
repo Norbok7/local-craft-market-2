@@ -1,1 +1,24 @@
-<p>review-details works!</p>
+<div>
+  <h2>Add Review</h2>
+  <form [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+    <div>
+      <label for="rating">Rating:</label>
+      <input type="number" id="rating" formControlName="rating" min="1" max="5">
+      <!-- Display validation message for rating -->
+      <div *ngIf="reviewForm.get('rating')?.invalid && reviewForm.get('rating')?.touched">
+        Rating is required and must be between 1 and 5.
+      </div>
+    </div>
+    <div>
+      <label for="comment">Comment:</label>
+      <textarea id="comment" formControlName="comment"></textarea>
+      <!-- Display validation message for comment -->
+      <div *ngIf="reviewForm.get('comment')?.invalid && reviewForm.get('comment')?.touched">
+        Comment is required.
+      </div>
+    </div>
+    <div>
+      <button type="submit">Submit Review</button>
+    </div>
+  </form>
+</div>
