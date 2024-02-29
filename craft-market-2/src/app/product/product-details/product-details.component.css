@@ -1,0 +1,5 @@
+.product-image {
+  max-width: 300px; /* Maximum width for the image */
+  max-height: 300px; /* Maximum height for the image */
+  object-fit: cover; /* Ensure the image covers the entire container */
+}
