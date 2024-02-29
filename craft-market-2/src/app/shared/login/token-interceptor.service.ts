@@ -1,3 +1,4 @@
+// token-interceptor.service.ts
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -20,12 +21,9 @@ export class TokenInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
-          // Handle 401 error, e.g., logout the user or redirect to the login page
-          // this.authService.logout();
-          // this.router.navigate(['/login']);
-          console.error('Unauthorized request:', error.error);
+          this.authService.logout();
         }
-        return throwError(error);
+        return throwError('Something went wrong. Please try again later.');
       })
     );
   }

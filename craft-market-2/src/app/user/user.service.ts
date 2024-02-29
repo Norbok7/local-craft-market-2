@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 import { User } from './user.model';
 import { environment } from '../../environments/environment';
 
@@ -13,7 +13,9 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUserById(id: number): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/users/${id}`);
+    return this.http.get<User>(`${this.apiUrl}/users/${id}`).pipe(
+      catchError(this.handleError)
+    );
   }
 
   getUsers(): Observable<User[]> {
@@ -42,6 +44,10 @@ export class UserService {
   getCurrentUser(): Observable<User | null> {
     // Assuming your backend provides an endpoint to fetch the current user
     return this.http.get<User>(`${this.apiUrl}/users/current`);
+  }
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    console.error('API error:', error);
+    return throwError('Something went wrong. Please try again later.');
   }
 }
 

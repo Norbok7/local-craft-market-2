@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HTTP_INTERCEPTORS, HttpRequest, HttpHandler, HttpInterceptor } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
 
@@ -19,10 +19,11 @@ export class AuthService {
       tap(response => {
         if (response && response.token) {
           localStorage.setItem('token', response.token);
-          // Redirect to user profile with ID after successful login
-          this.router.navigate(['/users', response.user_id]); // Assuming your response includes the user's ID
+          this.loggedIn.next(true);
+          this.router.navigate(['/users', response.user_id]);
         }
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
@@ -44,11 +45,15 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    if (typeof localStorage !== 'undefined') {
-      return localStorage.getItem('token');
-    } else {
-      return null;
+    return typeof localStorage !== 'undefined' ? localStorage.getItem('token') : null;
+  }
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    console.error('API error:', error);
+    if (error.status === 401) {
+      // Handle unauthorized errors (e.g., redirect to login)
+      this.router.navigate(['/login']);
     }
+    return throwError('Something went wrong. Please try again later.');
   }
 }
 

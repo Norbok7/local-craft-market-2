@@ -5,8 +5,8 @@
     <li *ngIf="!(isLoggedIn$ | async)">
       <a routerLink="/login/user" routerLinkActive="active">Login</a>
     </li>
-    <li>
-      <a [routerLink]="['/users', userId]" routerLinkActive="active">User Profile</a>
+    <li *ngIf="(isLoggedIn$ | async)">
+      <a [routerLink]="['/users', userId]" routerLinkActive="active">Logged In</a>
     </li>
     <li><a routerLink="/cart" routerLinkActive="active">Cart ({{ cartItemCount }})</a></li>
   </ul>

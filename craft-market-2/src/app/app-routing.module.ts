@@ -13,7 +13,6 @@ import { ReviewListComponent } from './review/review-list/review-list.component'
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
 import { HomeComponent } from './shared/home/home.component'; // Import HomeComponent
 import { AuthGuard } from './shared/login/auth.guard';
-import { ArtisanAuthGuard } from './shared/login/artisan-auth.guard';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { ArtisanLoginComponent } from './artisan/artisan-login/artisan-login.component';
 import { LoginComponent } from './shared/login/login.component';
@@ -24,8 +23,8 @@ const routes: Routes = [
   { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'user-orders', component: UserOrdersComponent, canActivate: [AuthGuard] },
   { path: 'user-reviews', component: UserReviewsComponent, canActivate: [AuthGuard] },
-  { path: 'artisan-profile', component: ArtisanProfileComponent, canActivate: [ArtisanAuthGuard] },
-  { path: 'artisan-products', component: ArtisanProductsComponent, canActivate: [ArtisanAuthGuard] },
+  { path: 'artisan-profile', component: ArtisanProfileComponent},
+  { path: 'artisan-products', component: ArtisanProductsComponent},
   { path: 'products', component: ProductListComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'products/:category', component: ProductListComponent },
