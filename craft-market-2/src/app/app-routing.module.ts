@@ -16,7 +16,7 @@ import { ArtisanLoginComponent } from './shared/login/artisan-login/artisan-logi
 import { CartComponent } from './product/cart/cart.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent }, // Define HomeComponent as the component for the root path
   { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'user-orders', component: UserOrdersComponent, canActivate: [AuthGuard] },
   { path: 'artisan-profile', component: ArtisanProfileComponent},
