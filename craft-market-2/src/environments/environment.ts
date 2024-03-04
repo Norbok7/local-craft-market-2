@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://production.com'
+  apiUrl: 'https://localcraftmarket.onrender.com/'
 };
