@@ -12,8 +12,8 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { RouterModule } from '@angular/router';
 import { ArtisanProfileComponent } from './artisan/artisan-profile/artisan-profile.component';
 import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-products.component';
-import { ArtisanLoginComponent } from './artisan/artisan-login/artisan-login.component';
-import { UserLoginComponent } from './user/user-login/user-login.component';
+import { ArtisanLoginComponent } from './shared/login/artisan-login/artisan-login.component';
+import { UserLoginComponent } from './shared/login/user-login/user-login.component';
 import { TokenInterceptor } from './shared/login/token-interceptor.service';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { CartComponent } from './product/cart/cart.component';

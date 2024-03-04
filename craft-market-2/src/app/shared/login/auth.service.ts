@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
+import { User } from '../../user/user.model'; // Import the User model
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private apiUrl = environment.apiUrl;
   private loggedIn = new BehaviorSubject<boolean>(false);
+  private currentUser = new BehaviorSubject<User | null>(null); // Add currentUser subject
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -47,6 +49,24 @@ export class AuthService {
   getToken(): string | null {
     return typeof localStorage !== 'undefined' ? localStorage.getItem('token') : null;
   }
+
+  getCurrentUser(): Observable<User | null> {
+    const token = this.getToken();
+    if (token) {
+      return this.http.get<User>(`${this.apiUrl}/users/current`).pipe(
+        tap(user => {
+          this.currentUser.next(user); // Update currentUser subject
+        }),
+        catchError(error => {
+          console.error('Error fetching current user:', error);
+          return of(null);
+        })
+      );
+    } else {
+      return of(null);
+    }
+  }
+
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.error('API error:', error);
     if (error.status === 401) {
@@ -56,4 +76,3 @@ export class AuthService {
     return throwError('Something went wrong. Please try again later.');
   }
 }
-

@@ -21,7 +21,7 @@ export class ReviewService {
   }
 
   createReview(review: Review): Observable<Review> {
-    return this.http.post<Review>(`${this.apiUrl}/reviews`, review);
+    return this.http.post<Review>(`${this.apiUrl}/products/${review.product_id}/reviews`, { review });
   }
 
   updateReview(reviewId: number, review: Review): Observable<Review> {

@@ -4,8 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from '../product.model';
 import { Review } from '../../review/review.model';
 import { CartService } from '../cartservice.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import FormBuilder and FormGroup for form handling
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReviewService } from '../../review/review.service';
+import { User } from '../../user/user.model';
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -13,13 +15,13 @@ import { ReviewService } from '../../review/review.service';
 })
 export class ProductDetailsComponent implements OnInit {
   productData: Product | null = null;
-  reviews: Review[] = []; // Array to hold product reviews
+  reviews: Review[] = [];
   showReviewForm: boolean = false;
-  reviewForm: FormGroup; // Define the reviewForm property
+  reviewForm: FormGroup;
 
   constructor(
     private productService: ProductService,
-    private reviewService: ReviewService, // Inject the ReviewService
+    private reviewService: ReviewService,
     private route: ActivatedRoute,
     private cartService: CartService,
     private formBuilder: FormBuilder
@@ -34,7 +36,7 @@ export class ProductDetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
       const productId = +params['id'];
       this.getProductDetails(productId);
-      this.getProductReviews(productId); // Fetch reviews for the product
+      this.getProductReviews(productId);
     });
   }
 
@@ -60,9 +62,33 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   openReviewForm(): void {
-    // Toggle the value of showReviewForm
     this.showReviewForm = !this.showReviewForm;
   }
 
-  submitReview(){};
+  submitReview(): void {
+    if (this.reviewForm.valid) {
+      const formData = this.reviewForm.value;
+      const review: Review = {
+        rating: formData.rating,
+        comment: formData.comment,
+        product_id: this.productData?.id || 0, // Change 'productId' to 'product_id'
+      };
+
+      this.reviewService.createReview(review).subscribe(
+        (response) => {
+          console.log('Review submitted successfully:', response);
+          this.getProductReviews(review.product_id); // Change 'productId' to 'product_id'
+        },
+        (error) => {
+          console.error('Error submitting review:', error);
+        }
+      );
+
+      this.reviewForm.reset();
+      this.showReviewForm = false;
+    } else {
+      console.error('Invalid review form');
+    }
+  }
+
 }
