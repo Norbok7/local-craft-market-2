@@ -1,5 +1,5 @@
 <div class="product-list-container">
-  <h2>Product List</h2>
+  <h1>Shop Our Collection</h1>
 
   <div class="filters">
     <label>Sort by:</label>
@@ -14,21 +14,33 @@
     </select>
   </div>
 
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1" class="pagination-btn">Previous</button>
+    <ng-container *ngFor="let pageNumber of totalPages">
+      <span (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage" class="page-number">{{ pageNumber }}</span>
+    </ng-container>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages.length" class="pagination-btn">Next</button>
+  </div>
+
   <div class="product-grid">
-    <div *ngFor="let product of filteredProducts" class="product-card">
+    <div *ngFor="let product of pagedProducts" class="product-card">
       <img [src]="product.image_url" alt="{{ product.title }}">
       <div class="product-details">
-        <h3>{{ product.title }}</h3>
-        <p>{{ product.description }}</p>
-        <p>Price: ${{ product.price }}</p>
-        <p>Quantity: {{ product.quantity }}</p>
-        <button (click)="addToCart(product)">Add to Cart</button> <!-- Add to Cart button -->
-        <button (click)="navigateToProductDetails(product.id)">View Details</button> <!-- View Details button -->
+        <h2>{{ product.title }}</h2>
+        <p class="description">{{ product.description }}</p>
+        <div class="product-info">
+          <p class="price">$ {{ product.price }}</p>
+          <p class="quantity">Available: {{ product.quantity }}</p>
+        </div>
+        <div class="product-actions">
+          <button (click)="addToCart(product)" class="add-to-cart">Add to Cart</button>
+          <button (click)="navigateToProductDetails(product.id)" class="view-details">View Details</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <ng-container *ngIf="filteredProducts.length === 0" class="no-products">
+  <div *ngIf="filteredProducts.length === 0" class="no-products">
     <p>No products available.</p>
-  </ng-container>
+  </div>
 </div>

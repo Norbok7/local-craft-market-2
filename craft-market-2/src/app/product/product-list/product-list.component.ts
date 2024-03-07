@@ -12,7 +12,10 @@ import { CartService } from '../cartservice.service';
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
   filteredProducts: Product[] = [];
+  pagedProducts: Product[] = [];
   selectedSortOption: string = '';
+  itemsPerPage = 20;
+  currentPage = 1;
 
   constructor(private cartService: CartService, private productService: ProductService, private router: Router) { }
 
@@ -51,6 +54,35 @@ export class ProductListComponent implements OnInit {
       default:
         this.filteredProducts = this.products; // Default to unsorted products
         break;
+    }
+    this.updatePagedProducts();
+  }
+
+  updatePagedProducts(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    this.pagedProducts = this.filteredProducts.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
+  get totalPages(): number[] {
+    return Array(Math.ceil(this.filteredProducts.length / this.itemsPerPage)).fill(0).map((x, i) => i + 1);
+  }
+
+  goToPage(pageNumber: number): void {
+    this.currentPage = pageNumber;
+    this.updatePagedProducts();
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages.length) {
+      this.currentPage++;
+      this.updatePagedProducts();
+    }
+  }
+
+  prevPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatePagedProducts();
     }
   }
 

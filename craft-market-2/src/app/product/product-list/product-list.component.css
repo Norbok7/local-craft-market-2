@@ -1,70 +1,202 @@
+/* Product list container */
 .product-list-container {
-  margin: 0 auto;
   max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
 
-.filters {
-  margin-bottom: 20px;
-}
-
-.filters label {
-  font-weight: bold;
-  margin-right: 10px;
-}
-
+/* Product grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
 
+/* Product card */
 .product-card {
-
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
+/* Product details */
 .product-details {
-  padding: 15px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 0 0 8px 8px;
 }
 
-.product-details h3 {
-  font-size: 18px;
+.product-details h2 {
+  font-size: 24px;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
 .product-details p {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 
-.product-details button {
-  background-color: #007bff;
-  color: #fff;
+/* Product info */
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Product actions */
+.product-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between; /* Added space between buttons */
+}
+
+.add-to-cart,
+.view-details {
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.product-details button:hover {
+.add-to-cart {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.view-details {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.add-to-cart:hover {
+  background-color: #45a049;
+}
+
+.view-details:hover {
+  background-color: #1e87d6;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 20px;
+  margin-bottom: 20px; /* Added space below pagination */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover {
   background-color: #0056b3;
 }
 
+.page-number {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.page-number.active {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/* No products */
 .no-products {
   text-align: center;
   margin-top: 20px;
 }
 
-.product-card img {
-  width: 100%; /* Make the image fill the container width */
-  height: 200px; /* Set a fixed height for all images */
-  object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+/* Hover effects for product cards */
+.product-card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Typography */
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Color scheme */
+.product-card {
+  background-color: #fff;
+}
+
+.product-details {
+  background-color: #f9f9f9;
+}
+
+.pagination-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.pagination-btn:hover {
+  background-color: #0056b3;
+}
+
+.page-number {
+  color: #333;
+}
+
+.page-number.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Animations */
+.product-card,
+.pagination-btn,
+.add-to-cart,
+.view-details {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Spacing and alignment */
+.product-details {
+  padding: 20px;
+  border-radius: 0 0 8px 8px;
+}
+
+.product-info {
+  margin-top: 10px;
+}
+
+.product-actions {
+  margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }
