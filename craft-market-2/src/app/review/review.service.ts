@@ -20,9 +20,15 @@ export class ReviewService {
     return this.http.get<Review>(`${this.apiUrl}/reviews/${id}`);
   }
 
-  createReview(review: Review): Observable<Review> {
-    return this.http.post<Review>(`${this.apiUrl}/products/${review.product_id}/reviews`, { review });
+  // Updated method to fetch reviews for a specific product
+  getReviewsForProduct(productId: number): Observable<Review[]> {
+    return this.http.get<Review[]>(`${this.apiUrl}/products/${productId}/reviews`);
   }
+
+  createReview(review: Review): Observable<Review> {
+    return this.http.post<Review>(`${this.apiUrl}/products/${review.product_id}/reviews`, review);
+  }
+
 
   updateReview(reviewId: number, review: Review): Observable<Review> {
     return this.http.put<Review>(`${this.apiUrl}/reviews/${reviewId}`, review);

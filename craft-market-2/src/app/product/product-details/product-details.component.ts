@@ -36,7 +36,7 @@ export class ProductDetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
       const productId = +params['id'];
       this.getProductDetails(productId);
-      this.getProductReviews(productId);
+      this.getReviewsForProduct(productId); // Call the new function to fetch reviews
     });
   }
 
@@ -46,8 +46,8 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  getProductReviews(productId: number): void {
-    this.productService.getProductReviews(productId).subscribe(reviews => {
+  getReviewsForProduct(productId: number): void { // New function to fetch reviews for the product
+    this.reviewService.getReviewsForProduct(productId).subscribe(reviews => {
       this.reviews = reviews;
     });
   }
@@ -66,18 +66,21 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   submitReview(): void {
-    if (this.reviewForm.valid) {
+    if (this.reviewForm.valid && this.productData) {
+      // Log the product ID before creating the review
+      console.log('Product ID:', this.productData.id);
+
       const formData = this.reviewForm.value;
       const review: Review = {
         rating: formData.rating,
         comment: formData.comment,
-        product_id: this.productData?.id || 0, // Change 'productId' to 'product_id'
+        product_id: this.productData.id,
       };
 
       this.reviewService.createReview(review).subscribe(
         (response) => {
           console.log('Review submitted successfully:', response);
-          this.getProductReviews(review.product_id); // Change 'productId' to 'product_id'
+          this.getReviewsForProduct(review.product_id);
         },
         (error) => {
           console.error('Error submitting review:', error);
@@ -87,7 +90,7 @@ export class ProductDetailsComponent implements OnInit {
       this.reviewForm.reset();
       this.showReviewForm = false;
     } else {
-      console.error('Invalid review form');
+      console.error('Invalid review form or product data is missing');
     }
   }
 
