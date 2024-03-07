@@ -19,16 +19,16 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'user-orders', component: UserOrdersComponent, canActivate: [AuthGuard] },
-  { path: 'artisan-profile', component: ArtisanProfileComponent},
-  { path: 'artisan-products', component: ArtisanProductsComponent},
+  { path: 'artisan-profile', component: ArtisanProfileComponent, canActivate: [AuthGuard] },
+  { path: 'artisan-products', component: ArtisanProductsComponent, canActivate: [AuthGuard] },
   { path: 'products', component: ProductListComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'orders', component: OrderListComponent, canActivate: [AuthGuard] },
   { path: 'orders/:id', component: OrderDetailsComponent, canActivate: [AuthGuard] },
   { path: 'reviews/:id', component: ReviewDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'artisans/:id/products', component: ArtisanProductsComponent },
-  { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: 'artisans/:id/products', component: ArtisanProductsComponent, canActivate: [AuthGuard] },
   { path: 'login/user', component: UserLoginComponent },
+  { path: 'login/artisan', component: ArtisanLoginComponent },
   { path: 'cart', component: CartComponent }, // Add this route for the CartComponent
   { path: 'current-user', component: UserProfileComponent, canActivate: [AuthGuard] }, // Route for fetching current user
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
