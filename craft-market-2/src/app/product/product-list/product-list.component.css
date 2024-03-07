@@ -14,11 +14,15 @@
 
 /* Product card */
 .product-card {
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
+  justify-content: space-between; /* Distribute space evenly between child elements */
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Ensure the card takes up the full height of its container */
 }
 
 .product-card img {
@@ -27,13 +31,15 @@
   object-fit: cover;
 }
 
-/* Product details */
 .product-details {
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 0 0 8px 8px;
 }
 
+.product-actions {
+  margin-top: auto; /* Align at the bottom */
+}
 .product-details h2 {
   font-size: 24px;
   font-weight: bold;
