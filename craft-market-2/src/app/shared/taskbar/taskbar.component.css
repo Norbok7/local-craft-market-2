@@ -43,11 +43,21 @@
   padding: 5px 10px; /* Add padding for clickable area */
   border-radius: 5px; /* Add rounded corners */
   transition: background-color 0.3s ease; /* Add smooth transition for background color */
+  cursor: pointer; /* Add pointer cursor */
 }
 
 .taskbar a:hover {
   background-color: #f0f0f0; /* Change background color on hover */
 }
+
+.logged-in {
+  cursor: pointer; /* Add pointer cursor specifically for the logged-in link */
+}
 .spacer {
   height: 20px; /* Adjust the height as needed */
+}
+.cart-icon {
+  width: 20px; /* Set the width of the cart icon */
+  height: 20px; /* Set the height of the cart icon */
+  margin-right: 5px; /* Add some space between the icon and text */
 }
