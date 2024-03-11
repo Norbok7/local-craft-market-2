@@ -39,30 +39,33 @@ export class ProductListComponent implements OnInit {
 
     switch (this.selectedSortOption) {
       case 'priceLowToHigh':
-        this.filteredProducts = filteredBySearch.slice().sort((a, b) => a.price - b.price);
+        filteredBySearch.sort((a, b) => a.price - b.price);
         break;
       case 'priceHighToLow':
-        this.filteredProducts = filteredBySearch.slice().sort((a, b) => b.price - a.price);
+        filteredBySearch.sort((a, b) => b.price - a.price);
         break;
       case 'quantityLowToHigh':
-        this.filteredProducts = filteredBySearch.slice().sort((a, b) => a.quantity - b.quantity);
+        filteredBySearch.sort((a, b) => a.quantity - b.quantity);
         break;
       case 'quantityHighToLow':
-        this.filteredProducts = filteredBySearch.slice().sort((a, b) => b.quantity - a.quantity);
+        filteredBySearch.sort((a, b) => b.quantity - a.quantity);
         break;
       case 'titleAZ':
-        this.filteredProducts = filteredBySearch.slice().sort((a, b) => a.title.localeCompare(b.title));
+        filteredBySearch.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case 'titleZA':
-        this.filteredProducts = filteredBySearch.slice().sort((a, b) => b.title.localeCompare(a.title));
+        filteredBySearch.sort((a, b) => b.title.localeCompare(a.title));
         break;
       // Add more cases for other filter options
       default:
-        this.filteredProducts = filteredBySearch; // Default to unsorted products
+        // Default to unsorted products
         break;
     }
-    this.updatePagedProducts();
+
+    this.filteredProducts = filteredBySearch;
+    this.updatePagedProducts(); // Update paged products after filtering
   }
+
 
   updatePagedProducts(): void {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
