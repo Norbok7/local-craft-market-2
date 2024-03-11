@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { CartService } from '../cartservice.service';
 import { Router } from '@angular/router'; // Import Router
-
+import { AuthService } from '../../shared/login/auth.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -11,8 +11,11 @@ import { Router } from '@angular/router'; // Import Router
 export class CartComponent implements OnInit {
   cartItems: Product[] = [];
 
-  constructor(private cartService: CartService, private router: Router) { }
-
+  constructor(
+    private cartService: CartService,
+    private router: Router,
+    private authService: AuthService // Inject AuthService
+  ) { }
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
   }
@@ -21,6 +24,11 @@ export class CartComponent implements OnInit {
     this.cartService.removeFromCart(product);
     // Update cart items after removal
     this.cartItems = this.cartService.getCartItems();
+  }
+
+  buyNow(): void {
+    // Navigate to order list or order details
+    this.router.navigate(['/orders']); // Example navigation to order list
   }
 
   clearCart(): void {

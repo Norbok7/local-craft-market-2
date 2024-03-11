@@ -17,6 +17,8 @@ import { UserLoginComponent } from './shared/login/user-login/user-login.compone
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { CartComponent } from './product/cart/cart.component';
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
+import { OrderListComponent } from './order/order-list/order-list.component';
+import { OrderDetailsComponent } from './order/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,9 @@ import { ReviewDetailsComponent } from './review/review-details/review-details.c
     ProductDetailsComponent,
     CartComponent,
     ReviewDetailsComponent,
+    OrderListComponent,
+    OrderDetailsComponent,
+    
   ],
   imports: [
     BrowserModule,

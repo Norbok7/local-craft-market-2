@@ -1,1 +1,11 @@
-<p>order-details works!</p>
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+  <label for="shippingAddress">Shipping Address</label>
+  <input type="text" id="shippingAddress" formControlName="shippingAddress">
+
+  <label for="paymentMethod">Payment Method</label>
+  <input type="text" id="paymentMethod" formControlName="paymentMethod">
+
+  <!-- Add more form fields as needed -->
+
+  <button type="submit">Place Order</button>
+</form>

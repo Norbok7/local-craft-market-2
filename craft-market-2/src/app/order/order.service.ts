@@ -8,16 +8,18 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class OrderService {
-  private apiUrl = environment.apiUrl; // Use apiUrl from environment
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
   getOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(`${this.apiUrl}/orders`);
+    // Modify the endpoint to include product information
+    return this.http.get<Order[]>(`${this.apiUrl}/orders?include=order_items.product`);
   }
 
   getOrder(id: number): Observable<Order> {
-    return this.http.get<Order>(`${this.apiUrl}/orders/${id}`);
+    // Modify the endpoint to include product information
+    return this.http.get<Order>(`${this.apiUrl}/orders/${id}?include=order_items.product`);
   }
 
   createOrder(order: Order): Observable<Order> {
