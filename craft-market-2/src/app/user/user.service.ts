@@ -34,13 +34,12 @@ export class UserService {
     return this.http.delete<void>(`${this.apiUrl}/users/${id}`);
   }
 
-  updateUserProfile(userId: number, updatedUser: Partial<User>): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/users/${userId}`, updatedUser);
-  }
 
   changeUserPassword(userId: number, newPassword: string): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/users/${userId}/change-password`, { newPassword });
+    const payload = { user: { password: newPassword } };
+    return this.http.put<void>(`${this.apiUrl}/users/${userId}/change-password`, payload);
   }
+
   getCurrentUser(): Observable<User | null> {
     return this.http.get<User>(`${this.apiUrl}/users/current`).pipe(
       catchError(this.handleError)

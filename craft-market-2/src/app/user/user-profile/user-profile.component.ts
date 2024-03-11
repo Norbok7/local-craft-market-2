@@ -44,19 +44,6 @@ export class UserProfileComponent implements OnInit {
     this.auth.logout(); // Call the logout method from AuthService
   }
 
-  updateProfile(): void {
-    // Make API call to update user profile information
-    this.userService.updateUserProfile(this.userId, {
-      username: this.updatedUsername,
-      email: this.updatedEmail
-    }).subscribe(response => {
-      // Handle success or display error message
-    }, error => {
-      this.errorMessage = 'Failed to update profile. Please try again later.';
-      console.error('Failed to update profile:', error);
-    });
-  }
-
   changePassword(): void {
     // Check if new password and confirm password match
     if (this.newPassword !== this.confirmNewPassword) {

@@ -5,17 +5,7 @@
   <p><strong>Email:</strong> {{ user.email }}</p>
   <p><strong>User Type:</strong> {{ user.user_type }}</p>
 
-  <!-- Update Profile Form -->
-  <h3>Update Profile</h3>
-  <form (submit)="updateProfile()">
-    <!-- Add form fields for updating profile information -->
-    <!-- Bind form fields to corresponding properties in the component -->
-    <input type="text" [(ngModel)]="updatedUsername" name="updatedUsername" placeholder="New Username">
-    <input type="email" [(ngModel)]="updatedEmail" name="updatedEmail" placeholder="New Email">
-    <!-- Use ngModel to enable two-way data binding -->
-    <!-- Add a submit button to submit the form -->
-    <button type="submit">Update Profile</button>
-  </form>
+
 
   <!-- Change Password Form -->
   <h3>Change Password</h3>
