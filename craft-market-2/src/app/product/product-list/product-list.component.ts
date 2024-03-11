@@ -16,6 +16,7 @@ export class ProductListComponent implements OnInit {
   selectedSortOption: string = '';
   itemsPerPage = 20;
   currentPage = 1;
+  searchTerm: string = '';
 
   constructor(private cartService: CartService, private productService: ProductService, private router: Router) { }
 
@@ -31,28 +32,33 @@ export class ProductListComponent implements OnInit {
   }
 
   applyFilter(): void {
+    // Filter based on search term
+    let filteredBySearch = this.products.filter(product =>
+      product.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+
     switch (this.selectedSortOption) {
       case 'priceLowToHigh':
-        this.filteredProducts = this.products.slice().sort((a, b) => a.price - b.price);
+        this.filteredProducts = filteredBySearch.slice().sort((a, b) => a.price - b.price);
         break;
       case 'priceHighToLow':
-        this.filteredProducts = this.products.slice().sort((a, b) => b.price - a.price);
+        this.filteredProducts = filteredBySearch.slice().sort((a, b) => b.price - a.price);
         break;
       case 'quantityLowToHigh':
-        this.filteredProducts = this.products.slice().sort((a, b) => a.quantity - b.quantity);
+        this.filteredProducts = filteredBySearch.slice().sort((a, b) => a.quantity - b.quantity);
         break;
       case 'quantityHighToLow':
-        this.filteredProducts = this.products.slice().sort((a, b) => b.quantity - a.quantity);
+        this.filteredProducts = filteredBySearch.slice().sort((a, b) => b.quantity - a.quantity);
         break;
       case 'titleAZ':
-        this.filteredProducts = this.products.slice().sort((a, b) => a.title.localeCompare(b.title));
+        this.filteredProducts = filteredBySearch.slice().sort((a, b) => a.title.localeCompare(b.title));
         break;
       case 'titleZA':
-        this.filteredProducts = this.products.slice().sort((a, b) => b.title.localeCompare(a.title));
+        this.filteredProducts = filteredBySearch.slice().sort((a, b) => b.title.localeCompare(a.title));
         break;
       // Add more cases for other filter options
       default:
-        this.filteredProducts = this.products; // Default to unsorted products
+        this.filteredProducts = filteredBySearch; // Default to unsorted products
         break;
     }
     this.updatePagedProducts();
@@ -98,5 +104,10 @@ export class ProductListComponent implements OnInit {
   addToCart(product: Product): void { // Method to add product to cart
     this.cartService.addToCart(product); // Call addToCart method in CartService
     // Optionally, you can provide feedback to the user that the product has been added to the cart
+  }
+
+  clearSearch(): void {
+    this.searchTerm = '';
+    this.applyFilter();
   }
 }
