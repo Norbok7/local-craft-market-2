@@ -11,11 +11,14 @@
 }
 
 .product-card {
-  background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* Zoom in slightly on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
 }
 
 .product-image {
@@ -29,9 +32,10 @@
 }
 
 .product-details h2 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #333;
 }
 
 .description {
@@ -90,7 +94,7 @@
 }
 
 .pagination-btn {
-  background-color: #4CAF50; /* Green */
+  background-color: #007bff;
   border: none;
   color: white;
   padding: 10px 20px;
@@ -105,7 +109,7 @@
 }
 
 .pagination-btn:hover {
-  background-color: #45a049; /* Darker Green */
+  background-color: #0056b3;
 }
 
 .page-number {
@@ -118,7 +122,7 @@
 }
 
 .page-number.active {
-  background-color: #4CAF50; /* Green */
+  background-color: #007bff;
   color: white;
 }
 

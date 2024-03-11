@@ -1,135 +1,135 @@
-/* Overall container for product details */
 .product-details-container {
-  text-align: center; /* Center align content */
-  margin: 20px auto; /* Center horizontally with some margin */
-  max-width: 800px; /* Set max width */
+  text-align: center;
+  margin: 20px auto;
+  max-width: 800px;
 }
 
-/* Title of the product */
 .product-title {
-  font-size: 32px; /* Larger font size */
-  margin-bottom: 20px; /* Spacing at the bottom */
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
-/* Total Rating */
 .total-rating {
-  font-size: 24px; /* Large font size */
-  color: #ffc107; /* Gold color */
-  margin-bottom: 20px; /* Spacing at the bottom */
+  font-size: 24px;
+  color: #ffc107;
+  margin-bottom: 20px;
 }
 
-/* Product details */
 .product-details {
-  display: flex; /* Use flexbox for layout */
-  align-items: flex-start; /* Align items at the start */
-  justify-content: center; /* Center justify content */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-/* Product Image */
 .product-image {
-  width: 300px; /* Set width */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-  margin-right: 30px; /* Spacing on the right */
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 30px;
+  transition: transform 0.3s ease;
 }
 
-/* Product Information */
+/* Add hover effect to zoom in */
+.product-image:hover {
+  transform: scale(1.05);
+}
+
 .product-info {
-  text-align: left; /* Left align text */
+  text-align: left;
 }
 
-/* Add to Cart Button */
 .add-to-cart-btn {
-  background-color: #007bff; /* Blue background */
-  color: #fff; /* White text color */
-  border: none; /* No border */
-  padding: 10px 20px; /* Padding */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Cursor style */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .add-to-cart-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3;
 }
 
-/* Add Review Container */
 .add-review-container {
-  margin-top: 30px; /* Spacing from the product details */
+  margin-top: 30px;
 }
 
-/* Add Review Button */
 .add-review-btn {
-  background-color: #28a745; /* Green background */
-  color: #fff; /* White text color */
-  border: none; /* No border */
-  padding: 10px 20px; /* Padding */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Cursor style */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .add-review-btn:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #218838;
 }
 
-/* Review Form */
 .review-form {
-  margin-top: 20px; /* Spacing from the Add Review Button */
+  margin-top: 20px;
 }
 
-/* Form Group */
 .form-group {
-  margin-bottom: 20px; /* Spacing between form elements */
+  margin-bottom: 20px;
 }
 
-/* Rating Input */
 #rating {
-  width: 100px; /* Set width */
-  padding: 10px; /* Padding */
-  border: 1px solid #ced4da; /* Border color */
-  border-radius: 5px; /* Rounded corners */
+  width: 100px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
 }
 
-/* Comment Textarea */
 #comment {
-  width: 100%; /* Full width */
-  padding: 10px; /* Padding */
-  border: 1px solid #ced4da; /* Border color */
-  border-radius: 5px; /* Rounded corners */
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
 }
 
-/* Submit Review Button */
 .submit-review-btn {
-  background-color: #dc3545; /* Red background */
-  color: #fff; /* White text color */
-  border: none; /* No border */
-  padding: 10px 20px; /* Padding */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Cursor style */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .submit-review-btn:hover {
-  background-color: #c82333; /* Darker red on hover */
+  background-color: #c82333;
 }
 
-/* Styling for each individual review item */
 .review-item {
-  background-color: #f8f9fa; /* Light gray background color */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
-  padding: 20px; /* Padding */
-  margin-bottom: 20px; /* Spacing at the bottom */
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-/* Margin for paragraphs within review items */
 .review-item p {
-  margin: 10px 0; /* Spacing top and bottom */
+  margin: 10px 0;
 }
 
-/* Margin for paragraphs within the 'no reviews' section */
 .no-reviews p {
-  margin: 0; /* Remove default margins */
+  margin: 0;
+}
+
+/* Add shadow effect to product card */
+.product-card {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Add hover effect to increase shadow */
+.product-card:hover {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }

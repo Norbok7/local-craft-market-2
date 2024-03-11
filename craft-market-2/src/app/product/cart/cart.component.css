@@ -15,6 +15,11 @@
   width: 80%;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; /* Smooth transition for box-shadow */
+}
+
+.cart-item:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 
 .item-image {
