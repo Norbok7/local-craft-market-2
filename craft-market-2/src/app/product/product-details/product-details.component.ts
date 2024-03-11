@@ -18,7 +18,6 @@ export class ProductDetailsComponent implements OnInit {
   reviews: Review[] = [];
   showReviewForm: boolean = false;
   reviewForm: FormGroup;
-  selectedFilter: string = 'all'; // Default value for filter
   totalRating: number = 0;
 
   constructor(
@@ -40,6 +39,7 @@ export class ProductDetailsComponent implements OnInit {
       this.getProductDetails(productId);
       this.getReviewsForProduct(productId); // Call the new function to fetch reviews
     });
+    this.calculateTotalRating(); // Calculate total rating on component initialization
   }
 
   getProductDetails(id: number): void {
@@ -51,7 +51,7 @@ export class ProductDetailsComponent implements OnInit {
   getReviewsForProduct(productId: number): void { // New function to fetch reviews for the product
     this.reviewService.getReviewsForProduct(productId).subscribe(reviews => {
       this.reviews = reviews;
-      this.calculateTotalRating();
+      this.calculateTotalRating(); // Recalculate total rating when reviews are fetched
     });
   }
 
@@ -97,22 +97,8 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
-  applyFilter(): void {
-    // Apply filter logic based on selected filter
-    // For demonstration, let's say we filter by ratings above 3
-    if (this.selectedFilter === 'quality') {
-      this.reviews = this.reviews.filter(review => review.rating > 3);
-    } else if (this.selectedFilter === 'durability') {
-      // Add logic for durability filter
-    } else if (this.selectedFilter === 'customerService') {
-      // Add logic for customer service filter
-    }
-    // Add more filter conditions as needed
-  }
-
   calculateTotalRating(): void {
     const total = this.reviews.reduce((sum, review) => sum + review.rating, 0);
-    this.totalRating = total / this.reviews.length;
+    this.totalRating = total / (this.reviews.length || 1); // Prevent division by zero
   }
-
 }

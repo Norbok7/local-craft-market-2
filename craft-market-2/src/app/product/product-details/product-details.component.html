@@ -1,26 +1,45 @@
 <div *ngIf="productData" class="product-details-container">
-  <!-- Display average review rating -->
+  <!-- Product Title -->
   <h2 class="product-title">{{ productData.title }}</h2>
+  <!-- Total Rating -->
   <p class="total-rating">Average Rating: {{ totalRating.toFixed(2) }}/5</p>
+  <!-- Product Details -->
   <div class="product-details">
-    <div style="width: 66.67%;"> <!-- Set width to 2/3 of the screen -->
-      <img [src]="productData.image_url" alt="Product Image" class="product-image">
-      <div class="product-info">
-        <p class="product-description">{{ productData.description }}</p>
-        <p class="product-price">Price: ${{ productData.price }}</p>
-        <p class="product-quantity">Quantity: {{ productData.quantity }}</p>
-        <!-- Empty form line for writing review -->
-        <div class="form-group">
-          <label for="writeReview">Write Your Review Here:</label>
-          <textarea id="writeReview" name="writeReview"></textarea>
-        </div>
-      </div>
+    <!-- Product Image -->
+    <img [src]="productData.image_url" alt="Product Image" class="product-image">
+    <!-- Product Information -->
+    <div class="product-info">
+      <p class="product-description">{{ productData.description }}</p>
+      <p class="product-price">Price: ${{ productData.price }}</p>
+      <p class="product-quantity">Quantity: {{ productData.quantity }}</p>
+      <!-- Add to Cart Button -->
+      <button *ngIf="productData" (click)="addToCart(productData)" class="add-to-cart-btn">Add to Cart</button>
     </div>
   </div>
 
-  <!-- Review Section -->
+  <!-- Add Review Button -->
+  <div class="add-review-container">
+    <h2 class="section-title">Write a Review</h2>
+    <!-- Toggle Review Form Button -->
+    <button (click)="openReviewForm()" class="add-review-btn">Add Review</button>
+    <!-- Review Form -->
+    <form *ngIf="showReviewForm" [formGroup]="reviewForm" (ngSubmit)="submitReview()" class="review-form">
+      <div class="form-group">
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" formControlName="rating" min="1" max="5" required>
+      </div>
+      <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" formControlName="comment" required></textarea>
+      </div>
+      <!-- Submit Review Button -->
+      <button type="submit" class="submit-review-btn">Submit Review</button>
+    </form>
+  </div>
+
+  <!-- Product Reviews Section -->
   <h3 class="section-title">Product Reviews</h3>
-  <!-- Display average review rating -->
+  <!-- Display Reviews -->
   <div *ngIf="reviews.length > 0" class="review-list">
     <div *ngFor="let review of reviews" class="review-item">
       <p><strong>User: {{ review.user }}</strong></p>
@@ -28,6 +47,7 @@
       <p>Rating: {{ review.rating }}/5</p>
     </div>
   </div>
+  <!-- No Reviews Message -->
   <div *ngIf="reviews.length === 0" class="no-reviews">
     <p>No reviews available for this product yet.</p>
   </div>

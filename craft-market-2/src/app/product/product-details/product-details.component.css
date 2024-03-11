@@ -2,23 +2,30 @@
 .product-details-container {
   text-align: center; /* Center align content */
   margin: 20px auto; /* Center horizontally with some margin */
-  max-width: 66.67%; /* Set width to 2/3 of the screen */
+  max-width: 800px; /* Set max width */
 }
 
 /* Title of the product */
 .product-title {
-  font-size: 28px; /* Large font size */
+  font-size: 32px; /* Larger font size */
   margin-bottom: 20px; /* Spacing at the bottom */
 }
 
-/* Container for product details */
+/* Total Rating */
+.total-rating {
+  font-size: 24px; /* Large font size */
+  color: #ffc107; /* Gold color */
+  margin-bottom: 20px; /* Spacing at the bottom */
+}
+
+/* Product details */
 .product-details {
   display: flex; /* Use flexbox for layout */
   align-items: flex-start; /* Align items at the start */
   justify-content: center; /* Center justify content */
 }
 
-/* Product image */
+/* Product Image */
 .product-image {
   width: 300px; /* Set width */
   height: auto; /* Maintain aspect ratio */
@@ -27,31 +34,90 @@
   margin-right: 30px; /* Spacing on the right */
 }
 
-/* Container for product information */
+/* Product Information */
 .product-info {
   text-align: left; /* Left align text */
 }
 
-/* Description of the product */
-.product-description {
-  font-size: 18px; /* Medium font size */
-  margin-bottom: 15px; /* Spacing at the bottom */
+/* Add to Cart Button */
+.add-to-cart-btn {
+  background-color: #007bff; /* Blue background */
+  color: #fff; /* White text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor style */
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
-/* Price and quantity of the product */
-.product-price, .product-quantity {
-  font-size: 20px; /* Medium font size */
-  margin-bottom: 15px; /* Spacing at the bottom */
+.add-to-cart-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Form group for writing review */
+/* Add Review Container */
+.add-review-container {
+  margin-top: 30px; /* Spacing from the product details */
+}
+
+/* Add Review Button */
+.add-review-btn {
+  background-color: #28a745; /* Green background */
+  color: #fff; /* White text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor style */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.add-review-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Review Form */
+.review-form {
+  margin-top: 20px; /* Spacing from the Add Review Button */
+}
+
+/* Form Group */
 .form-group {
-  margin-bottom: 20px; /* Spacing at the bottom */
+  margin-bottom: 20px; /* Spacing between form elements */
+}
+
+/* Rating Input */
+#rating {
+  width: 100px; /* Set width */
+  padding: 10px; /* Padding */
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Comment Textarea */
+#comment {
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding */
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Submit Review Button */
+.submit-review-btn {
+  background-color: #dc3545; /* Red background */
+  color: #fff; /* White text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor style */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.submit-review-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
 }
 
 /* Styling for each individual review item */
 .review-item {
-  background-color: #ffffff; /* White background color */
+  background-color: #f8f9fa; /* Light gray background color */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
   padding: 20px; /* Padding */
@@ -66,14 +132,4 @@
 /* Margin for paragraphs within the 'no reviews' section */
 .no-reviews p {
   margin: 0; /* Remove default margins */
-}
-.total-rating {
-  font-size: 24px;
-  color: #ffc107; /* Gold color */
-  margin-bottom: 10px;
-}
-
-.total-rating::before {
-  content: '\2605'; /* Unicode character for star */
-  margin-right: 5px;
 }
