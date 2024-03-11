@@ -18,6 +18,8 @@ export class ProductDetailsComponent implements OnInit {
   reviews: Review[] = [];
   showReviewForm: boolean = false;
   reviewForm: FormGroup;
+  selectedFilter: string = 'all'; // Default value for filter
+  totalRating: number = 0;
 
   constructor(
     private productService: ProductService,
@@ -49,6 +51,7 @@ export class ProductDetailsComponent implements OnInit {
   getReviewsForProduct(productId: number): void { // New function to fetch reviews for the product
     this.reviewService.getReviewsForProduct(productId).subscribe(reviews => {
       this.reviews = reviews;
+      this.calculateTotalRating();
     });
   }
 
@@ -92,6 +95,24 @@ export class ProductDetailsComponent implements OnInit {
     } else {
       console.error('Invalid review form or product data is missing');
     }
+  }
+
+  applyFilter(): void {
+    // Apply filter logic based on selected filter
+    // For demonstration, let's say we filter by ratings above 3
+    if (this.selectedFilter === 'quality') {
+      this.reviews = this.reviews.filter(review => review.rating > 3);
+    } else if (this.selectedFilter === 'durability') {
+      // Add logic for durability filter
+    } else if (this.selectedFilter === 'customerService') {
+      // Add logic for customer service filter
+    }
+    // Add more filter conditions as needed
+  }
+
+  calculateTotalRating(): void {
+    const total = this.reviews.reduce((sum, review) => sum + review.rating, 0);
+    this.totalRating = total / this.reviews.length;
   }
 
 }
