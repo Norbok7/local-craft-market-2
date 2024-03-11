@@ -3,7 +3,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 
@@ -13,4 +13,14 @@
   max-height: 70vh;
 }
 
- 
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+

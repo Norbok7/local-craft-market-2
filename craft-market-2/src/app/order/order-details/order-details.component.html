@@ -1,13 +1,17 @@
-<div>Total Amount: {{ totalAmount | currency }}</div>
+<div class="order-details-container">
+  <h2>Order Details</h2>
 
-<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
-  <label for="shippingAddress">Shipping Address</label>
-  <input type="text" id="shippingAddress" formControlName="shippingAddress">
+  <div class="total-amount">Total Amount: {{ totalAmount | currency }}</div>
 
-  <label for="paymentMethod">Payment Method</label>
-  <input type="text" id="paymentMethod" formControlName="paymentMethod">
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="order-form">
+    <label for="shippingAddress">Shipping Address</label>
+    <input type="text" id="shippingAddress" formControlName="shippingAddress" class="form-input">
 
-  <!-- Add more form fields as needed -->
+    <label for="paymentMethod">Payment Method</label>
+    <input type="text" id="paymentMethod" formControlName="paymentMethod" class="form-input">
 
-  <button type="submit">Place Order</button>
-</form>
+    <!-- Add more form fields as needed -->
+
+    <button type="submit" class="submit-btn">Place Order</button>
+  </form>
+</div>
