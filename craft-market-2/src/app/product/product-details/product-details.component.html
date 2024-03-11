@@ -1,35 +1,35 @@
 <!-- Product Details Section -->
 <div *ngIf="productData" class="product-details-container">
-  <h2>{{ productData.title }}</h2>
+  <h2 class="product-title">{{ productData.title }}</h2>
   <div class="product-details">
     <img [src]="productData.image_url" alt="Product Image" class="product-image">
-    <div>
-      <p>Description: {{ productData.description }}</p>
-      <p>Price: ${{ productData.price }}</p>
-      <p>Quantity: {{ productData.quantity }}</p>
-      <button *ngIf="productData" (click)="addToCart(productData)">Add to Cart</button>
+    <div class="product-info">
+      <p class="product-description">{{ productData.description }}</p>
+      <p class="product-price">Price: ${{ productData.price }}</p>
+      <p class="product-quantity">Quantity: {{ productData.quantity }}</p>
+      <button *ngIf="productData" (click)="addToCart(productData)" class="add-to-cart-btn">Add to Cart</button>
     </div>
   </div>
 
   <!-- Add Review Button -->
   <div class="add-review-container">
-    <h2>Add Review</h2>
-    <button (click)="openReviewForm()">Add Review</button> <!-- Button to toggle review form -->
-    <form *ngIf="showReviewForm" [formGroup]="reviewForm" (ngSubmit)="submitReview()">
-      <div>
+    <h2 class="section-title"></h2>
+    <button (click)="openReviewForm()" class="add-review-btn">Add Review</button> <!-- Button to toggle review form -->
+    <form *ngIf="showReviewForm" [formGroup]="reviewForm" (ngSubmit)="submitReview()" class="review-form">
+      <div class="form-group">
         <label for="rating">Rating:</label>
         <input type="number" id="rating" name="rating" formControlName="rating" min="1" max="5" required>
       </div>
-      <div>
+      <div class="form-group">
         <label for="comment">Comment:</label>
         <textarea id="comment" name="comment" formControlName="comment" required></textarea>
       </div>
-      <button type="submit">Submit Review</button>
+      <button type="submit" class="submit-review-btn">Submit Review</button>
     </form>
   </div>
 
   <!-- Product Reviews Section -->
-  <h3>Product Reviews</h3>
+  <h3 class="section-title">Product Reviews</h3>
   <div *ngIf="reviews.length > 0" class="review-list">
     <div *ngFor="let review of reviews" class="review-item">
       <p><strong>User: {{ review.user }}</strong></p>
