@@ -12,7 +12,6 @@ import { ReviewDetailsComponent } from './review/review-details/review-details.c
 import { HomeComponent } from './shared/home/home.component'; // Import HomeComponent
 import { AuthGuard } from './shared/login/auth.guard';
 import { UserLoginComponent } from './shared/login/user-login/user-login.component';
-import { ArtisanLoginComponent } from './shared/login/artisan-login/artisan-login.component';
 import { CartComponent } from './product/cart/cart.component';
 
 const routes: Routes = [
@@ -28,7 +27,6 @@ const routes: Routes = [
   { path: 'reviews/:id', component: ReviewDetailsComponent, canActivate: [AuthGuard] },
   { path: 'artisans/:id/products', component: ArtisanProductsComponent, canActivate: [AuthGuard] },
   { path: 'login/user', component: UserLoginComponent },
-  { path: 'login/artisan', component: ArtisanLoginComponent },
   { path: 'cart', component: CartComponent }, // Add this route for the CartComponent
   { path: 'users/current', component: UserProfileComponent, canActivate: [AuthGuard] }, // Route for fetching current user
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route

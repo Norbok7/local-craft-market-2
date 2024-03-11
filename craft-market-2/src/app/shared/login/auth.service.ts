@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
+import { Observable, BehaviorSubject, throwError, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
@@ -12,9 +12,15 @@ import { User } from '../../user/user.model'; // Import the User model
 export class AuthService {
   private apiUrl = environment.apiUrl;
   private loggedIn = new BehaviorSubject<boolean>(false);
-  private currentUser = new BehaviorSubject<User | null>(null); // Add currentUser subject
+  private currentUser = new BehaviorSubject<User | null>(null);
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+    // Check for token on initialization
+    const token = this.getToken();
+    if (token) {
+      this.loggedIn.next(true);
+    }
+  }
 
   login(credentials: { username: string; password: string }): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, credentials).pipe(
@@ -26,11 +32,6 @@ export class AuthService {
       }),
       catchError(this.handleError)
     );
-  }
-
-
-  signup(artisan: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/artisans`, artisan);
   }
 
   logout(): void {
@@ -54,6 +55,7 @@ export class AuthService {
     }
     return null;
   }
+
   getCurrentUser(): Observable<User | null> {
     const token = this.getToken();
     if (token) {

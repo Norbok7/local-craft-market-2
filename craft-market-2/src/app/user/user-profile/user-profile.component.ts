@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../shared/login/auth.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -19,7 +20,7 @@ export class UserProfileComponent implements OnInit {
   confirmNewPassword: string = '';
   errorMessage: string = ''; // Property to hold error messages
 
-  constructor(private route: ActivatedRoute, private userService: UserService) { }
+  constructor(private auth: AuthService, private route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -37,6 +38,10 @@ export class UserProfileComponent implements OnInit {
         console.error('Invalid user ID');
       }
     });
+  }
+
+  logout(): void {
+    this.auth.logout(); // Call the logout method from AuthService
   }
 
   updateProfile(): void {
