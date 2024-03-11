@@ -1,4 +1,3 @@
-// token-interceptor.service.ts
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -23,7 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
         if (error.status === 401) {
           this.authService.logout();
         }
-        return throwError('Something went wrong. Please try again later.');
+        return throwError(error.message || 'Server error');
       })
     );
   }

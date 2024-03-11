@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { User } from '../../../user/user.model';
-import { UserService } from '../../../user/user.service';
+import { UserService } from '../../../user/user.service'; // Import UserService
+import { User } from '../../../user/user.model'; // Import User model
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,10 +19,9 @@ export class UserLoginComponent {
   loginUser(): void {
     this.authService.login({ username: this.username, password: this.password }).subscribe(
       (response) => {
-        // Check if the response contains the user ID
         if (response && response.user_id) {
-          // Redirect to user profile page with user ID
-          this.router.navigate(['/users', response.user_id]);
+          localStorage.setItem('userId', response.user_id); // Save user ID in localStorage
+          this.router.navigate(['/users', response.user_id]); // Navigate to user profile page
         } else {
           console.error('Invalid response after login:', response);
           // Handle unexpected response

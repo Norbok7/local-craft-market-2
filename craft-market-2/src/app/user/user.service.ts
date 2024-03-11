@@ -42,8 +42,9 @@ export class UserService {
     return this.http.put<void>(`${this.apiUrl}/users/${userId}/change-password`, { newPassword });
   }
   getCurrentUser(): Observable<User | null> {
-    // Assuming your backend provides an endpoint to fetch the current user
-    return this.http.get<User>(`${this.apiUrl}/users/current`);
+    return this.http.get<User>(`${this.apiUrl}/users/current`).pipe(
+      catchError(this.handleError)
+    );
   }
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.error('API error:', error);

@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'login/user', component: UserLoginComponent },
   { path: 'login/artisan', component: ArtisanLoginComponent },
   { path: 'cart', component: CartComponent }, // Add this route for the CartComponent
-  { path: 'current-user', component: UserProfileComponent, canActivate: [AuthGuard] }, // Route for fetching current user
+  { path: 'users/current', component: UserProfileComponent, canActivate: [AuthGuard] }, // Route for fetching current user
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
   { path: '**', redirectTo: '/home' } // Handle invalid routes
 ];

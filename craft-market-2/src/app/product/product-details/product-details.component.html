@@ -2,16 +2,17 @@
 <div *ngIf="productData" class="product-details-container">
   <h2>{{ productData.title }}</h2>
   <div class="product-details">
-    <!-- Display product details -->
     <img [src]="productData.image_url" alt="Product Image" class="product-image">
-    <p>Description: {{ productData.description }}</p>
-    <p>Price: ${{ productData.price }}</p>
-    <p>Quantity: {{ productData.quantity }}</p>
-    <button *ngIf="productData" (click)="addToCart(productData)">Add to Cart</button>
+    <div>
+      <p>Description: {{ productData.description }}</p>
+      <p>Price: ${{ productData.price }}</p>
+      <p>Quantity: {{ productData.quantity }}</p>
+      <button *ngIf="productData" (click)="addToCart(productData)">Add to Cart</button>
+    </div>
   </div>
 
   <!-- Add Review Button -->
-  <div>
+  <div class="add-review-container">
     <h2>Add Review</h2>
     <button (click)="openReviewForm()">Add Review</button> <!-- Button to toggle review form -->
     <form *ngIf="showReviewForm" [formGroup]="reviewForm" (ngSubmit)="submitReview()">

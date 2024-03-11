@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { TokenInterceptor } from './shared/login/token-interceptor.service';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { TopTitleComponent } from './shared/top-title/top-title.component';
 import { TaskbarComponent } from './shared/taskbar/taskbar.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
-import { RouterModule } from '@angular/router';
 import { ArtisanProfileComponent } from './artisan/artisan-profile/artisan-profile.component';
 import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-products.component';
 import { ArtisanLoginComponent } from './shared/login/artisan-login/artisan-login.component';
 import { UserLoginComponent } from './shared/login/user-login/user-login.component';
-import { TokenInterceptor } from './shared/login/token-interceptor.service';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { CartComponent } from './product/cart/cart.component';
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
@@ -40,10 +40,11 @@ import { ReviewDetailsComponent } from './review/review-details/review-details.c
     HttpClientModule,
     CommonModule,
     FormsModule,
-    RouterModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
   providers: [
+    // Provide HTTP_INTERCEPTORS token for your interceptor
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

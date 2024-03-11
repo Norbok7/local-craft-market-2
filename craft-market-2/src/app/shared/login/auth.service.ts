@@ -22,20 +22,22 @@ export class AuthService {
         if (response && response.token) {
           localStorage.setItem('token', response.token);
           this.loggedIn.next(true);
-          this.router.navigate(['/users', response.user_id]);
         }
       }),
       catchError(this.handleError)
     );
   }
 
+
   signup(artisan: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/artisans`, artisan);
   }
 
   logout(): void {
-    // Clear user session information
-    localStorage.removeItem('token');
+    // Clear user session information if localStorage is defined
+    if (typeof localStorage !== 'undefined') {
+      localStorage.removeItem('token');
+    }
     // Set logged out status
     this.loggedIn.next(false);
     // Redirect to the login page after logout
@@ -47,9 +49,11 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    return typeof localStorage !== 'undefined' ? localStorage.getItem('token') : null;
+    if (typeof localStorage !== 'undefined') {
+      return localStorage.getItem('token');
+    }
+    return null;
   }
-
   getCurrentUser(): Observable<User | null> {
     const token = this.getToken();
     if (token) {

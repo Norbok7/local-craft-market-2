@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { CartService } from '../../product/cartservice.service';
 import { UserService } from '../../user/user.service';
 import { Product } from '../../product/product.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-taskbar',
@@ -13,12 +14,13 @@ import { Product } from '../../product/product.model';
 export class TaskbarComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
   cartItemCount: number = 0; // Initialize with 0
-  userId: any | string;
+  userId: any | null;
 
   constructor(
     private authService: AuthService,
     private cartService: CartService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
   ) {
     this.isLoggedIn$ = this.authService.isLoggedIn();
   }
@@ -32,19 +34,21 @@ export class TaskbarComponent implements OnInit {
     // Fetch current user's ID if logged in
     this.isLoggedIn$.subscribe((loggedIn: boolean) => {
       if (loggedIn) {
-        this.userService.getCurrentUser().subscribe(
-          (user) => {
-            if (user) {
-              this.userId = user.id;
-            } else {
-              console.error('Current user not found');
-            }
-          },
-          (error) => {
-            console.error('Error fetching current user:', error);
-          }
-        );
+        // Retrieve user ID from localStorage
+        this.userId = localStorage.getItem('userId');
+        if (this.userId) {
+          console.log('User ID:', this.userId); // Add console log here
+        } else {
+          console.error('User ID not found in localStorage');
+        }
       }
     });
+  }
+
+  // Method to navigate to user profile
+  navigateToUserProfile(userId: string) {
+    console.log('Navigating to user profile with ID:', userId); // Add console log here
+    // Navigate to the user profile page using the provided user ID
+    this.router.navigate(['/users', userId]);
   }
 }
