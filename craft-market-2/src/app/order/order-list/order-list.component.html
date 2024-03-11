@@ -1,17 +1,23 @@
-<h2>Order List</h2>
+<section class="order-list">
+  <h2>Order List</h2>
 
-<div *ngIf="orders.length > 0; else noOrders">
-  <ul>
-    <li *ngFor="let order of orders">
-      <p>Order ID: {{ order.id }}</p>
-      <p>Date: {{ order.order_date | date }}</p> <!-- Update property name to order_date -->
-      <p>Total Amount: {{ order.total_amount | currency }}</p> <!-- Update property name to total_amount -->
-      <!-- Add more order information here as needed -->
-      <button (click)="viewOrderDetails(order.id)">View Details</button>
-    </li>
-  </ul>
-</div>
+  <div *ngIf="orders.length > 0; else noOrders" class="orders-container">
+    <div class="order-card" *ngFor="let order of orders">
+      <div class="order-details">
+        <p class="order-id">Order ID: {{ order.id }}</p>
+        <p class="order-date">Date: {{ order.order_date | date }}</p>
+        <p class="order-total">Total Amount: ${{ order.total_amount | number: '1.2-2' }}</p>
+      </div>
+      <button class="view-details-btn" (click)="viewOrderDetails(order.id)">View Details</button>
+    </div>
+  </div>
 
-<ng-template #noOrders>
-  <p>No orders found.</p>
-</ng-template>
+  <ng-template #noOrders>
+    <p class="no-orders-msg">No orders found.</p>
+  </ng-template>
+
+  <div class="total-amount">
+    <span>Total Amount:</span>
+    <span class="total-amount-value">${{ totalAmount | number: '1.2-2' }}</span>
+  </div>
+</section>

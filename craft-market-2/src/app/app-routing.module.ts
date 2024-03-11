@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'orders', component: OrderListComponent, canActivate: [AuthGuard] },
   { path: 'orders/:id', component: OrderDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'orders/:id/:totalAmount', component: OrderDetailsComponent, canActivate: [AuthGuard] },
   { path: 'reviews/:id', component: ReviewDetailsComponent, canActivate: [AuthGuard] },
   { path: 'artisans/:id/products', component: ArtisanProductsComponent, canActivate: [AuthGuard] },
   { path: 'login/user', component: UserLoginComponent },

@@ -1,0 +1,56 @@
+.order-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.orders-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.order-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-details {
+  margin-bottom: 10px;
+}
+
+.order-id {
+  font-weight: bold;
+}
+
+.view-details-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.view-details-btn:hover {
+  background-color: #0056b3;
+}
+
+.no-orders-msg {
+  font-style: italic;
+}
+
+.total-amount {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.total-amount span {
+  font-weight: bold;
+}
+
+.total-amount-value {
+  font-size: 1.2em;
+}

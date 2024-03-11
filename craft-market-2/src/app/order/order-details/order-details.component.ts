@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { OrderService } from '../order.service'; // Import OrderService
+import { OrderService } from '../order.service';
+import { Order } from '../order.model';
 
 @Component({
   selector: 'app-order-details',
@@ -9,40 +10,47 @@ import { OrderService } from '../order.service'; // Import OrderService
   styleUrls: ['./order-details.component.css']
 })
 export class OrderDetailsComponent implements OnInit {
-  orderForm!: FormGroup; // Marking as definitely assigned
+  totalAmount: number = 0;
+  orderForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private orderService: OrderService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.initOrderForm();
+    this.route.queryParams.subscribe(params => {
+      this.totalAmount = parseFloat(params['totalAmount']);
+      this.initOrderForm();
+    });
   }
 
   initOrderForm(): void {
     this.orderForm = this.formBuilder.group({
-      // Define form controls for order details (e.g., shipping address, payment method, etc.)
-      // Example:
       shippingAddress: ['', Validators.required],
-      paymentMethod: ['', Validators.required]
+      paymentMethod: ['', Validators.required],
+      totalAmount: [`$${this.totalAmount.toFixed(2)}`]
     });
   }
 
   onSubmit(): void {
     if (this.orderForm.valid) {
-      const orderDetails = this.orderForm.value;
-      // Call the order service to send order details to the backend
+      const orderDetails: Order = {
+        order_date: new Date().toISOString(),
+        total_amount: this.totalAmount,
+        userId: 123 // Replace with actual user ID
+      };
+
       this.orderService.createOrder(orderDetails).subscribe(
-        (response) => {
-          // Handle successful order creation
+        (response: any) => {
+          console.log('Order created successfully:', response);
           this.router.navigate(['/order-confirmation']);
         },
         (error) => {
-          // Handle error
           console.error('Error creating order:', error);
-          // Display error message to the user
+          // Handle error
         }
       );
     }

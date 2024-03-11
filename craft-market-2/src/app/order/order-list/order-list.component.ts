@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; // Import Router
-import { OrderService } from '../order.service'; // Import OrderService
+import { Router } from '@angular/router';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-order-list',
@@ -9,17 +9,22 @@ import { OrderService } from '../order.service'; // Import OrderService
 })
 export class OrderListComponent implements OnInit {
   orders: any[] = [];
+  totalAmount: number = 0;
 
   constructor(
     private orderService: OrderService,
-    private router: Router // Inject Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    // Fetch user's orders from the backend
+    this.fetchOrders();
+  }
+
+  fetchOrders(): void {
     this.orderService.getOrders().subscribe(
       (orders: any[]) => {
         this.orders = orders;
+        this.calculateTotalAmount();
       },
       (error) => {
         console.error('Error fetching user orders:', error);
@@ -27,8 +32,12 @@ export class OrderListComponent implements OnInit {
     );
   }
 
-  viewOrderDetails(orderId: number): void {
-    // Navigate to the Order Details page with the specified order ID
-    this.router.navigate(['/orders', orderId]);
+  calculateTotalAmount(): void {
+    this.totalAmount = this.orders.reduce((total, order) => total + parseFloat(order.total_amount), 0);
   }
+
+  viewOrderDetails(orderId: number): void {
+    this.router.navigate(['/orders', orderId], { queryParams: { totalAmount: this.totalAmount } });
+  }
+
 }
