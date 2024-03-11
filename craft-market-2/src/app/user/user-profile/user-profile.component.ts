@@ -19,7 +19,7 @@ export class UserProfileComponent implements OnInit {
   newPassword: string = '';
   confirmNewPassword: string = '';
   errorMessage: string = ''; // Property to hold error messages
-
+  showOrderHistory: boolean = false; // Initialize as hidden
   constructor(private auth: AuthService, private route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void {
@@ -58,5 +58,8 @@ export class UserProfileComponent implements OnInit {
       this.errorMessage = 'Failed to change password. Please try again later.';
       console.error('Failed to change password:', error);
     });
+  }
+  toggleOrderHistory(): void {
+    this.showOrderHistory = !this.showOrderHistory; // Toggle the visibility of order history
   }
 }

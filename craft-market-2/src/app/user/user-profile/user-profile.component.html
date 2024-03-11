@@ -23,6 +23,15 @@
         </div>
       </form>
     </div>
+
+    <!-- Order History Section -->
+    <div class="order-history-section" *ngIf="showOrderHistory">
+      <h3>Order History</h3>
+      <!-- Display order history here -->
+    </div>
+
+    <!-- Button to toggle Order History -->
+    <button (click)="toggleOrderHistory()" class="order-history-button">Order History</button>
   </div>
 
   <button (click)="logout()" class="logout-button">Logout</button>
