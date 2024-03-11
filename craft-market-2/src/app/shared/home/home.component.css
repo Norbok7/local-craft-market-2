@@ -8,12 +8,12 @@
 
 .central-image {
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%; /* Ensure the image fills the container */
   height: auto; /* Automatically adjust height */
-  max-width: 100%;
+  max-width: 120%;
   border-radius: 50%; /* Rounded shape */
   overflow: hidden; /* Hide overflowing parts */
 }
