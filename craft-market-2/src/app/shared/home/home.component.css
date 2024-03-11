@@ -1,26 +1,89 @@
-.container {
-  text-align: center;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
+.orbit {
+  position: relative;
+  width: 900px; /* Adjust as needed */
+  height: 555px; /* Adjust as needed */
+  margin: 0 auto;
+  perspective: 1000px; /* Perspective for 3D effect */
 }
 
-.image-container {
-  width: 70%;
-  height: auto;
-  max-height: 70vh;
+.central-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; /* Ensure the image fills the container */
+  height: auto; /* Automatically adjust height */
+  max-width: 100%;
+  border-radius: 50%; /* Rounded shape */
+  overflow: hidden; /* Hide overflowing parts */
 }
 
-h2 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-top: 0px;
+.orbiting-images {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-p {
-  font-size: 18px;
-  margin-bottom: 10px;
+.orbiting-image {
+  position: absolute;
+  width: 150px; /* Adjust as needed */
+  height: 150px; /* Adjust as needed */
+  border-radius: 50%; /* Circular shape */
+  overflow: hidden; /* Hide overflowing parts */
 }
 
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(255px) rotate(0deg); /* Initial position */
+  }
+  to {
+    transform: rotate(360deg) translateX(255px) rotate(-360deg); /* Final position */
+  }
+}
+
+.orbiting-image:nth-child(1) {
+  animation: orbit 15s linear infinite; /* Adjust animation duration as needed */
+  animation-delay: 0s; /* Start immediately */
+}
+
+.orbiting-image:nth-child(2) {
+  animation: orbit 15s linear infinite; /* Adjust animation duration as needed */
+  animation-delay: -2s; /* Start immediately as if the delay has already happened */
+}
+
+.orbiting-image:nth-child(3) {
+  animation: orbit 15s linear infinite; /* Adjust animation duration as needed */
+  animation-delay: -4s; /* Start immediately as if the delay has already happened */
+}
+
+.orbiting-image:nth-child(4) {
+  animation: orbit 15s linear infinite; /* Adjust animation duration as needed */
+  animation-delay: -6s; /* Start immediately as if the delay has already happened */
+}
+
+.orbiting-image:nth-child(5) {
+  animation: orbit 15s linear infinite; /* Adjust animation duration as needed */
+  animation-delay: -8s; /* Start immediately as if the delay has already happened */
+}
+
+.orbiting-image:nth-child(6) {
+  animation: orbit 15s linear infinite; /* Adjust animation duration as needed */
+  animation-delay: -10s; /* Start immediately as if the delay has already happened */
+}
+
+.orbiting-image:nth-child(7) {
+  animation: orbit 15s linear infinite; /* Adjust animation duration as needed */
+  animation-delay: -12s; /* Start immediately as if the delay has already happened */
+}
+
+.orbiting-image:nth-child(8) {
+  animation: orbit 15s linear infinite; /* Adjust animation duration as needed */
+  animation-delay: -14s; /* Start immediately as if the delay has already happened */
+}
+
+.orbiting-image img {
+  width: 100%; /* Ensure image fills the container */
+  height: 100%; /* Ensure image fills the container */
+  object-fit: cover; /* Maintain aspect ratio */
+}
