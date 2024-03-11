@@ -108,14 +108,16 @@
 
 .product-card {
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 255, 0.4); /* Increased intensity of blue color */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* Make the mouse pointer active */
 }
 
 .product-card:hover {
   transform: scale(1.05); /* Zoom in slightly on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 255, 0.6); /* Increase shadow size and change color */
 }
+
 
 .product-image {
   width: 100%;
