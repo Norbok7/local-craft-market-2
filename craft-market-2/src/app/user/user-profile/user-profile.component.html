@@ -1,22 +1,29 @@
-<div *ngIf="user">
-  <h2>User Profile</h2>
-  <p><strong>ID:</strong> {{ user.id }}</p>
-  <p><strong>Username:</strong> {{ user.username }}</p>
-  <p><strong>Email:</strong> {{ user.email }}</p>
-  <p><strong>User Type:</strong> {{ user.user_type }}</p>
+<div class="user-profile-container">
+  <div *ngIf="user" class="user-profile">
+    <h2>User Profile</h2>
+    <div class="profile-details">
+      <p><strong>ID:</strong> {{ user.id }}</p>
+      <p><strong>Username:</strong> {{ user.username }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>User Type:</strong> {{ user.user_type }}</p>
+    </div>
 
+    <!-- Change Password Form -->
+    <div class="change-password-section">
+      <h3>Change Password</h3>
+      <form (submit)="changePassword()">
+        <div class="form-group">
+          <input type="password" [(ngModel)]="newPassword" name="newPassword" placeholder="New Password">
+        </div>
+        <div class="form-group">
+          <input type="password" [(ngModel)]="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm New Password">
+        </div>
+        <div class="form-group">
+          <button type="submit">Change Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-
-  <!-- Change Password Form -->
-  <h3>Change Password</h3>
-  <form (submit)="changePassword()">
-    <!-- Add form fields for changing password -->
-    <input type="password" [(ngModel)]="newPassword" name="newPassword" placeholder="New Password">
-    <input type="password" [(ngModel)]="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm New Password">
-    <!-- Use ngModel to enable two-way data binding -->
-    <!-- Add a submit button to submit the form -->
-    <button type="submit">Change Password</button>
-  </form>
+  <button (click)="logout()" class="logout-button">Logout</button>
 </div>
-
-<button (click)="logout()">Logout</button>
