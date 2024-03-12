@@ -1,23 +1,40 @@
 <section class="order-list">
   <h2>Order List</h2>
 
+  <!-- List of orders -->
   <div *ngIf="orders.length > 0; else noOrders" class="orders-container">
+    <!-- Order cards -->
     <div class="order-card" *ngFor="let order of orders">
       <div class="order-details">
         <p class="order-id">Order ID: {{ order.id }}</p>
         <p class="order-date">Date: {{ order.order_date | date }}</p>
         <p class="order-total">Total Amount: ${{ order.total_amount | number: '1.2-2' }}</p>
       </div>
-      <button class="delete-order-btn" (click)="deleteOrder(order.id)">Delete</button>
+      <button class="delete-order-btn" (click)="deleteOrder(order.id!)" *ngIf="order.id !== undefined">Delete</button>
     </div>
   </div>
 
+  <!-- No orders message -->
   <ng-template #noOrders>
     <p class="no-orders-msg">No orders found.</p>
   </ng-template>
 
+  <!-- Order Checkout Form -->
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="order-form">
+    <h2>Order Checkout</h2>
+    <label for="shippingAddress">Shipping Address</label>
+    <input type="text" id="shippingAddress" formControlName="shippingAddress" class="form-input">
+
+    <label for="paymentMethod">Payment Method</label>
+    <input type="text" id="paymentMethod" formControlName="paymentMethod" class="form-input">
+
+    <!-- Add more form fields as needed -->
+
+    <button type="submit" class="submit-btn">Place Order</button>
+  </form>
+
+  <!-- Total amount -->
   <div class="total-amount">
-    <button class="order-checkout-btn" (click)="viewOrderDetailsForCheckout()">Order Checkout</button>
     <span>Total Amount:</span>
     <span class="total-amount-value">${{ totalAmount | number: '1.2-2' }}</span>
   </div>

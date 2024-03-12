@@ -7,7 +7,6 @@ import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-pro
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
-import { OrderDetailsComponent } from './order/order-details/order-details.component';
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
 import { HomeComponent } from './shared/home/home.component'; // Import HomeComponent
 import { AuthGuard } from './shared/login/auth.guard';
@@ -23,15 +22,15 @@ const routes: Routes = [
   { path: 'products', component: ProductListComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'orders', component: OrderListComponent, canActivate: [AuthGuard] },
-  { path: 'orders/:id', component: OrderDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'orders/:id/:totalAmount', component: OrderDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'orders/:id', component: OrderListComponent, canActivate: [AuthGuard] }, // Update to OrderListComponent
+  { path: 'orders/:id/:totalAmount', component: OrderListComponent, canActivate: [AuthGuard] }, // Update to OrderListComponent
   { path: 'reviews/:id', component: ReviewDetailsComponent, canActivate: [AuthGuard] },
   { path: 'artisans/:id/products', component: ArtisanProductsComponent, canActivate: [AuthGuard] },
   { path: 'login/user', component: UserLoginComponent },
-  { path: 'cart', component: CartComponent }, // Add this route for the CartComponent
-  { path: 'users/current', component: UserProfileComponent, canActivate: [AuthGuard] }, // Route for fetching current user
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
-  { path: '**', redirectTo: '/home' } // Handle invalid routes
+  { path: 'cart', component: CartComponent },
+  { path: 'users/current', component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({
