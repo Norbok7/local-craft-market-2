@@ -4,9 +4,9 @@
   background-color: #f0f0f0; /* Add background color */
 }
 
-.top-title h1 {
+.title {
   margin: 0; /* Remove default margin */
-  font-size: 24px; /* Adjust font size */
+  font-size: 3rem; /* Adjust font size */
   color: #333; /* Set text color */
-  font-family: Arial, sans-serif; /* Set font family */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set font family */
 }
