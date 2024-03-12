@@ -17,10 +17,8 @@
   </ng-template>
 
   <div class="total-amount">
+    <button class="order-checkout-btn" (click)="viewOrderDetailsForCheckout()">Order Checkout</button>
     <span>Total Amount:</span>
     <span class="total-amount-value">${{ totalAmount | number: '1.2-2' }}</span>
   </div>
-
-  <!-- Button for order checkout -->
-  <button class="order-checkout-btn" (click)="viewOrderDetailsForCheckout()">Order Checkout</button>
 </section>

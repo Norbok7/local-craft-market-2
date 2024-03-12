@@ -1,3 +1,4 @@
+/* Global styles */
 .order-list {
   max-width: 800px;
   margin: 0 auto;
@@ -10,11 +11,12 @@
 }
 
 .order-card {
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative; /* Add relative positioning to the order card */
 }
 
 .order-details {
@@ -24,6 +26,7 @@
 .order-id {
   font-weight: bold;
   font-size: 18px;
+  color: #333; /* Adjusted color for better readability */
 }
 
 .order-date,
@@ -32,8 +35,11 @@
   color: #555;
 }
 
-.view-details-btn {
-  background-color: #007bff;
+/* Button styles */
+.view-details-btn,
+.delete-order-btn {
+  display: inline-block;
+  background-color: #ff0400;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -42,19 +48,29 @@
   transition: background-color 0.3s;
 }
 
-.view-details-btn:hover {
+.view-details-btn:hover,
+.delete-order-btn:hover {
   background-color: #0056b3;
 }
 
+.delete-order-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* No orders message */
 .no-orders-msg {
   font-style: italic;
   font-size: 18px;
   color: #555;
 }
 
+/* Total amount */
 .total-amount {
   margin-top: 20px;
   text-align: right;
+  position: relative; /* Add position relative */
 }
 
 .total-amount span {
@@ -64,4 +80,22 @@
 .total-amount-value {
   font-size: 1.2em;
   color: #007bff;
+}
+
+/* Remove unnecessary CSS for the order checkout button */
+.order-checkout-btn {
+  background-color: #127d12; /* Changed background color to green */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+  width: 75%; /* Set width to 75% of the parent container */
+}
+
+
+.order-checkout-btn:hover {
+  background-color: #0056b3;
 }
