@@ -36,8 +36,26 @@ export class OrderListComponent implements OnInit {
     this.totalAmount = this.orders.reduce((total, order) => total + parseFloat(order.total_amount), 0);
   }
 
-  viewOrderDetails(orderId: number): void {
-    this.router.navigate(['/orders', orderId], { queryParams: { totalAmount: this.totalAmount } });
+  deleteOrder(orderId: number): void {
+    this.orderService.deleteOrder(orderId).subscribe(
+      (response: any) => {
+        console.log('Order deleted successfully:', response);
+        // Remove the deleted order from the list
+        this.orders = this.orders.filter(order => order.id !== orderId);
+        // Recalculate the total amount
+        this.calculateTotalAmount();
+      },
+      (error) => {
+        console.error('Error deleting order:', error);
+        // Handle error
+      }
+    );
   }
 
+  viewOrderDetailsForCheckout(): void {
+    if (this.orders.length > 0) {
+      const lastOrderId = this.orders[this.orders.length - 1].id; // Get the last order ID
+      this.router.navigate(['/orders', lastOrderId]);
+    }
+  }
 }

@@ -37,10 +37,12 @@ export class OrderDetailsComponent implements OnInit {
 
   onSubmit(): void {
     if (this.orderForm.valid) {
-      const orderDetails: Order = {
-        order_date: new Date().toISOString(),
-        total_amount: this.totalAmount,
-        userId: 123 // Replace with actual user ID
+      const orderDetails: any = {
+        order: {  // Send parameters under the 'order' key
+          order_date: new Date().toISOString(),
+          total_amount: this.totalAmount,
+          user_id: 123 // Replace with actual user ID
+        }
       };
 
       this.orderService.createOrder(orderDetails).subscribe(
@@ -55,4 +57,6 @@ export class OrderDetailsComponent implements OnInit {
       );
     }
   }
+
+
 }
