@@ -11,23 +11,7 @@
   margin-bottom: 20px;
 }
 
-.filters select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #fff;
-  transition: border-color 0.3s ease;
-}
-
-.filters select:hover {
-  border-color: #007bff;
-}
-
-.search-bar {
-  position: relative;
-}
-
+.filters select,
 .search-bar input {
   padding: 10px;
   border: 1px solid #ccc;
@@ -37,8 +21,13 @@
   transition: border-color 0.3s ease;
 }
 
+.filters select:hover,
 .search-bar input:hover {
   border-color: #007bff;
+}
+
+.search-bar {
+  position: relative;
 }
 
 .search-bar button {
@@ -67,7 +56,8 @@
   justify-content: center;
 }
 
-.pagination-btn {
+.pagination-btn,
+.page-number {
   background-color: #007bff;
   border: none;
   color: white;
@@ -82,7 +72,8 @@
   transition: background-color 0.3s ease;
 }
 
-.pagination-btn:hover {
+.pagination-btn:hover,
+.page-number:hover {
   background-color: #0056b3;
 }
 
@@ -107,17 +98,18 @@
 }
 
 .product-card {
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 255, 0.4); /* Increased intensity of blue color */
+  border-radius: 15px; /* Rounded edges */
+  background-color: rgba(0, 0, 0, 0.8); /* Transparent gray background */
+  color: #fff; /* White text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjust the transparency here */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer; /* Make the mouse pointer active */
 }
 
 .product-card:hover {
   transform: scale(1.05); /* Zoom in slightly on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 255, 0.6); /* Increase shadow size and change color */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Adjust the darkness of the shadow */
 }
-
 
 .product-image {
   width: 100%;
@@ -133,12 +125,12 @@
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #333;
+  color: #fff; /* White text color */
 }
 
 .description {
   margin-bottom: 10px;
-  color: #555;
+  color: #ccc; /* Light gray text color */
 }
 
 .product-info {
@@ -150,7 +142,7 @@
 
 .price, .quantity {
   font-size: 16px;
-  color: #333;
+  color: #fff; /* White text color */
 }
 
 .product-actions {
@@ -166,12 +158,10 @@
 
 .add-to-cart {
   background-color: #007bff;
-  color: #fff;
 }
 
 .view-details {
   background-color: #17a2b8;
-  color: #fff;
 }
 
 .add-to-cart:hover, .view-details:hover {
@@ -193,40 +183,4 @@
     padding: 4px 8px;
     font-size: 14px;
   }
-}
-/* Centered container for title, sort, and search */
-.centered-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Sort and Search Bar */
-.sort-search-container {
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.sort-search-container .filters,
-.sort-search-container .search-bar {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-.sort-search-container .filters label,
-.sort-search-container .search-bar input[type="text"] {
-  margin-right: 10px;
-}
-
-.sort-search-container .search-bar button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.sort-search-container .search-bar button:hover {
-  background-color: #0056b3;
 }
