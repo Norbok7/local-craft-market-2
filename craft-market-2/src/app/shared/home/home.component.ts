@@ -14,4 +14,6 @@ export class HomeComponent implements OnInit {
   isHomePage(): boolean {
     return this.router.url === '/home'; // Adjust the URL if necessary
   }
+  exploreProducts(): void {
+}
 }

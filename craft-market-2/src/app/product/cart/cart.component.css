@@ -1,8 +1,16 @@
 .cart-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
+  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
+  color: #fff; /* White text color */
+  border-radius: 15px; /* Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+}
+
+.cart-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
 }
 
 .cart-item {
@@ -13,9 +21,15 @@
   border-radius: 8px;
   padding: 10px;
   width: 80%;
-  background-color: #fff;
+  background-color: transparent; /* Set background to transparent */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease; /* Smooth transition for box-shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+.empty-cart-message {
+  font-size: 18px;
+  color: #fff; /* White text color */
+  text-align: center; /* Center align the text */
 }
 
 .cart-item:hover {
@@ -36,14 +50,14 @@
 .item-details h3 {
   margin: 0;
   font-size: 18px;
-  color: #333;
+  color: #fff; /* White text color */
   cursor: pointer;
 }
 
 .item-price {
   margin: 5px 0;
   font-size: 16px;
-  color: #666;
+  color: #ccc; /* Light gray text color */
 }
 
 .remove-button {
@@ -75,9 +89,4 @@
 .clear-button:hover,
 .buy-now-button:hover {
   background-color: #40a9ff;
-}
-
-.empty-cart-message {
-  font-size: 18px;
-  color: #333;
 }

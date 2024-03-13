@@ -1,15 +1,18 @@
-<div *ngIf="cartItems.length > 0; else emptyCart" class="cart-container">
-  <div *ngFor="let item of cartItems" class="cart-item">
-    <img [src]="item.image_url" alt="{{ item.title }}" class="item-image" (click)="navigateToProductDetails(item.id)">
-    <div class="item-details">
-      <h3 (click)="navigateToProductDetails(item.id)">{{ item.title }}</h3>
-      <p class="item-price">$ {{ item.price }}</p>
-      <button class="remove-button" (click)="removeFromCart(item)">Remove</button>
+<br>
+<div class="cart-container">
+  <div *ngIf="cartItems.length > 0; else emptyCart">
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <img [src]="item.image_url" alt="{{ item.title }}" class="item-image" (click)="navigateToProductDetails(item.id)">
+      <div class="item-details">
+        <h3 (click)="navigateToProductDetails(item.id)">{{ item.title }}</h3>
+        <p class="item-price">$ {{ item.price }}</p>
+        <button class="remove-button" (click)="removeFromCart(item)">Remove</button>
+      </div>
     </div>
+    <button class="clear-button" (click)="clearCart()">Clear Cart</button>
+    <button class="buy-now-button" (click)="buyNow()">Proceed to Checkout</button>
   </div>
-  <button class="clear-button" (click)="clearCart()">Clear Cart</button>
-  <button class="buy-now-button" (click)="buyNow()">Proceed to Checkout</button>
+  <ng-template #emptyCart>
+    <p class="empty-cart-message">Your cart is currently empty.</p>
+  </ng-template>
 </div>
-<ng-template #emptyCart>
-  <p class="empty-cart-message">Your cart is currently empty.</p>
-</ng-template>

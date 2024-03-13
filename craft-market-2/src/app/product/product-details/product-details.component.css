@@ -2,6 +2,10 @@
   text-align: center;
   margin: 20px auto;
   max-width: 800px;
+  background-color: #fff; /* Background color for the card */
+  padding: 20px; /* Add padding to create space between content and card edges */
+  border-radius: 8px; /* Add border-radius for rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
 }
 
 .product-title {
