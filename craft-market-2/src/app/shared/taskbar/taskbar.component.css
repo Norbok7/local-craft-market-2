@@ -14,7 +14,6 @@
   height: 100%;
   background: url('https://source.unsplash.com/featured/?handcraft') center/cover;
   z-index: -1; /* Ensure the background is behind other content */
-  border-radius: 15px; /* Rounded edges */
 }
 
 /* Taskbar container */
