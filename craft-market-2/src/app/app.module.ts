@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TokenInterceptor } from './shared/login/token-interceptor.service';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
-import { TopTitleComponent } from './shared/top-title/top-title.component';
 import { TaskbarComponent } from './shared/taskbar/taskbar.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ArtisanProfileComponent } from './artisan/artisan-profile/artisan-profile.component';
@@ -23,7 +22,6 @@ import { OrderListComponent } from './order/order-list/order-list.component';
   declarations: [
     AppComponent,
     UserProfileComponent,
-    TopTitleComponent,
     TaskbarComponent,
     ProductListComponent,
     ArtisanProfileComponent,
@@ -33,6 +31,7 @@ import { OrderListComponent } from './order/order-list/order-list.component';
     CartComponent,
     ReviewDetailsComponent,
     OrderListComponent,
+    
 
   ],
   imports: [
@@ -43,6 +42,7 @@ import { OrderListComponent } from './order/order-list/order-list.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+
   ],
   providers: [
     // Provide HTTP_INTERCEPTORS token for your interceptor

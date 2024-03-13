@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="isHomePage()">
   <div class="top-title">
     <h1 class="title">Welcome to Our Craft Store!</h1>
     <p class="description">Discover Unique Creations for Your Home, Kitchen, and Office</p>
@@ -6,8 +6,6 @@
   </div>
 
   <div class="image-container">
-    <img src="https://assets.wfcdn.com/im/99182157/resize-h445%5Ecompr-r85/1783/17836880/Handmade+Solid+Wood+Landscape+%26+Nature+Wall+Decor.jpg" alt="Craft Store Image" class="image">
+    <!-- Background image will be added via CSS -->
   </div>
 </div>
-
-<div class="spacer"></div>

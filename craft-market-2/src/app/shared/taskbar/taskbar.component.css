@@ -1,64 +1,72 @@
+/* Background container */
+.background-container {
+  background: url('https://source.unsplash.com/featured/?handcraft') center/cover; /* Background image with handcrafting tools search terms */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Taskbar container */
+.taskbar {
+  text-align: center;
+  position: absolute; /* Position taskbar absolutely */
+  bottom: 0; /* Align taskbar to the bottom */
+  width: 100%; /* Full width */
+}
+
+/* Taskbar list */
 .taskbar ul {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  list-style-type: none; /* Remove default list styles */
+  justify-content: center;
+  list-style-type: none;
   padding: 0;
 }
 
+/* Taskbar list items */
 .taskbar li {
-  margin-right: 20px; /* Add spacing between items */
+  display: inline-block;
+  margin-right: 40px;
 }
 
 .taskbar li:last-child {
-  margin-right: 0; /* Remove margin from the last item */
+  margin-right: 0;
 }
 
-.taskbar {
-  background-color: #fff; /* Set background color */
-  padding: 5px 0; /* Reduce padding for smaller gap */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-}
-
-
-.taskbar ul {
-  list-style-type: none; /* Remove default list styles */
-  margin: 0;
-  padding: 0;
-  text-align: center; /* Center the list items horizontally */
-}
-
-.taskbar li {
-  display: inline-block; /* Display list items horizontally */
-  margin-right: 20px; /* Add spacing between items */
-}
-
-.taskbar li:last-child {
-  margin-right: 0; /* Remove margin from the last item */
-}
-
+/* Taskbar links */
 .taskbar a {
-  text-decoration: none; /* Remove underlines from links */
-  color: #333; /* Set link color */
-  font-weight: bold; /* Make the text bold */
-  font-size: 16px; /* Adjust font size */
-  padding: 5px 10px; /* Add padding for clickable area */
-  border-radius: 5px; /* Add rounded corners */
-  transition: background-color 0.3s ease; /* Add smooth transition for background color */
-  cursor: pointer; /* Add pointer cursor */
+  text-decoration: none;
+  color: #fff; /* Set text color to white */
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .taskbar a:hover {
-  background-color: #f0f0f0; /* Change background color on hover */
+  background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity on hover for better visibility */
 }
 
-.logged-in {
-  cursor: pointer; /* Add pointer cursor specifically for the logged-in link */
-}
-.spacer {
-  height: 20px; /* Adjust the height as needed */
-}
+/* Cart icon */
 .cart-icon {
-  width: 20px; /* Set the width of the cart icon */
-  height: 20px; /* Set the height of the cart icon */
-  margin-right: 5px; /* Add some space between the icon and text */
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+/* Top title container */
+.top-title {
+  position: absolute; /* Position the title absolutely */
+  top: 20px; /* Adjust the distance from the top */
+  left: 50%; /* Center the title horizontally */
+  transform: translateX(-50%); /* Move the title back by 50% of its width to center it */
+  text-align: center; /* Center align the text */
+  z-index: 2; /* Ensure the title is above the background image */
+}
+
+/* Title */
+.title {
+  margin: 0; /* Remove default margin */
+  font-size: 3.5rem; /* Adjust font size */
+  color: #fff; /* Set text color to white */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set font family */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow for depth */
 }
