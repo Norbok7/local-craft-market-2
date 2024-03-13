@@ -18,19 +18,19 @@
           </select>
         </label>
       </div>
-      <div class="search-bar">
-        <input type="text" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Filtered Search">
-      </div>
-    </div>
-  </div>
-
-  <!-- Pagination -->
+        <!-- Pagination -->
   <div class="pagination">
     <button (click)="prevPage()" [disabled]="currentPage === 1" class="pagination-btn">Previous</button>
     <ng-container *ngFor="let pageNumber of totalPages">
       <span (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage" class="page-number">{{ pageNumber }}</span>
     </ng-container>
     <button (click)="nextPage()" [disabled]="currentPage === totalPages.length" class="pagination-btn">Next</button>
+  </div>
+      <div class="search-bar">
+        <input type="text" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Filtered Search">
+      </div>
+
+    </div>
   </div>
 
   <!-- Product Grid -->
@@ -56,8 +56,17 @@
     </div>
   </div>
 
+  <!-- Pagination (Second Instance) -->
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1" class="pagination-btn">Previous</button>
+    <ng-container *ngFor="let pageNumber of totalPages">
+      <span (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage" class="page-number">{{ pageNumber }}</span>
+    </ng-container>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages.length" class="pagination-btn">Next</button>
+  </div>
+
   <!-- No Products Message -->
   <div *ngIf="filteredProducts.length === 0" class="no-products">
-    <p>No products available.</p>
+    <p style="text-align: center;">No products available.</p>
   </div>
 </div>

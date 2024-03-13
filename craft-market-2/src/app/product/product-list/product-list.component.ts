@@ -14,7 +14,7 @@ export class ProductListComponent implements OnInit {
   filteredProducts: Product[] = [];
   pagedProducts: Product[] = [];
   selectedSortOption: string = '';
-  itemsPerPage = 20;
+  itemsPerPage = 18;
   currentPage = 1;
   searchTerm: string = '';
 

@@ -2,6 +2,7 @@
 .background-container {
   position: relative; /* Ensure proper positioning */
   overflow: auto; /* Allow content to scroll */
+  border-radius: 15px; /* Rounded edges */
 }
 
 /* Background image */
@@ -13,6 +14,7 @@
   height: 100%;
   background: url('https://source.unsplash.com/featured/?handcraft') center/cover;
   z-index: -1; /* Ensure the background is behind other content */
+  border-radius: 15px; /* Rounded edges */
 }
 
 /* Taskbar container */
@@ -22,6 +24,7 @@
   background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
   z-index: 1;
   padding: 2px 0; /* Increase padding top and bottom */
+  border-radius: 15px; /* Rounded edges */
 }
 
 /* Taskbar list */
@@ -57,6 +60,25 @@
   background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity on hover for better visibility */
 }
 
+/* Title card */
+.title-card {
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
+  padding: 20px;
+  border-radius: 8px; /* Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+  margin-bottom: 20px; /* Add some space between the card and the taskbar */
+}
+
+/* Title */
+.title {
+  margin: 0; /* Remove default margin */
+  font-size: 3.5rem; /* Adjust font size */
+  color: #fff; /* Set text color to white */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set font family */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow for depth */
+  text-align: center; /* Center align the text horizontally */
+}
+
 /* Cart icon */
 .cart-icon {
   width: 24px;
@@ -81,5 +103,5 @@
   z-index: 2;
   margin: 0; /* Remove any default margin */
   padding: 0; /* Remove any default padding */
+  border-radius: 15px; /* Rounded edges */
 }
-
