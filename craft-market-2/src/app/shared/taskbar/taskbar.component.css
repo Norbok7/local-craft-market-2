@@ -21,7 +21,7 @@
   position: relative; /* Ensure relative positioning */
   left: 0;
   width: 100%;
-  padding: 115px 0; /* Increase padding top and bottom */
+  padding-top: 115px;
   border-radius: 15px 15px 0 0; /* Rounded edges only on the top */
   /* background: linear-gradient(rgba(255, 255, 255, 0.724), rgba(0, 0, 0, 0)); Semi-transparent black background with fading effect */
   z-index: 2; /* Ensure the taskbar appears above the title card */
@@ -47,34 +47,33 @@
 /* Taskbar links */
 .taskbar a {
   text-decoration: none;
-  color: #000000; /* Dark brown color for better contrast */
+  color: #ffffff; /* Dark brown color for better contrast */
   font-weight: bold;
   font-size: 23px;
-  padding: 10px 20px;
   border-radius: 8px;
   transition: background-color 0.3s ease;
   cursor: pointer;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* White shadow around the text */
+  text-shadow: 2px 2px 7px rgb(0, 0, 0); /* White shadow around the text */
 }
 
 .taskbar a:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity on hover for better visibility */
 }
 
-/* Title card */
+
 /* Title card */
 .title-card {
   position: absolute; /* Ensure absolute positioning */
   top: 0;
   left: 50%; /* Center the title card horizontally */
   transform: translateX(-50%); /* Center the title card horizontally */
-  width: 80%; /* Set width */
+  width: 50%; /* Set width */
   max-width: 1200px; /* Set max width */
-  padding: 20px;
+  padding: 10px;
   height: 150px;
   border-radius: 8px; /* Rounded edges */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  background: rgba(0, 0, 0, 0.3);
+  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
   z-index: 1; /* Ensure the title card appears above the background */
 }
 
@@ -82,9 +81,9 @@
 .title {
   margin: 0; /* Remove default margin */
   font-size: 3.5rem; /* Adjust font size */
-  color: #000000; /* Set text color to black */
+  color: #ffffff; /* Set text color to black */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set font family */
   text-align: center; /* Center align the text horizontally */
-  text-shadow: 1px 1px 2px rgb(255, 255, 255); /* White shadow around the text */
+  text-shadow: 1px 1px 7px rgb(0, 0, 0); /* White shadow around the text */
 }
 

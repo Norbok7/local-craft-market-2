@@ -2,8 +2,9 @@
 .order-list {
   max-width: 800px;
   margin: 0 auto;
-}
-
+  color: white;
+  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
+  text-align: center;
 .orders-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -11,28 +12,30 @@
 }
 
 .order-card {
-  background-color: #ffffff;
+  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   position: relative; /* Add relative positioning to the order card */
+
 }
 
 .order-details {
   margin-bottom: 15px;
+  color: white;
 }
 
 .order-id {
   font-weight: bold;
   font-size: 18px;
-  color: #333; /* Adjusted color for better readability */
+  color: #ffffff; /* Adjusted color for better readability */
 }
 
 .order-date,
 .order-total {
   font-size: 16px;
-  color: #555;
+  color: #ffffff;
 }
 
 /* Button styles */
@@ -71,6 +74,7 @@
   margin-top: 20px;
   text-align: right;
   position: relative; /* Add position relative */
+  color: white;
 }
 
 .total-amount span {
@@ -100,13 +104,14 @@
   background-color: #0056b3;
 }
 .order-form-container {
-  background-color: #ffffff;
+  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   position: relative;
   margin-bottom: 20px; /* Add margin-bottom to separate it from other elements */
+  color: white;
 }
 
 .order-form label {
