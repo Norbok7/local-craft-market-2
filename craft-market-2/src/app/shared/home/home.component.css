@@ -80,3 +80,42 @@
   }
 
 
+  .title-card {
+    border-radius: 15px;
+    background-color: #00000000;
+  }
+
+  .option-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+
+  }
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .option {
+    width: 25%; /* Each button takes up 25% of the total width */
+    padding: 15px 30px; /* Increased padding for better clickability */
+    border-radius: 25px; /* Rounded button shape */
+    font-size: 18px; /* Increased font size for better visibility */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    outline: none; /* Remove default focus outline */
+    background-color: #529db9; /* Light blue button color */
+    color: #ffffff; /* White text color */
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .option:not(:last-child) {
+    margin-right: 2%; /* Space between buttons */
+  }
+
+  .option:hover {
+    background-color: #3e9699; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  }

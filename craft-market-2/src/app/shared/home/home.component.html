@@ -1,9 +1,19 @@
 <div class="background-container">
+  <!-- Title section -->
   <div class="top-title">
     <h1 class="title">Welcome to Our Craft Store!</h1>
     <p class="description">Discover Unique Creations for Your Home, Kitchen, and Office</p>
     <p class="explore">Explore Our Artisans' Masterpieces or Search for Specific Items</p>
     <input type="text" [(ngModel)]="searchTerm" (keyup.enter)="searchProducts()" placeholder="Search our Crafts" class="search-input">
     <button (click)="searchProducts()" class="search-button">Search</button>
+  </div>
+
+  <!-- Option card -->
+  <div class="title-card">
+    <div class="options">
+      <div class="option" (click)="login()">Login</div>
+      <div class="option" (click)="createUser()">Create User</div>
+      <div class="option" (click)="createArtisan()">Create Artisan</div>
+    </div>
   </div>
 </div>
