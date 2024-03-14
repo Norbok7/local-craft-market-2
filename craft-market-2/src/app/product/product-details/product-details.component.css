@@ -2,7 +2,7 @@
   text-align: center;
   margin: 20px auto;
   max-width: 800px;
-  background-color: #fff; /* Background color for the card */
+  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
   padding: 20px; /* Add padding to create space between content and card edges */
   border-radius: 8px; /* Add border-radius for rounded corners */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
@@ -11,11 +11,12 @@
 .product-title {
   font-size: 32px;
   margin-bottom: 20px;
+  color: white;
 }
 
 .total-rating {
   font-size: 24px;
-  color: #ffc107;
+  color: #ffbf00;
   margin-bottom: 20px;
 }
 
@@ -23,6 +24,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  color: white;
 }
 
 .product-image {
@@ -41,6 +43,7 @@
 
 .product-info {
   text-align: left;
+
 }
 
 .add-to-cart-btn {
@@ -59,6 +62,7 @@
 
 .add-review-container {
   margin-top: 30px;
+  color: white;
 }
 
 .add-review-btn {
@@ -74,13 +78,16 @@
 .add-review-btn:hover {
   background-color: #218838;
 }
+.section-title { color: white;}
 
 .review-form {
   margin-top: 20px;
-}
 
+}
+.review-item{ color: white;}
 .form-group {
   margin-bottom: 20px;
+  /* color: white; */
 }
 
 #rating {
@@ -98,7 +105,7 @@
 }
 
 .submit-review-btn {
-  background-color: #dc3545;
+  background-color: #0056b3;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -108,11 +115,11 @@
 }
 
 .submit-review-btn:hover {
-  background-color: #c82333;
+  background-color: #23c839;
 }
 
 .review-item {
-  background-color: #f8f9fa;
+  background-color: rgba(245, 241, 241, 0.382); /* Semi-transparent dark background */
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -129,8 +136,9 @@
 
 /* Add shadow effect to product card */
 .product-card {
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1); /* Shadow effect */
   transition: box-shadow 0.3s ease; /* Smooth transition */
+  color: white;
 }
 
 /* Add hover effect to increase shadow */

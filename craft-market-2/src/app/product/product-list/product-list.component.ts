@@ -104,12 +104,13 @@ export class ProductListComponent implements OnInit {
 
   navigateToProductDetails(productId: number | undefined): void {
     if (productId) {
-      this.router.navigate(['/products'], { queryParams: { search: this.searchTerm } });
+      this.router.navigate(['/products', productId]);
     } else {
       console.error('Product ID is undefined');
       // Handle the case where product ID is undefined
     }
   }
+
 
 
 
