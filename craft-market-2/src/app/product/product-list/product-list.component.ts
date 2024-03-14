@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router'; // Import ActivatedRoute
 import { ProductService } from '../product.service';
 import { Product } from '../product.model';
-import { Router } from '@angular/router';
 import { CartService } from '../cartservice.service';
 
 @Component({
@@ -18,10 +18,17 @@ export class ProductListComponent implements OnInit {
   currentPage = 1;
   searchTerm: string = '';
 
-  constructor(private cartService: CartService, private productService: ProductService, private router: Router) { }
+  constructor(private cartService: CartService, private router: Router, private productService: ProductService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.route.queryParams.subscribe(params => {
+      if (params['search']) {
+        this.searchTerm = params['search'];
+        this.applyFilter(); // Apply filter based on the search term
+      }
+    });
+
+    this.getProducts(); // Fetch products
   }
 
   getProducts(): void {
@@ -97,12 +104,14 @@ export class ProductListComponent implements OnInit {
 
   navigateToProductDetails(productId: number | undefined): void {
     if (productId) {
-      this.router.navigate(['/products', productId]);
+      this.router.navigate(['/products'], { queryParams: { search: this.searchTerm } });
     } else {
       console.error('Product ID is undefined');
       // Handle the case where product ID is undefined
     }
   }
+
+
 
   addToCart(product: Product): void { // Method to add product to cart
     this.cartService.addToCart(product); // Call addToCart method in CartService

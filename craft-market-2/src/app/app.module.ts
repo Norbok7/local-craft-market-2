@@ -17,6 +17,7 @@ import { ProductDetailsComponent } from './product/product-details/product-detai
 import { CartComponent } from './product/cart/cart.component';
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
+import { HomeComponent } from './shared/home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { OrderListComponent } from './order/order-list/order-list.component';
     CartComponent,
     ReviewDetailsComponent,
     OrderListComponent,
-
+    HomeComponent,
 
   ],
   imports: [

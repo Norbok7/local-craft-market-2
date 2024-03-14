@@ -2,5 +2,6 @@
   <h1 class="title">Welcome to Our Craft Store!</h1>
   <p class="description">Discover Unique Creations for Your Home, Kitchen, and Office</p>
   <p class="explore">Explore Our Artisans' Masterpieces or Search for Specific Items</p>
-  <a (click)="exploreProducts()" class="shop-now">Shop Now</a>
+  <input type="text" [(ngModel)]="searchTerm" (keyup.enter)="searchProducts()" placeholder="Enter search term">
+  <button (click)="searchProducts()" class="search-button">Search</button>
 </div>
