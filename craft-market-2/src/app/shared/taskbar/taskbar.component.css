@@ -20,10 +20,11 @@
 .taskbar {
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.359); /* Semi-transparent black background */
+  background: linear-gradient(rgba(255, 255, 255, 0.724), rgba(0, 0, 0, 0)); /* Semi-transparent black background with fading effect */
   z-index: 1;
-  padding: 2px 0; /* Increase padding top and bottom */
+  padding: 10px 0; /* Increase padding top and bottom */
   border-radius: 15px; /* Rounded edges */
+  transition: background 0.3s ease; /* Smooth transition effect */
 }
 
 /* Taskbar list */
@@ -44,20 +45,24 @@
 }
 
 /* Taskbar links */
+
 .taskbar a {
   text-decoration: none;
-  color: #fff; /* Set text color to white */
+  color: #000000; /* Dark brown color for better contrast */
   font-weight: bold;
   font-size: 23px;
   padding: 10px 20px;
   border-radius: 8px;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* White shadow around the text */
 }
 
 .taskbar a:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity on hover for better visibility */
 }
+
+
 
 /* Title card */
 .title-card {
@@ -66,41 +71,20 @@
   border-radius: 8px; /* Rounded edges */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
   margin-bottom: 20px; /* Add some space between the card and the taskbar */
+  background: linear-gradient(rgba(255, 255, 255, 0.724), rgba(0, 0, 0, 0)); /* Semi-transparent black background with fading effect */
+
 }
 
 /* Title */
 .title {
   margin: 0; /* Remove default margin */
   font-size: 3.5rem; /* Adjust font size */
-  color: #fff; /* Set text color to white */
+  color: #000000; /* Set text color to black */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set font family */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow for depth */
   text-align: center; /* Center align the text horizontally */
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* White shadow around the text */
 }
 
-/* Cart icon */
-.cart-icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-}
 
-/* Title */
-.title {
-  font-size: 3.5rem; /* Adjust font size */
-  color: #fff; /* Set text color to white */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set font family */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow for depth */
-  text-align: center; /* Center align the text horizontally */
-}
-.top-title {
-  position: relative;
-  top: 0; /* Ensure the title starts at the very top */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 2;
-  margin: 0; /* Remove any default margin */
-  padding: 0; /* Remove any default padding */
-  border-radius: 15px; /* Rounded edges */
-}
+
+

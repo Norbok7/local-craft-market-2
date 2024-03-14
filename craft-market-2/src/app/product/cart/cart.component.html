@@ -1,6 +1,6 @@
-<br>
+
 <div class="cart-container">
-  <div *ngIf="cartItems.length > 0; else emptyCart">
+  <div *ngIf="cartItems.length > 0; else emptyCart" class="cart-content">
     <div *ngFor="let item of cartItems" class="cart-item">
       <img [src]="item.image_url" alt="{{ item.title }}" class="item-image" (click)="navigateToProductDetails(item.id)">
       <div class="item-details">

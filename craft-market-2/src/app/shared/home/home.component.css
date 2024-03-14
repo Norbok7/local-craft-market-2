@@ -4,6 +4,9 @@
   z-index: 2;
   margin: 0;
   padding: 0;
+}
+
+.title-card {
   background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
   padding: 20px;
   border-radius: 8px; /* Rounded edges */
@@ -12,24 +15,28 @@
 }
 
 
+/* Title */
 .title {
   font-size: 48px;
   margin-bottom: 10px;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px black; /* White shadow with a black shadow for more prominence */
 }
 
 .description {
   font-size: 24px;
   margin-bottom: 20px;
   color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5), 0 0 10px black; /* White shadow with a black shadow for more prominence */
 }
 
 .explore {
   font-size: 20px;
   color: white;
   font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5), 0 0 10px black; /* White shadow with a black shadow for more prominence */
 }
+
 
 .shop-now {
   display: inline-block;
