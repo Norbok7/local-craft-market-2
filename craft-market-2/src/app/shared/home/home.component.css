@@ -15,14 +15,14 @@
 
 .title {
   font-size: 48px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   color: #ffffff; /* White text color for contrast */
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Soft shadow for prominence */
 }
 
 .description {
   font-size: 24px;
-  margin-bottom: 15px; /* Adjusted margin for better spacing */
+  margin-bottom: 0px; /* Adjusted margin for better spacing */
   color: #ffffff; /* White text color for contrast */
   line-height: 1.5; /* Increased line height for better readability */
 }
@@ -66,56 +66,23 @@
   transform: scale(1.05); /* Slightly scale up on hover */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
-.background-container {
 
-    position: relative; /* Ensure absolute positioning */
-    width: 50%; /* Set width */
-    max-width: 1200px; /* Set max width */
-    margin: 0 auto; /* Align center */
-    border-radius: 15px; /* Rounded edges */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
-    z-index: 1;
-    padding: 10px;
+
+  .home-page-section .product-card {
+    /* Add your custom CSS rules here to make the cards smaller */
+    width: 60%; /* Adjust as needed */
+  height: auto; /* Adjust as needed */
+    /* Add any other styling properties as needed */
   }
 
-
-  .title-card {
-    border-radius: 15px;
-    background-color: #00000000;
+  .home-page-section .product-card h2 {
+    /* Adjust the title size or any other styles as needed */
+    font-size: 16px;
   }
 
-  .option-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #ffffff;
-
+  .home-page-section .product-card .description {
+    /* Adjust the description size or any other styles as needed */
+    font-size: 14px;
   }
 
-  .options {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .option {
-    width: 25%; /* Each button takes up 25% of the total width */
-    padding: 15px 30px; /* Increased padding for better clickability */
-    border-radius: 25px; /* Rounded button shape */
-    font-size: 18px; /* Increased font size for better visibility */
-    transition: all 0.3s ease; /* Smooth transition for all properties */
-    outline: none; /* Remove default focus outline */
-    background-color: #529db9; /* Light blue button color */
-    color: #ffffff; /* White text color */
-    cursor: pointer;
-    text-align: center;
-  }
-
-  .option:not(:last-child) {
-    margin-right: 2%; /* Space between buttons */
-  }
-
-  .option:hover {
-    background-color: #3e9699; /* Darker blue on hover */
-    transform: scale(1.05); /* Slightly scale up on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-  }
+  /* Add any other overrides for specific elements within the product card */

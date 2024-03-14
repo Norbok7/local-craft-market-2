@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; // Import ActivatedRoute
 import { ProductService } from '../product.service';
 import { Product } from '../product.model';
@@ -19,6 +19,7 @@ export class ProductListComponent implements OnInit {
   searchTerm: string = '';
 
   constructor(private cartService: CartService, private router: Router, private productService: ProductService, private route: ActivatedRoute) { }
+  @Input() maxDisplayedProducts: number = 18; // Default to display 5 products
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {

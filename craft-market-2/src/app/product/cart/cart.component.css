@@ -1,7 +1,8 @@
 .cart-container {
-  max-width: 1200px;
+  width: 50%;
+
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px;
   background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
   color: #fff; /* White text color */
   border-radius: 15px; /* Rounded edges */
