@@ -12,7 +12,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('https://source.unsplash.com/featured/?woodcraft') center/cover;
+  background: url('https://source.unsplash.com/featured/?handcrafted') center/cover;
   z-index: -1; /* Ensure the background is behind other content */
 }
 
@@ -20,7 +20,7 @@
 .taskbar {
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  background-color: rgba(0, 0, 0, 0.359); /* Semi-transparent black background */
   z-index: 1;
   padding: 2px 0; /* Increase padding top and bottom */
   border-radius: 15px; /* Rounded edges */
@@ -48,7 +48,7 @@
   text-decoration: none;
   color: #fff; /* Set text color to white */
   font-weight: bold;
-  font-size: 16px;
+  font-size: 23px;
   padding: 10px 20px;
   border-radius: 8px;
   transition: background-color 0.3s ease;

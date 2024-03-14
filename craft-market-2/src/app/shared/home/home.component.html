@@ -1,11 +1,6 @@
-<div class="container" *ngIf="isHomePage()">
-  <div class="top-title">
-    <h1 class="title">Welcome to Our Craft Store!</h1>
-    <p class="description">Discover Unique Creations for Your Home, Kitchen, and Office</p>
-    <p class="explore">Explore Our Artisans' Masterpieces or Search for Specific Items</p>
-    <button class="explore-button" (click)="exploreProducts()">Explore Products</button>
-  </div>
-
-  <div class="image-container"></div>
+<div class="top-title">
+  <h1 class="title">Welcome to Our Craft Store!</h1>
+  <p class="description">Discover Unique Creations for Your Home, Kitchen, and Office</p>
+  <p class="explore">Explore Our Artisans' Masterpieces or Search for Specific Items</p>
+  <a (click)="exploreProducts()" class="shop-now">Shop Now</a>
 </div>
-

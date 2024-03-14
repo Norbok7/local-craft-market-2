@@ -15,5 +15,10 @@ export class HomeComponent implements OnInit {
     return this.router.url === '/home'; // Adjust the URL if necessary
   }
   exploreProducts(): void {
-}
+    this.router.navigate(['/products']);
+  }
+
+
+
+
 }
