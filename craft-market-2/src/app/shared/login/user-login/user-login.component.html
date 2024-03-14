@@ -1,40 +1,42 @@
-<!-- user-login.component.html -->
+<div class="login-container">
+  <!-- Login Form -->
+  <form (ngSubmit)="loginUser()" #userLoginForm="ngForm" class="login-form">
+    <div class="form-group">
+      <h1>Login:</h1>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    </div>
+    <button type="submit">Login</button>
+  </form>
 
-<!-- Login Form -->
-<form (ngSubmit)="loginUser()" #userLoginForm="ngForm" class="login-form">
-  <div class="form-group">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" [(ngModel)]="username" required>
-  </div>
-  <div class="form-group">
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" [(ngModel)]="password" required>
-  </div>
-  <button type="submit">Login</button>
-</form>
+  <hr>
 
-<hr>
-
-<!-- Registration Form -->
-<form (ngSubmit)="registerUser()" #userRegistrationForm="ngForm" class="registration-form">
-  <div class="form-group">
-    <label for="regUsername">Username:</label>
-    <input type="text" id="regUsername" name="regUsername" [(ngModel)]="user.username" required>
-  </div>
-  <div class="form-group">
-    <label for="regPassword">Password:</label>
-    <input type="password" id="regPassword" name="regPassword" [(ngModel)]="user.password" required>
-  </div>
-  <div class="form-group">
-    <label for="regEmail">Email:</label>
-    <input type="email" id="regEmail" name="regEmail" [(ngModel)]="user.email" required>
-  </div>
-  <div class="form-group">
-    <label for="regUserType">User Type:</label>
-    <select id="regUserType" name="regUserType" [(ngModel)]="user.user_type" required>
-      <option value="Artisan">Artisan</option>
-      <option value="Buyer">Buyer</option>
-    </select>
-  </div>
-  <button type="submit">Register</button>
-</form>
+  <!-- Registration Form -->
+  <form (ngSubmit)="registerUser()" #userRegistrationForm="ngForm" class="registration-form">
+    <div class="form-group">
+      <h1>Create Account:</h1>
+      <label for="regUsername">Username:</label>
+      <input type="text" id="regUsername" name="regUsername" [(ngModel)]="user.username" required>
+    </div>
+    <div class="form-group">
+      <label for="regPassword">Password:</label>
+      <input type="password" id="regPassword" name="regPassword" [(ngModel)]="user.password" required>
+    </div>
+    <div class="form-group">
+      <label for="regEmail">Email:</label>
+      <input type="email" id="regEmail" name="regEmail" [(ngModel)]="user.email" required>
+    </div>
+    <div class="form-group">
+      <label for="regUserType">User Type:</label>
+      <select id="regUserType" name="regUserType" [(ngModel)]="user.user_type" required>
+        <option value="Artisan">Artisan</option>
+        <option value="Buyer">Buyer</option>
+      </select>
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</div>

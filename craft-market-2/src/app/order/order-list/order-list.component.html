@@ -19,7 +19,8 @@
     <p class="no-orders-msg">No orders found.</p>
   </ng-template>
 
-  <!-- Order Checkout Form -->
+ <!-- Order Checkout Form -->
+<div class="order-form-container">
   <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="order-form">
     <h2>Order Checkout</h2>
     <label for="shippingAddress">Shipping Address</label>
@@ -38,4 +39,5 @@
     <span>Total Amount:</span>
     <span class="total-amount-value">${{ totalAmount | number: '1.2-2' }}</span>
   </div>
+</div>
 </section>

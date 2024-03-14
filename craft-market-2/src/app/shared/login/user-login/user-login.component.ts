@@ -13,8 +13,13 @@ export class UserLoginComponent {
   username: string = '';
   password: string = '';
   user: User = { username: '', password: '', email: '', user_type: '' }; // Define user property
+  isRegistering: boolean = false; // Flag to track if the user is registering
 
   constructor(private authService: AuthService, private userService: UserService, private router: Router) {}
+
+  toggleForm(): void {
+    this.isRegistering = !this.isRegistering; // Toggle the form between login and registration
+  }
 
   loginUser(): void {
     this.authService.login({ username: this.username, password: this.password }).subscribe(
@@ -39,6 +44,7 @@ export class UserLoginComponent {
       (user) => {
         // Handle successful user registration
         console.log('User registered:', user);
+        this.isRegistering = false; // After successful registration, switch back to login form
       },
       (error) => {
         // Handle user registration error

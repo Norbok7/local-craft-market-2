@@ -99,3 +99,39 @@
 .order-checkout-btn:hover {
   background-color: #0056b3;
 }
+.order-form-container {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 20px; /* Add margin-bottom to separate it from other elements */
+}
+
+.order-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.order-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.order-form .submit-btn {
+  background-color: #127d12; /* Changed background color to green */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.order-form .submit-btn:hover {
+  background-color: #0056b3;
+}

@@ -31,7 +31,7 @@ import { OrderListComponent } from './order/order-list/order-list.component';
     CartComponent,
     ReviewDetailsComponent,
     OrderListComponent,
-    
+
 
   ],
   imports: [
