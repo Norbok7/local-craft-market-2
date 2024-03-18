@@ -10,7 +10,7 @@ import { OrderListComponent } from './order/order-list/order-list.component';
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
 import { HomeComponent } from './shared/home/home.component'; // Import HomeComponent
 import { AuthGuard } from './shared/login/auth.guard';
-import { UserLoginComponent } from './shared/login/user-login/user-login.component';
+import { UserLoginComponent } from './shared/login/user-artisan-login/user-login.component';
 import { CartComponent } from './product/cart/cart.component';
 
 const routes: Routes = [
@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'user-orders', component: UserOrdersComponent, canActivate: [AuthGuard] },
   { path: 'artisan-profile', component: ArtisanProfileComponent, canActivate: [AuthGuard] },
   { path: 'artisan-products', component: ArtisanProductsComponent, canActivate: [AuthGuard] },
+  { path: 'artisan/:id', component: ArtisanProfileComponent },
   { path: 'products', component: ProductListComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'orders', component: OrderListComponent, canActivate: [AuthGuard] },

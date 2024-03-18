@@ -1,6 +1,6 @@
 <div class="login-container">
   <!-- Login Form -->
-  <form (ngSubmit)="loginUser()" #userLoginForm="ngForm" class="login-form">
+  <form *ngIf="!isRegistering" (ngSubmit)="loginUser()" #userLoginForm="ngForm" class="login-form">
     <div class="form-group">
       <h1>Login:</h1>
       <label for="username">Username:</label>
@@ -10,13 +10,22 @@
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" [(ngModel)]="password" required>
     </div>
+    <div class="form-group">
+      <label for="userType">User Type:</label>
+      <select id="userType" name="userType" [(ngModel)]="userType" required>
+        <option value="Artisan">Artisan</option>
+        <option value="Buyer">Buyer</option>
+      </select>
+    </div>
     <button type="submit">Login</button>
+    <button (click)="toggleForm()">{{ isRegistering ? 'Login' : 'Register' }}</button>
+
   </form>
 
   <hr>
 
   <!-- Registration Form -->
-  <form (ngSubmit)="registerUser()" #userRegistrationForm="ngForm" class="registration-form">
+  <form *ngIf="isRegistering" (ngSubmit)="registerUser()" #userRegistrationForm="ngForm" class="registration-form">
     <div class="form-group">
       <h1>Create Account:</h1>
       <label for="regUsername">Username:</label>
@@ -36,7 +45,9 @@
         <option value="Artisan">Artisan</option>
         <option value="Buyer">Buyer</option>
       </select>
+      <button (click)="toggleForm()">{{ isRegistering ? 'Login' : 'Register' }}</button>
     </div>
     <button type="submit">Register</button>
   </form>
+
 </div>

@@ -12,7 +12,7 @@ import { TaskbarComponent } from './shared/taskbar/taskbar.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ArtisanProfileComponent } from './artisan/artisan-profile/artisan-profile.component';
 import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-products.component';
-import { UserLoginComponent } from './shared/login/user-login/user-login.component';
+import { UserLoginComponent } from './shared/login/user-artisan-login/user-login.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { CartComponent } from './product/cart/cart.component';
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
@@ -43,6 +43,7 @@ import { HomeComponent } from './shared/home/home.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+
 
   ],
   providers: [
