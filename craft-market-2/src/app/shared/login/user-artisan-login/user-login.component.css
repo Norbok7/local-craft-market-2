@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ensure the container takes up the full height of the viewport */
   color: white;
+  padding: 20px;
 }
 
 .login-form,
@@ -57,7 +57,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #24b300;
 }
 
 hr {
