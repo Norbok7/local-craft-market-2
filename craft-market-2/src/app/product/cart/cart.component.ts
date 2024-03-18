@@ -15,6 +15,7 @@ import { OrderItem } from '../../order/order-item.model';
 export class CartComponent implements OnInit {
   cartItems: Product[] = [];
   isProcessing: boolean = false; // Flag to track whether the "Buy Now" button is being processed
+  errorMessage: string | null = null; // Variable to hold error message
 
   constructor(
     private cartService: CartService,
@@ -33,6 +34,12 @@ export class CartComponent implements OnInit {
   }
 
   buyNow(): void {
+    if (!this.authService.isLoggedIn()) {
+      // Log a message to the console if the user is not logged in
+      console.log('Please log in to proceed.');
+      return;
+    }
+
     // Disable the "Buy Now" button to prevent multiple clicks
     this.isProcessing = true;
 
