@@ -1,1 +1,16 @@
-<p>user-orders works!</p>
+<p>User Orders</p>
+
+<div *ngIf="orders.length > 0; else noOrders">
+  <ul>
+    <li *ngFor="let order of orders">
+      <h3>Order ID: {{ order.id }}</h3>
+      <p>Order Date: {{ order.order_date }}</p>
+      <p>Total Amount: {{ order.total_amount }}</p>
+      <!-- Add more order details here as needed -->
+    </li>
+  </ul>
+</div>
+
+<ng-template #noOrders>
+  <p>No orders found.</p>
+</ng-template>

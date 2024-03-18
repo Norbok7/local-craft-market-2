@@ -33,4 +33,9 @@ export class OrderService {
   deleteOrder(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/orders/${id}`);
   }
+  getOrdersByUserId(userId: number): Observable<Order[]> {
+    // Modify the endpoint to fetch orders for a specific user by their ID
+    return this.http.get<Order[]>(`${this.apiUrl}/users/${userId}/orders`);
+  }
+
 }

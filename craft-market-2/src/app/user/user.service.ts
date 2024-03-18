@@ -5,6 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { User } from './user.model';
 import { environment } from '../../environments/environment';
 import { Artisan } from '../artisan/artisan.model';
+import { Order } from '../order/order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,12 @@ export class UserService {
 
   getUserById(id: number): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/users/${id}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getUserOrders(userId: number): Observable<Order[]> {
+    return this.http.get<Order[]>(`${this.apiUrl}/users/${userId}/orders`).pipe(
       catchError(this.handleError)
     );
   }

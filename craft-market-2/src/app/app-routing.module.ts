@@ -16,7 +16,7 @@ import { CartComponent } from './product/cart/cart.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
-  { path: 'user-orders', component: UserOrdersComponent, canActivate: [AuthGuard] },
+  { path: 'users/:id/orders', component: UserOrdersComponent, canActivate: [AuthGuard] },
   { path: 'artisan-profile', component: ArtisanProfileComponent, canActivate: [AuthGuard] },
   { path: 'artisan-products', component: ArtisanProductsComponent, canActivate: [AuthGuard] },
   { path: 'artisan/:id', component: ArtisanProfileComponent },
