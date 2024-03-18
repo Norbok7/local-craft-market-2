@@ -16,26 +16,36 @@ export class UserOrdersComponent implements OnInit {
     private orderService: OrderService
   ) { }
 
-  ngOnInit(): void {
-    // Retrieve user ID from route parameters
+   ngOnInit(): void {
     const userId = this.route.snapshot.paramMap.get('id');
     if (userId) {
       this.orderService.getOrdersByUserId(parseInt(userId, 10)).subscribe(
         (orders: Order[]) => {
-          this.orders = orders;
+          this.orders = orders.map(order => {
+            // Extract the product ID from the order's items
+            const productId = this.getOrderProductId(order);
+            // Return a new order object with productId property
+            return { ...order, productId };
+          });
 
-          // Log the orders array after it's filled
           console.log('Orders:', this.orders);
         },
         (error) => {
           console.error('Error fetching orders:', error);
-          // Handle error, maybe set a flag for displaying an error message in the template
         }
       );
     } else {
       console.error('User ID is missing from route parameters');
-      // Handle missing user ID
     }
   }
 
+  getOrderProductId(order: Order): number | undefined {
+    // Check if 'items' property exists and is not null or undefined
+    if (order && order.items && order.items.length > 0) {
+      // Assuming the product ID is stored in the first item of the order's items array
+      return order.items[0]?.product_id;
+    }
+    // Return undefined if 'items' property is not defined or empty
+    return undefined;
+  }
 }

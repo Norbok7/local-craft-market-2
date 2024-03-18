@@ -6,7 +6,7 @@
     </div>
     <div class="taskbar">
       <ul>
-        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <!-- <li><a routerLink="/home" routerLinkActive="active">Home</a></li> -->
         <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
         <li *ngIf="!(isLoggedIn$ | async)">
           <a routerLink="/login/user" routerLinkActive="active">Login</a>

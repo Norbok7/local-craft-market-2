@@ -45,3 +45,37 @@
 .order-details p {
   margin: 5px 0;
 }
+/* Add this CSS to your existing stylesheet */
+.product-item {
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Additional styling for the mouse clicker effect */
+.product-item:hover::after {
+  content: ''; /* Create an invisible pseudo-element */
+  position: absolute; /* Position the pseudo-element */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  width: 20px; /* Set width of the pseudo-element */
+  height: 20px; /* Set height of the pseudo-element */
+  border: 2px solid #000; /* Add border */
+  border-radius: 50%; /* Make it round */
+  pointer-events: none; /* Ensure it doesn't interfere with clicks */
+  animation: clickerAnimation 1s infinite; /* Apply animation */
+}
+
+/* Keyframes for the clicker animation */
+@keyframes clickerAnimation {
+  0% {
+    transform: scale(1); /* Start with normal size */
+    opacity: 1; /* Start fully visible */
+  }
+  50% {
+    transform: scale(1.5); /* Grow to 1.5 times the size */
+    opacity: 0; /* Fade out */
+  }
+  100% {
+    transform: scale(2); /* Grow to 2 times the size */
+    opacity: 0; /* Fade out */
+  }
+}
