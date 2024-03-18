@@ -16,8 +16,9 @@ import { UserLoginComponent } from './shared/login/user-artisan-login/user-login
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { CartComponent } from './product/cart/cart.component';
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
-import { OrderListComponent } from './order/order-list/order-list.component';
+import { OrderListComponent } from './order/order-history/order-list.component';
 import { HomeComponent } from './shared/home/home.component';
+import { UserOrdersComponent } from './user/user-orders/user-orders.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HomeComponent } from './shared/home/home.component';
     ReviewDetailsComponent,
     OrderListComponent,
     HomeComponent,
+    UserOrdersComponent,
 
   ],
   imports: [

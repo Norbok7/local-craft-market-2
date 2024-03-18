@@ -1,5 +1,5 @@
 <section class="order-list">
-  <h2>Order List</h2>
+  <h2>Order History</h2>
 
   <!-- List of orders -->
   <div *ngIf="orders.length > 0; else noOrders" class="orders-container">
@@ -19,25 +19,10 @@
     <p class="no-orders-msg">No orders found.</p>
   </ng-template>
 
- <!-- Order Checkout Form -->
-<div class="order-form-container">
-  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="order-form">
-    <h2>Order Checkout</h2>
-    <label for="shippingAddress">Shipping Address</label>
-    <input type="text" id="shippingAddress" formControlName="shippingAddress" class="form-input">
-
-    <label for="paymentMethod">Payment Method</label>
-    <input type="text" id="paymentMethod" formControlName="paymentMethod" class="form-input">
-
-    <!-- Add more form fields as needed -->
-
-    <button type="submit" class="submit-btn">Place Order</button>
-  </form>
 
   <!-- Total amount -->
   <div class="total-amount">
-    <span>Total Amount:</span>
+    <span>Total Spent on Local Crafts:</span>
     <span class="total-amount-value">${{ totalAmount | number: '1.2-2' }}</span>
   </div>
-</div>
 </section>

@@ -57,7 +57,7 @@ export class CartComponent implements OnInit {
     const orderDetails: Order = {
       order_date: new Date().toISOString(),
       total_amount: this.calculateTotalAmount(this.cartItems),
-      userId: 123, // Replace with actual user ID
+      user_id: 123, // Replace with actual user ID
       items: orderItems
     };
 
@@ -65,7 +65,8 @@ export class CartComponent implements OnInit {
     this.orderService.createOrder(orderDetails).subscribe(
       (response: any) => {
         console.log('Order created successfully:', response);
-        this.router.navigate(['/orders']); // Navigate to order list
+        // Pass cart items to the order list page
+        this.router.navigate(['/orders'], { queryParams: { cartItems: JSON.stringify(this.cartItems) } });
       },
       (error) => {
         console.error('Error creating order:', error);

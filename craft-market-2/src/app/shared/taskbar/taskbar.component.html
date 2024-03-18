@@ -12,7 +12,7 @@
           <a routerLink="/login/user" routerLinkActive="active">Login</a>
         </li>
         <li *ngIf="(isLoggedIn$ | async)">
-          <a (click)="navigateToUserProfile(userId)" routerLinkActive="active" class="logged-in">Logged In</a>
+          <a (click)="navigateToUserProfile(userId)" routerLinkActive="active" class="logged-in">User Profile</a>
         </li>
         <li>
           <a routerLink="/cart" routerLinkActive="active">

@@ -50,8 +50,12 @@ export class OrderListComponent implements OnInit {
   }
 
   calculateTotalAmount(): void {
-    this.totalAmount = this.orders.reduce((total, order) => total + order.total_amount, 0);
+    this.totalAmount = this.orders.reduce((total, order) => {
+      console.log("Total amount of order:", order.total_amount);
+      return total + parseFloat(order.total_amount.toString());
+    }, 0);
   }
+
 
   initOrderForm(): void {
     this.orderForm = this.formBuilder.group({

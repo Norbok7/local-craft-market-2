@@ -6,7 +6,7 @@ import { ArtisanProfileComponent } from './artisan/artisan-profile/artisan-profi
 import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-products.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
-import { OrderListComponent } from './order/order-list/order-list.component';
+import { OrderListComponent } from './order/order-history/order-list.component';
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
 import { HomeComponent } from './shared/home/home.component'; // Import HomeComponent
 import { AuthGuard } from './shared/login/auth.guard';

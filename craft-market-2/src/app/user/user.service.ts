@@ -65,11 +65,7 @@ export class UserService {
     );
   }
 
-  getCurrentUser(): Observable<User | null> {
-    return this.http.get<User>(`${this.apiUrl}/users/current`).pipe(
-      catchError(this.handleError)
-    );
-  }
+
 
   getUserDetails(userId: number): Observable<User | null> {
     return this.http.get<User>(`${this.apiUrl}/users/${userId}`).pipe(

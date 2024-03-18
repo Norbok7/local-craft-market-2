@@ -1,0 +1,47 @@
+.order-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: rgba(43, 37, 37, 0.9);
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.order-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.order-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.order-item {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: calc(50% - 10px); /* Two items per row */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.order-item:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.order-details {
+  margin-left: 20px;
+}
+
+.order-details h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.order-details p {
+  margin: 5px 0;
+}
