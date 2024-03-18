@@ -1,27 +1,18 @@
 .user-profile-container {
   max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent white background */
+  margin: 50px auto; /* Center the container horizontally and add vertical margin */
+  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
   border-radius: 15px; /* Rounded edges */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-  transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
-}
-
-.user-profile-container:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+  padding: 20px; /* Add padding to the container */
 }
 
 .user-profile {
-  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
-  border-radius: 8px;
-  padding: 20px;
   color: #ffffff; /* Text color */
 }
 
 .profile-details p {
-  margin: 5px 0;
-  color: #ffffff; /* Text color */
+  margin: 10px 0; /* Add more margin between profile details */
 }
 
 .change-password-section {
@@ -33,7 +24,7 @@
 }
 
 input[type="password"] {
-  width: 80%;
+  width: 100%; /* Make password inputs full width */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -47,6 +38,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 20px; /* Add margin between buttons */
 }
 
 button:hover {
@@ -54,6 +46,5 @@ button:hover {
 }
 
 .logout-button {
-  margin-top: 20px;
   background-color: #dc3545;
 }
