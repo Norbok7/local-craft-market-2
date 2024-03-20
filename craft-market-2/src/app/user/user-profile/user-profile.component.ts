@@ -4,6 +4,8 @@ import { UserService } from '../user.service';
 import { AuthService } from '../../shared/login/auth.service';
 import { User } from '../user.model';
 import { Order } from '../../order/order.model';
+import { ArtisanService } from '../../artisan/artisan.service';
+import { Artisan } from '../../artisan/artisan.model';
 
 @Component({
   selector: 'app-user-profile',
@@ -20,14 +22,15 @@ export class UserProfileComponent implements OnInit {
   errorMessage: string = '';
   showOrderHistory: boolean = false;
   orders: Order[] = [];
-
+  isRegistering: boolean = false;
 
   constructor(
     private router: Router,
     private auth: AuthService,
     private route: ActivatedRoute,
-    private userService: UserService
-  ) { }
+    private userService: UserService,
+    private artisanService: ArtisanService
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -58,9 +61,8 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-
-  logout(): void {
-    this.auth.logout();
+  toggleForm(): void {
+    this.isRegistering = !this.isRegistering;
   }
 
   changePassword(): void {
@@ -78,6 +80,38 @@ export class UserProfileComponent implements OnInit {
         console.error('Failed to change password:', error);
       }
     );
+  }
+
+  registerArtisan(): void {
+    if (!this.user) {
+      console.error('User is not defined');
+      return;
+    }
+
+    // Set user type to 'Artisan'
+    this.user.user_type = 'Artisan';
+
+    // Create the artisan object with artisan_name and bio fields
+    const artisan: Artisan = {
+      artisan_name: this.user.username,
+      bio: '' // You may need to provide the bio here
+    };
+
+    // Call the createArtisan method from the artisanService
+    this.artisanService.createArtisan(artisan).subscribe(
+      (createdArtisan: Artisan) => { // Specify the type here
+        console.log('Artisan registered:', createdArtisan);
+        // Redirect to appropriate page after registration
+        this.router.navigate(['/artisan-profile']);
+      },
+      (error: any) => {
+        console.error('Error registering artisan:', error);
+      }
+    );
+  }
+
+  logout(): void {
+    this.auth.logout();
   }
 
   toggleOrderHistory(): void {

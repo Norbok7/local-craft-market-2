@@ -49,6 +49,11 @@ export class AuthService {
     return this.loggedIn.asObservable();
   }
 
+  isUserAuthenticated(): boolean {
+    // Check if user is authenticated based on token presence
+    return !!this.getToken();
+  }
+
   getToken(): string | null {
     if (typeof localStorage !== 'undefined') {
       return localStorage.getItem('token');

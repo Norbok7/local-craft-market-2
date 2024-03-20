@@ -1,8 +1,8 @@
 <div class="login-container">
-  <!-- Login Form -->
-  <form *ngIf="!isRegistering" (ngSubmit)="loginUser()" #userLoginForm="ngForm" class="login-form">
+  <div *ngIf="!isRegistering" class="login-form">
+    <!-- Login Form -->
+    <h1>Login</h1>
     <div class="form-group">
-      <h1>Login:</h1>
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" [(ngModel)]="username" required>
     </div>
@@ -10,24 +10,14 @@
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" [(ngModel)]="password" required>
     </div>
+    <button type="button" (click)="login()">Login</button>
+    <p (click)="toggleForm()">Don't have an account? Register</p>
+  </div>
+
+  <div *ngIf="isRegistering" class="registration-form">
+    <!-- Registration Form -->
+    <h1>Create Account:</h1>
     <div class="form-group">
-      <label for="userType">User Type:</label>
-      <select id="userType" name="userType" [(ngModel)]="userType" required>
-        <option value="Artisan">Artisan</option>
-        <option value="Buyer">Buyer</option>
-      </select>
-    </div>
-    <button type="submit">Login</button>
-    <button (click)="toggleForm()">{{ isRegistering ? 'Login' : 'Register' }}</button>
-
-  </form>
-
-  <hr>
-
-  <!-- Registration Form -->
-  <form *ngIf="isRegistering" (ngSubmit)="registerUser()" #userRegistrationForm="ngForm" class="registration-form">
-    <div class="form-group">
-      <h1>Create Account:</h1>
       <label for="regUsername">Username:</label>
       <input type="text" id="regUsername" name="regUsername" [(ngModel)]="user.username" required>
     </div>
@@ -42,13 +32,18 @@
     <div class="form-group">
       <label for="regUserType">User Type:</label>
       <select id="regUserType" name="regUserType" [(ngModel)]="user.user_type" required>
-        <option value="Artisan">Artisan</option>
+        <option *ngIf="!isUserAuthenticated()" [ngValue]="'Artisan'">Artisan</option>
         <option value="Buyer">Buyer</option>
       </select>
     </div>
-    <button type="submit">Register</button>
-    <button (click)="toggleForm()">{{ isRegistering ? 'Login' : 'Register' }}</button>
-
-  </form>
-
+    <div class="form-group" *ngIf="user.user_type === 'Artisan'">
+      <label for="regBio">Bio:</label>
+      <textarea id="regBio" name="regBio" [(ngModel)]="artisan.bio"></textarea>
+    </div>
+    <div class="form-group">
+      <button type="button" (click)="registerUser()">Register as Buyer</button>
+      <button type="button" *ngIf="isUserAuthenticated()" (click)="registerArtisan()">Register as Artisan</button>
+    </div>
+    <p (click)="toggleForm()">Already have an account? Login</p>
+  </div>
 </div>

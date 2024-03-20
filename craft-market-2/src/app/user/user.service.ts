@@ -6,6 +6,7 @@ import { User } from './user.model';
 import { environment } from '../../environments/environment';
 import { Artisan } from '../artisan/artisan.model';
 import { Order } from '../order/order.model';
+import { ArtisanService } from '../artisan/artisan.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ import { Order } from '../order/order.model';
 export class UserService {
   private apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private artisanService: ArtisanService, private http: HttpClient) { }
 
   getUserById(id: number): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/users/${id}`).pipe(
@@ -33,19 +34,13 @@ export class UserService {
     );
   }
 
-  createUser(user: User): Observable<User> {
+  createUser(user: User): Observable<User | Artisan> {
     if (user.user_type === "Artisan") {
-      // Create an Artisan object from the User object
-      const artisan: Artisan = {
-        artisan_name: user.username,
-      };
-      return this.createArtisan(artisan);
+      return this.artisanService.createUser(user); // Delegate to ArtisanService for Artisan creation
     } else {
-      // For other user types, create a regular User record
-      return this.createUserRecord(user);
+      return this.createUserRecord(user); // Create regular user record
     }
   }
-
   updateUser(userId: number, user: User): Observable<User> {
     return this.http.put<User>(`${this.apiUrl}/users/${userId}`, user).pipe(
       catchError(this.handleError)
@@ -78,21 +73,6 @@ export class UserService {
     return throwError('Something went wrong. Please try again later.');
   }
 
-  private createArtisan(artisan: Artisan): Observable<User> {
-    return this.http.post<Artisan>(`${this.apiUrl}/artisans`, artisan).pipe(
-      map((createdArtisan: Artisan) => {
-        const userObject: User = {
-          id: createdArtisan.id,
-          username: artisan.artisan_name,
-          password: '', // You might not want to set the password here
-          email: '', // You might not want to set the email here
-          user_type: 'Artisan'
-        };
-        return userObject;
-      }),
-      catchError(this.handleError)
-    );
-  }
 
   private createUserRecord(user: User): Observable<User> {
     return this.http.post<User>(`${this.apiUrl}/users`, user).pipe(
