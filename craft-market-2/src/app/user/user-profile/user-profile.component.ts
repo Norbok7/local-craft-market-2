@@ -23,6 +23,8 @@ export class UserProfileComponent implements OnInit {
   showOrderHistory: boolean = false;
   orders: Order[] = [];
   isRegistering: boolean = false;
+  artisan: Artisan = { artisan_name: '', bio: '' }; // Declare and initialize the artisan property
+
 
   constructor(
     private router: Router,
@@ -109,6 +111,7 @@ export class UserProfileComponent implements OnInit {
       }
     );
   }
+
 
   logout(): void {
     this.auth.logout();

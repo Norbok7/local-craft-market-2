@@ -8,38 +8,37 @@
       <p><strong>User Type:</strong> {{ user.user_type }}</p>
     </div>
 
-    <!-- Registration Form -->
-    <div *ngIf="isRegistering" class="registration-form">
       <!-- Registration Form -->
-      <h3>Create Account:</h3>
-      <div class="form-group">
-        <label for="regUsername">Username:</label>
-        <input type="text" id="regUsername" name="regUsername" [(ngModel)]="user.username" required>
+      <div *ngIf="isRegistering" class="registration-form">
+        <!-- Registration Form -->
+        <h3>Create Account:</h3>
+        <div class="form-group">
+          <label for="regUsername">Username:</label>
+          <input type="text" id="regUsername" name="regUsername" [(ngModel)]="user.username" required>
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Password:</label>
+          <input type="password" id="regPassword" name="regPassword" [(ngModel)]="user.password" required>
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Email:</label>
+          <input type="email" id="regEmail" name="regEmail" [(ngModel)]="user.email" required>
+        </div>
+        <div class="form-group">
+          <label for="regUserType">User Type:</label>
+          <select id="regUserType" name="regUserType" [(ngModel)]="user.user_type" required>
+            <option value="Buyer">Buyer</option>
+            <option value="Artisan">Artisan</option>
+          </select>
+        </div>
+        <div class="form-group" *ngIf="user.user_type === 'Artisan'">
+          <label for="regBio">Bio:</label>
+          <textarea id="regBio" name="regBio" [(ngModel)]="artisan.bio"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="button" (click)="registerArtisan()">Register as {{ user.user_type }}</button>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="regPassword">Password:</label>
-        <input type="password" id="regPassword" name="regPassword" [(ngModel)]="user.password" required>
-      </div>
-      <div class="form-group">
-        <label for="regEmail">Email:</label>
-        <input type="email" id="regEmail" name="regEmail" [(ngModel)]="user.email" required>
-      </div>
-      <div class="form-group">
-        <label for="regUserType">User Type:</label>
-        <select id="regUserType" name="regUserType" [(ngModel)]="user.user_type" required>
-          <option *ngIf="!isUserAuthenticated()" [ngValue]="'Artisan'">Artisan</option>
-          <option value="Buyer">Buyer</option>
-        </select>
-      </div>
-      <div class="form-group" *ngIf="user.user_type === 'Artisan'">
-        <label for="regBio">Bio:</label>
-        <textarea id="regBio" name="regBio" [(ngModel)]="artisan.bio"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="button" (click)="registerUser()">Register as Buyer</button>
-        <button type="button" *ngIf="isUserAuthenticated()" (click)="registerArtisan()">Register as Artisan</button>
-      </div>
-    </div>
 
     <!-- Change Password Form -->
     <div class="change-password-section">
@@ -65,7 +64,7 @@
 
     <!-- Button to toggle Order History -->
     <button (click)="toggleOrderHistory()" class="order-history-button">Order History</button>
-    <button type="button" (click)="toggleForm()">Register Artisan</button>
+    <button (click)="toggleForm()">Artisan Signup</button>
     <button (click)="logout()" class="logout-button">Logout</button>
   </div>
 </div>
