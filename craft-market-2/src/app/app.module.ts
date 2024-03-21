@@ -12,13 +12,14 @@ import { TaskbarComponent } from './shared/taskbar/taskbar.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ArtisanProfileComponent } from './artisan/artisan-profile/artisan-profile.component';
 import { ArtisanProductsComponent } from './artisan/artisan-products/artisan-products.component';
-import { UserLoginComponent } from './shared/login/user-artisan-login/user-login.component';
+import { UserLoginComponent } from './shared/login/user-login/user-login.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { CartComponent } from './product/cart/cart.component';
 import { ReviewDetailsComponent } from './review/review-details/review-details.component';
 import { OrderListComponent } from './order/order-history/order-list.component';
 import { HomeComponent } from './shared/home/home.component';
 import { UserOrdersComponent } from './user/user-orders/user-orders.component';
+import { ArtisanLoginComponent } from './shared/login/artisan-login/artisan-login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { UserOrdersComponent } from './user/user-orders/user-orders.component';
     OrderListComponent,
     HomeComponent,
     UserOrdersComponent,
-
+    ArtisanLoginComponent,
+    
   ],
   imports: [
     BrowserModule,

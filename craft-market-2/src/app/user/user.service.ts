@@ -60,5 +60,6 @@ export class UserService {
       catchError(this.handleError)
     );
   }
+
 }
 

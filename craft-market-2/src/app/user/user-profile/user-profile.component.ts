@@ -4,8 +4,6 @@ import { UserService } from '../user.service';
 import { AuthService } from '../../shared/login/auth.service';
 import { User } from '../user.model';
 import { Order } from '../../order/order.model';
-import { ArtisanService } from '../../artisan/artisan.service';
-import { Artisan } from '../../artisan/artisan.model';
 
 @Component({
   selector: 'app-user-profile',
@@ -21,14 +19,12 @@ export class UserProfileComponent implements OnInit {
   showOrderHistory: boolean = false;
   orders: Order[] = [];
   isRegistering: boolean = false;
-  artisan: Artisan = { artisan_name: '', bio: '' }; // Declare and initialize the artisan property
 
   constructor(
     private router: Router,
     private auth: AuthService,
     private route: ActivatedRoute,
     private userService: UserService,
-    private artisanService: ArtisanService
   ) {}
 
   ngOnInit(): void {
@@ -81,30 +77,6 @@ export class UserProfileComponent implements OnInit {
     );
   }
 
-  registerArtisan(): void {
-    if (!this.user) {
-      console.error('User is not defined');
-      return;
-    }
-
-    // Create the artisan object with artisan_name and bio fields
-    const artisan: Artisan = {
-      artisan_name: this.user.username,
-      bio: this.artisan.bio
-    };
-
-    // Call the createArtisan method from the artisanService
-    this.artisanService.createArtisan(artisan).subscribe(
-      (createdArtisan: Artisan) => { // Specify the type here
-        console.log('Artisan registered:', createdArtisan);
-        // Redirect to appropriate page after registration
-        this.router.navigate(['/artisan-profile']);
-      },
-      (error: any) => {
-        console.error('Error registering artisan:', error);
-      }
-    );
-  }
 
   logout(): void {
     this.auth.logout();

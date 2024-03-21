@@ -24,6 +24,7 @@ export class ArtisanService {
     if (user.user_type === "Artisan") {
       const artisan: Artisan = {
         artisan_name: user.username,
+        password: user.password, // Include the password property
         bio: user.bio || '' // Use user.bio if it exists, otherwise use an empty string
       };
       return this.createArtisan(artisan); // Create artisan if user type is Artisan
@@ -32,6 +33,7 @@ export class ArtisanService {
       return this.createUserRecord(user);
     }
   }
+
 
   createArtisan(artisan: Artisan): Observable<Artisan> {
     return this.http.post<Artisan>(`${this.apiUrl}/artisans`, artisan).pipe(

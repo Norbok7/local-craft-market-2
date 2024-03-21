@@ -26,9 +26,7 @@ export class UserLoginComponent {
 
   constructor(private artisanService: ArtisanService, private authService: AuthService, private userService: UserService, private router: Router) {}
 
-  toggleForm(): void {
-    this.isRegistering = !this.isRegistering;
-  }
+
 
   login(): void {
     const credentials = { username: this.username, password: this.password };
@@ -84,41 +82,18 @@ export class UserLoginComponent {
     );
   }
 
-  registerArtisan(): void {
-    // Check if the user is authenticated
-    if (!this.isUserAuthenticated()) {
-      // If not authenticated, set the user type to "Buyer"
-      this.user.user_type = 'Buyer';
-    }
+  toggleFormBuyer(): void {
 
-    // Proceed with registration logic based on the user type
-    if (this.user.user_type === 'Artisan') {
-      // Create the artisan object with artisan_name and bio fields only
-      const artisan: Artisan = {
-        artisan_name: this.user.username,
-        bio: this.artisan.bio // Include the bio field
-      };
-
-      // Call the createArtisan method from the artisanService
-      this.artisanService.createArtisan(artisan).subscribe(
-        (createdArtisan) => {
-          console.log('Artisan registered:', createdArtisan);
-          // Redirect to appropriate page after registration
-          this.router.navigate(['/artisan-profile']);
-        },
-        (error) => {
-          console.error('Error registering artisan:', error);
-        }
-      );
-    } else {
-      console.error('User is not an Artisan');
-    }
+    this.userType = 'Buyer'; // Set the user type to Buyer
+    this.isRegistering = true; // Show the registration form
   }
 
-  isUserAuthenticated(): boolean {
-    // Implement your authentication logic here
-    // For example, you can check if the user is logged in
-    // You can use the AuthService to check the authentication status
-    return this.authService.isUserAuthenticated();
+  navtoartisanlogin(): void {
+    this.router.navigate(['/artisan-login']);
   }
+
+  toggleForm(): void {
+    this.isRegistering = !this.isRegistering;
+  }
+
 }
