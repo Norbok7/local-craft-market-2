@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'artisans/:id/products', component: ArtisanProductsComponent, canActivate: [AuthGuard] },
   { path: 'login/user', component: UserLoginComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'users/current', component: UserProfileComponent, canActivate: [AuthGuard] },
+  // { path: 'users/current', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }
 ];

@@ -15,8 +15,6 @@ import { Artisan } from '../../artisan/artisan.model';
 export class UserProfileComponent implements OnInit {
   userId!: number;
   user: User | undefined;
-  updatedUsername: string = '';
-  updatedEmail: string = '';
   newPassword: string = '';
   confirmNewPassword: string = '';
   errorMessage: string = '';
@@ -24,7 +22,6 @@ export class UserProfileComponent implements OnInit {
   orders: Order[] = [];
   isRegistering: boolean = false;
   artisan: Artisan = { artisan_name: '', bio: '' }; // Declare and initialize the artisan property
-
 
   constructor(
     private router: Router,
@@ -90,13 +87,10 @@ export class UserProfileComponent implements OnInit {
       return;
     }
 
-    // Set user type to 'Artisan'
-    this.user.user_type = 'Artisan';
-
     // Create the artisan object with artisan_name and bio fields
     const artisan: Artisan = {
       artisan_name: this.user.username,
-      bio: '' // You may need to provide the bio here
+      bio: this.artisan.bio
     };
 
     // Call the createArtisan method from the artisanService
@@ -111,7 +105,6 @@ export class UserProfileComponent implements OnInit {
       }
     );
   }
-
 
   logout(): void {
     this.auth.logout();

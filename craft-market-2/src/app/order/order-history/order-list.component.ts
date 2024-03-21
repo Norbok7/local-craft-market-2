@@ -89,7 +89,4 @@ export class OrderListComponent implements OnInit {
     }
   }
 
-  viewOrderDetailsForCheckout(): void {
-    // Optionally, you can add logic here to handle the checkout action.
-  }
 }

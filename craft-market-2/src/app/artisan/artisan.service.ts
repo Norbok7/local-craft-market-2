@@ -45,20 +45,6 @@ export class ArtisanService {
     );
   }
 
-  updateArtisan(artisanId: number, artisan: Artisan): Observable<Artisan> {
-    return this.http.put<Artisan>(`${this.apiUrl}/artisans/${artisanId}`, artisan);
-  }
-
-  deleteArtisan(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/artisans/${id}`);
-  }
-  isArtisanAuthenticated(): boolean {
-    // Check if artisan is authenticated based on your authentication logic
-    // For example, you can check if the artisan's token is stored in local storage
-    const token = localStorage.getItem('artisanToken');
-    return !!token; // Return true if token exists, otherwise false
-  }
-
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.error('API error:', error);
     return throwError('Something went wrong. Please try again later.');

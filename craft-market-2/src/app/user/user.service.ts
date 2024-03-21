@@ -28,29 +28,12 @@ export class UserService {
     );
   }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/users`).pipe(
-      catchError(this.handleError)
-    );
-  }
-
   createUser(user: User): Observable<User | Artisan> {
     if (user.user_type === "Artisan") {
       return this.artisanService.createUser(user); // Delegate to ArtisanService for Artisan creation
     } else {
       return this.createUserRecord(user); // Create regular user record
     }
-  }
-  updateUser(userId: number, user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/users/${userId}`, user).pipe(
-      catchError(this.handleError)
-    );
-  }
-
-  deleteUser(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/users/${id}`).pipe(
-      catchError(this.handleError)
-    );
   }
 
   changeUserPassword(userId: number, newPassword: string): Observable<void> {
@@ -59,8 +42,6 @@ export class UserService {
       catchError(this.handleError)
     );
   }
-
-
 
   getUserDetails(userId: number): Observable<User | null> {
     return this.http.get<User>(`${this.apiUrl}/users/${userId}`).pipe(
