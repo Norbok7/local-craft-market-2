@@ -1,11 +1,10 @@
-
 <div class="login-container">
   <div *ngIf="isLoginFormVisible" class="big-card">
     <h2>Login</h2>
     <form (submit)="login()">
       <div class="form-group">
-        <label for="artisanName">Artisan Name:</label>
-        <input type="text" id="artisanName" name="artisanName" [(ngModel)]="artisanName" required>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" required>
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
@@ -14,7 +13,6 @@
       <button type="submit">Login</button>
       <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
       <button (click)="toggleForm()">Create Artisan Account</button>
-
     </form>
   </div>
 
@@ -22,8 +20,8 @@
     <h2>Registration</h2>
     <form (submit)="register()">
       <div class="form-group">
-        <label for="artisanName">Artisan Name:</label>
-        <input type="text" id="artisanName" name="artisanName" [(ngModel)]="artisanName" required>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" required>
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
@@ -33,10 +31,9 @@
         <label for="bio">Bio:</label>
         <textarea id="bio" name="bio" [(ngModel)]="bio"></textarea>
       </div>
+    <input type="hidden" id="userType" name="userType" [(ngModel)]="userType" value="Artisan">
       <button type="submit">Register</button>
       <div *ngIf="registrationError" class="error-message">{{ registrationError }}</div>
     </form>
-
   </div>
-
 </div>

@@ -18,6 +18,8 @@ export class ArtisanLoginComponent {
   registrationError: string = '';
   isLoginFormVisible: boolean = true; // Initially show the login form
   isRegistrationFormVisible: boolean = false;
+  userType: string = ''; // Add userType property
+  username: string = ''; // Add username property
 
   constructor(private authService: AuthService, private artisanService: ArtisanService, private router: Router) {}
 
@@ -38,11 +40,14 @@ export class ArtisanLoginComponent {
     );
   }
 
+
+
   register(): void {
     const artisan: Artisan = {
-      artisan_name: this.artisanName,
-      password: this.password, // Include the password property
-      bio: this.bio
+      username: this.artisanName,
+      password: this.password,
+      bio: this.bio,
+      user_type: 'Artisan' // Include the user_type property
     };
 
     this.artisanService.createArtisan(artisan).subscribe(
@@ -56,6 +61,7 @@ export class ArtisanLoginComponent {
       }
     );
   }
+
 
 
 }
