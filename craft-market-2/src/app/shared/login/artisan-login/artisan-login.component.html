@@ -31,7 +31,7 @@
         <label for="bio">Bio:</label>
         <textarea id="bio" name="bio" [(ngModel)]="bio"></textarea>
       </div>
-    <input type="hidden" id="userType" name="userType" [(ngModel)]="userType" value="Artisan">
+      <input type="hidden" id="userType" name="userType" [(ngModel)]="userType" value="Artisan">
       <button type="submit">Register</button>
       <div *ngIf="registrationError" class="error-message">{{ registrationError }}</div>
     </form>

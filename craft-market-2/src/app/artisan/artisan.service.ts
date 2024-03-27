@@ -20,6 +20,13 @@ export class ArtisanService {
     return this.http.get<Artisan>(`${this.apiUrl}/artisans/${id}`);
   }
 
+  updateArtisan(artisan: Artisan): Observable<Artisan> {
+    const url = `${this.apiUrl}/artisans/${artisan.id}`;
+    return this.http.put<Artisan>(url, artisan).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   createUser(user: User): Observable<User | Artisan> {
     if (user.user_type === "Artisan") {
       const artisan: Artisan = {

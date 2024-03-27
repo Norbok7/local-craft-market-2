@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArtisanService } from '../artisan.service';
 import { Artisan } from '../artisan.model';
 
@@ -11,7 +11,7 @@ import { Artisan } from '../artisan.model';
 export class ArtisanProfileComponent implements OnInit {
   artisan: Artisan | undefined;
 
-  constructor(private route: ActivatedRoute, private artisanService: ArtisanService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private artisanService: ArtisanService) { }
 
   ngOnInit(): void {
     this.getArtisan();
@@ -23,4 +23,5 @@ export class ArtisanProfileComponent implements OnInit {
       this.artisan = artisan;
     });
   }
+
 }

@@ -17,3 +17,11 @@ p.no-artisans {
   color: #999;
   font-style: italic;
 }
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}

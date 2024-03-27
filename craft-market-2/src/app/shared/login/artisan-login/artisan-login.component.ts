@@ -44,11 +44,12 @@ export class ArtisanLoginComponent {
 
   register(): void {
     const artisan: Artisan = {
-      username: this.artisanName,
+      username: this.username,
       password: this.password,
       bio: this.bio,
-      user_type: 'Artisan' // Include the user_type property
+      user_type: 'Artisan' // Set the userType here
     };
+
 
     this.artisanService.createArtisan(artisan).subscribe(
       (createdArtisan) => {
