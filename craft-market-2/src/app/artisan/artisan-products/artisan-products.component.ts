@@ -23,7 +23,7 @@ export class ArtisanProductsComponent implements OnInit {
 
   getArtisanProducts(): void {
     if (this.artisanId) {
-      this.productService.getProductsByCategory(this.artisanId.toString()).subscribe(products => {
+      this.productService.getProductsByArtisanId(this.artisanId).subscribe(products => {
         this.products = products;
       });
     }

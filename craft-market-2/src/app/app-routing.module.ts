@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'orders/:id', component: OrderListComponent, canActivate: [AuthGuard] },
   { path: 'orders/:id/:totalAmount', component: OrderListComponent, canActivate: [AuthGuard] },
   { path: 'reviews/:id', component: ReviewDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'artisan/:id/products', component: ArtisanProductsComponent, canActivate: [AuthGuard] },
+  { path: 'artisans/:id/products', component: ArtisanProductsComponent, canActivate: [AuthGuard] },
   { path: 'login/user', component: UserLoginComponent },
   { path: 'cart', component: CartComponent },
   { path: 'artisan-login', component: ArtisanLoginComponent },
