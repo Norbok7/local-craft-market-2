@@ -24,4 +24,8 @@ export class ArtisanProfileComponent implements OnInit {
     });
   }
 
+  navigateToProducts(): void {
+    // Navigate to products page with artisan ID as a parameter
+    this.router.navigate(['/artisans', this.artisan?.id, 'products']);
+  }
 }

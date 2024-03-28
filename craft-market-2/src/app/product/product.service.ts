@@ -41,4 +41,9 @@ export class ProductService {
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiUrl}/products?category=${category}`);
   }
+
+  getProductsByArtisanId(artisanId: number): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.apiUrl}/artisans/${artisanId}/products`);
+  }
+
 }

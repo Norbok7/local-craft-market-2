@@ -1,7 +1,18 @@
-/* Add your CSS styling here */
-.product-info {
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
+.artisans-products-container {
+  max-width: 600px;
+  margin: 50px auto; /* Center the container horizontally and add vertical margin */
+  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
+  border-radius: 15px; /* Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  padding: 20px; /* Add padding to the container */
+  color: #ffffff; /* Text color */
+
+}
+
+.artisans-products-container h2 {
+  color: #ffffff; /* Text color */
+}
+
+.product-info p {
+  margin: 10px 0; /* Add more margin between product details */
 }

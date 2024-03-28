@@ -1,27 +1,46 @@
-/* Style for the container of each artisan */
-.artisan-info {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+/* Artisan Profile Container */
+.artisan-profile-container {
+  max-width: 600px;
+  margin: 50px auto; /* Center the container horizontally and add vertical margin */
+  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
+  border-radius: 15px; /* Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  padding: 20px; /* Add padding to the container */
+}
+
+
+/* Artisan Profile */
+.artisan-profile {
+  border-radius: 5px;
+  padding: 20px;
+  color: #ffffff; /* Text color */
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.artisan-profile h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.profile-details {
+  margin-bottom: 20px;
+}
+
+.profile-details p {
+  margin: 5px 0;
+}
+
+/* Artisan Not Found */
+.artisan-not-found {
+  margin-top: 20px;
   padding: 10px;
-  margin-bottom: 10px;
+  background-color: #ffc107;
+  border: 1px solid #ffc107;
+  border-radius: 5px;
 }
 
-/* Style for the list of artisans */
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-/* Style for the no artisans message */
-p.no-artisans {
-  color: #999;
-  font-style: italic;
-}
-select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
+.artisan-not-found p {
+  margin: 0;
+  color: #333;
 }

@@ -1,0 +1,18 @@
+<div class="artisan-profile-container">
+  <div *ngIf="artisan" class="artisan-profile">
+    <h2>Artisan Profile</h2>
+    <div class="profile-details">
+      <p><strong>ID:</strong> {{ artisan.id }}</p>
+      <p><strong>Name:</strong> {{ artisan.username }}</p>
+      <p><strong>Password:</strong> {{ artisan.password }}</p>
+      <p><strong>Bio:</strong> {{ artisan.bio }}</p>
+    </div>
+
+    <!-- Button to navigate to artisan products -->
+    <button (click)="navigateToProducts()">View Products</button>
+  </div>
+
+  <div *ngIf="!artisan" class="artisan-not-found">
+    <p>Artisan not found.</p>
+  </div>
+</div>
