@@ -25,7 +25,12 @@ export class ArtisanProfileComponent implements OnInit {
   }
 
   navigateToProducts(): void {
-    // Navigate to products page with artisan ID as a parameter
-    this.router.navigate(['/artisans', this.artisan?.id, 'products']);
+    if (this.artisan && this.artisan.id) {
+      // Navigate to products page with artisan ID as a parameter
+      this.router.navigate(['/artisan', this.artisan.id, 'products']);
+    } else {
+      console.error('Artisan ID not available.');
+    }
   }
+
 }
