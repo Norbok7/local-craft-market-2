@@ -29,9 +29,15 @@ export class ArtisanLoginComponent {
   }
 
   login(): void {
-    this.authService.login({ username: this.artisanName, password: this.password }).subscribe(
+    this.authService.login({ username: this.username, password: this.password }).subscribe(
       (response) => {
-        // Handle successful login
+        if (response && response.user_id) {
+          const artisanId = response.user_id; // Use user_id instead of id
+          // Navigate to the profile page of the logged-in artisan
+          this.router.navigate(['/artisan', artisanId]);
+        } else {
+          console.error('Invalid response from server:', response);
+        }
       },
       (error) => {
         // Handle login error
@@ -42,26 +48,27 @@ export class ArtisanLoginComponent {
 
 
 
+
   register(): void {
     const artisan: Artisan = {
       username: this.username,
       password: this.password,
       bio: this.bio,
-      user_type: 'Artisan' // Set the userType here
+      user_type: 'Artisan'
     };
-
 
     this.artisanService.createArtisan(artisan).subscribe(
       (createdArtisan) => {
         console.log('Artisan registered:', createdArtisan);
-        // Redirect to appropriate page after registration
-        this.router.navigate(['/artisan-profile']);
+        // Redirect to the profile page of the newly registered artisan
+        this.router.navigate(['/artisan', createdArtisan.id]);
       },
       (error) => {
         console.error('Error registering artisan:', error);
       }
     );
   }
+
 
 
 
