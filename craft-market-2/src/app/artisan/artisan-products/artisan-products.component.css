@@ -6,13 +6,41 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
   padding: 20px; /* Add padding to the container */
   color: #ffffff; /* Text color */
-
-}
-
-.artisans-products-container h2 {
-  color: #ffffff; /* Text color */
 }
 
 .product-info p {
   margin: 10px 0; /* Add more margin between product details */
+}
+
+.artisans-products-container h2 {
+  color: #333; /* Text color */
+  text-align: center; /* Center the heading */
+}
+
+.card {
+  background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
+  border-radius: 15px; /* Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  margin-bottom: 20px; /* Add margin between cards */
+}
+
+.card-img-top {
+  height: 200px; /* Set a fixed height for the images */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-top-left-radius: 15px; /* Rounded corners for the top left */
+  border-top-right-radius: 15px; /* Rounded corners for the top right */
+}
+
+.card-body {
+  color: #ffffff; /* Text color */
+}
+
+.card-title {
+  color: #ffffff; /* Text color */
+  font-size: 1.25rem; /* Larger font size for the title */
+  font-weight: bold; /* Bold font weight for the title */
+}
+
+.card-text {
+  margin-bottom: 0.5rem; /* Add margin between paragraphs */
 }
