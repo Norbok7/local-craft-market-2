@@ -1,27 +1,50 @@
-# CraftMarket2
+# E-Commerce Platform Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.2.
+Welcome to our E-Commerce platform frontend repository! This Angular application provides a user-friendly interface for customers and artisans to interact with our platform.
 
-## Development server
+## Project Structure
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The project is organized into modules, each representing a different aspect of the platform:
 
-## Code scaffolding
+- User Module
+- Artisan Module
+- Product Module
+- Order Module
+- Review Module
+- Shared Module
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Within each module, you'll find components and services tailored to that specific feature.
 
-## Build
+## Setup Instructions
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Install dependencies by running `npm install`.
+4. Start the development server with `ng serve`.
+5. Open your browser and navigate to `http://localhost:4200` to view the application.
 
-## Running unit tests
+## Usage
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Register as a user or artisan using the provided registration forms.
+- Log in to access your profile page, where you can manage your account information.
+- Browse products listed by artisans and place orders.
+- Leave reviews for products you've purchased.
+- Enjoy a seamless shopping experience!
 
-## Running end-to-end tests
+## Authentication and Authorization
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- User authentication is implemented using Angular's built-in mechanisms.
+- Access to certain routes and actions is restricted based on user roles, ensuring a secure experience.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Backend Integration
+
+- This frontend communicates with our backend server (Rails) via RESTful APIs.
+- API endpoints handle user registration, authentication, and profile management.
+
+## Feedback and Contributions
+
+We welcome feedback and contributions from the community! If you encounter any issues or have suggestions for improvement, please open an issue or submit a pull request.
+
+Happy shopping!
+
