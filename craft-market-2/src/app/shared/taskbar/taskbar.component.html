@@ -11,9 +11,12 @@
         <li *ngIf="!(isLoggedIn$ | async)">
           <a routerLink="/login/user" routerLinkActive="active">Login</a>
         </li>
+        <li><a routerLink="/sales" routerLinkActive="active">Sales</a></li>
+
         <li *ngIf="(isLoggedIn$ | async)">
           <a (click)="navigateToUserProfile(userId)" routerLinkActive="active" class="logged-in">User Profile</a>
         </li>
+
         <li>
           <a routerLink="/cart" routerLinkActive="active">
             Cart ({{ cartItemCount }})
@@ -23,5 +26,38 @@
     </div>
     <br>
     <router-outlet></router-outlet>
+
+
+
   </div>
 </div>
+   <!-- Footer Section -->
+   <footer>
+    <div class="footer-links">
+      <div class="footer-column">
+        <h3>Buy</h3>
+        <ul>
+          <li><a href="/login/user">Registration</a></li>
+          <li><a href="#">Bidding & buying help</a></li>
+          <!-- Other buy links -->
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Sell</h3>
+        <ul>
+          <li><a href="/artisan-login">Start selling</a></li> <!-- Updated route for start selling -->
+          <li><a href="#">How to sell</a></li>
+          <!-- Other sell links -->
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#">About Local Craft Market</a></li>
+          <!-- <li><a href="#">Company info</a></li> -->
+          <!-- Other about links -->
+        </ul>
+      </div>
+      <!-- Add more columns as needed -->
+    </div>
+  </footer>

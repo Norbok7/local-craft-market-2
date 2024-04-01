@@ -87,3 +87,20 @@
   text-shadow: 1px 1px 7px rgb(0, 0, 0); /* White shadow around the text */
 }
 
+footer {
+  background-color: rgba(255, 255, 255, 0.654);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-column {
+  flex: 1;
+}
+
+.footer-column h3 {
+  margin-bottom: 10px;
+}
+
