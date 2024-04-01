@@ -19,6 +19,7 @@ export class UserProfileComponent implements OnInit {
   showOrderHistory: boolean = false;
   orders: Order[] = [];
   isRegistering: boolean = false;
+  showChangePasswordForm: boolean = false; // New property to toggle password change form
 
   constructor(
     private router: Router,
@@ -60,6 +61,10 @@ export class UserProfileComponent implements OnInit {
     this.isRegistering = !this.isRegistering;
   }
 
+  toggleChangePasswordForm(): void { // Function to toggle the password change form
+    this.showChangePasswordForm = !this.showChangePasswordForm;
+  }
+
   changePassword(): void {
     if (this.newPassword !== this.confirmNewPassword) {
       this.errorMessage = 'New password and confirm password must match.';
@@ -69,6 +74,11 @@ export class UserProfileComponent implements OnInit {
     this.userService.changeUserPassword(this.userId, this.newPassword).subscribe(
       response => {
         // Handle success or display success message
+        console.log('Password changed successfully:', response);
+        // Reset form fields and hide the form
+        this.newPassword = '';
+        this.confirmNewPassword = '';
+        this.showChangePasswordForm = false;
       },
       error => {
         this.errorMessage = 'Failed to change password. Please try again later.';

@@ -25,21 +25,25 @@
       </div>
     </div>
 
-    <!-- Change Password Form -->
-    <div class="change-password-section">
-      <h3>Change Password</h3>
-      <form (submit)="changePassword()">
-        <div class="form-group">
-          <input type="password" [(ngModel)]="newPassword" name="newPassword" placeholder="New Password">
-        </div>
-        <div class="form-group">
-          <input type="password" [(ngModel)]="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm New Password">
-        </div>
-        <div class="form-group">
-          <button type="submit">Change Password</button>
-        </div>
-      </form>
+   <!-- Change Password Button -->
+<button (click)="toggleChangePasswordForm()">Change Password</button>
+
+<!-- Change Password Form -->
+<div class="change-password-section" *ngIf="showChangePasswordForm">
+  <h3>Submit Password</h3>
+  <form (submit)="changePassword()">
+    <div class="form-group">
+      <input type="password" [(ngModel)]="newPassword" name="newPassword" placeholder="New Password">
     </div>
+    <div class="form-group">
+      <input type="password" [(ngModel)]="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm New Password">
+    </div>
+    <div class="form-group">
+      <button type="submit">Submit New Password</button>
+    </div>
+  </form>
+</div>
+
 
     <!-- Order History Section -->
     <div class="order-history-section" *ngIf="showOrderHistory">

@@ -87,20 +87,49 @@
   text-shadow: 1px 1px 7px rgb(0, 0, 0); /* White shadow around the text */
 }
 
+/* Footer container */
 footer {
-  background-color: rgba(255, 255, 255, 0.654);
+  background-color: rgba(148, 138, 138, 0.654);
+  padding: 20px 0; /* Add padding to create space around the content */
+  text-align: center; /* Center align the content */
+  border-radius: 5px;
 }
 
+/* Footer links */
 .footer-links {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center align the items horizontally */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
 }
 
+/* Footer column */
 .footer-column {
   flex: 1;
+  margin: 0 10px; /* Add margin to create space between columns */
 }
 
+/* Footer column heading */
 .footer-column h3 {
   margin-bottom: 10px;
+  color: #e8e2e2; /* Adjust color for better readability */
 }
 
+/* Footer link */
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 5px; /* Add margin between list items */
+  
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #2e2aa6; /* Adjust color for better readability */
+}
+
+.footer-column ul li a:hover {
+  color: #777; /* Adjust color on hover for better visibility */
+}
