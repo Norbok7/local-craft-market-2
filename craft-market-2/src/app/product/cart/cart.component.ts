@@ -35,7 +35,6 @@ export class CartComponent implements OnInit {
 
   buyNow(): void {
     if (!this.authService.isLoggedIn()) {
-      // Log a message to the console if the user is not logged in
       console.log('Please log in to proceed.');
       return;
     }
@@ -61,22 +60,29 @@ export class CartComponent implements OnInit {
       items: orderItems
     };
 
-    // Create order and navigate to order list
+    // Create order and process it
     this.orderService.createOrder(orderDetails).subscribe(
       (response: any) => {
         console.log('Order created successfully:', response);
         // Pass cart items to the order list page
         this.router.navigate(['/orders'], { queryParams: { cartItems: JSON.stringify(this.cartItems) } });
+
+        // Clear the cart after processing the order
+        this.cartService.clearCart();
+        this.cartItems = [];
       },
       (error) => {
         console.error('Error creating order:', error);
         // Handle error
+        // Re-enable the "Buy Now" button after the operation completes (whether successful or failed)
+        this.isProcessing = false;
       }
     ).add(() => {
       // Re-enable the "Buy Now" button after the operation completes (whether successful or failed)
       this.isProcessing = false;
     });
   }
+
 
   calculateTotalAmount(cartItems: Product[]): number {
     return cartItems.reduce((total, item) => total + item.price, 0);
