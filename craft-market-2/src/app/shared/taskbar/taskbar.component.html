@@ -16,7 +16,8 @@
           <a (click)="navigateToUserProfile(userId)" routerLinkActive="active" class="logged-in">User Profile</a>
         </li>
         <li *ngIf="(isLoggedIn$ | async)">
-          <a routerLink="/artisan/:id" routerLinkActive="active">Artisan Profile</a>
+          <!-- Pass the artisanId to the navigateToArtisanProfile method -->
+          <a (click)="navigateToArtisanProfile(artisanId)" routerLinkActive="active">Artisan Profile</a>
         </li>
         <li>
           <a routerLink="/cart" routerLinkActive="active">

@@ -27,12 +27,13 @@ export class ArtisanLoginComponent {
     this.isLoginFormVisible = !this.isLoginFormVisible;
     this.isRegistrationFormVisible = !this.isRegistrationFormVisible;
   }
-
   login(): void {
     this.authService.login({ username: this.username, password: this.password }).subscribe(
       (response) => {
         if (response && response.user_id) {
           const artisanId = response.user_id; // Use user_id instead of id
+          // Store the artisan ID in localStorage
+          localStorage.setItem('artisanId', artisanId);
           // Navigate to the profile page of the logged-in artisan
           this.router.navigate(['/artisan', artisanId]);
         } else {
@@ -45,6 +46,7 @@ export class ArtisanLoginComponent {
       }
     );
   }
+
 
 
 

@@ -15,6 +15,7 @@ export class TaskbarComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
   cartItemCount: number = 0; // Initialize with 0
   userId: any | null;
+  artisanId: any | null; // Declare artisanId property
 
   constructor(
     private authService: AuthService,
@@ -43,6 +44,19 @@ export class TaskbarComponent implements OnInit {
         }
       }
     });
+
+    // Fetch current artisan's ID if logged in
+    this.isLoggedIn$.subscribe((loggedIn: boolean) => {
+      if (loggedIn) {
+        // Retrieve artisan ID from localStorage
+        this.artisanId = localStorage.getItem('artisanId');
+        if (this.artisanId) {
+          console.log('Artisan ID:', this.artisanId); // Add console log here
+        } else {
+          console.error('Artisan ID not found in localStorage');
+        }
+      }
+    });
   }
 
   // Method to navigate to user profile
@@ -51,4 +65,15 @@ export class TaskbarComponent implements OnInit {
     // Navigate to the user profile page using the provided user ID
     this.router.navigate(['/users', userId]);
   }
+
+  // Method to navigate to artisan profile
+  navigateToArtisanProfile(artisanId: string | null) {
+    if (artisanId) {
+      console.log('Navigating to artisan profile with ID:', artisanId);
+      this.router.navigate(['/artisan', artisanId]);
+    } else {
+      console.error('Artisan ID is null or undefined');
+    }
+  }
+
 }
