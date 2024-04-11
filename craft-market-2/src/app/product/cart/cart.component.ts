@@ -43,14 +43,16 @@ export class CartComponent implements OnInit {
     this.isProcessing = true;
 
     // Convert cart items to OrderItem objects
-    const orderItems: OrderItem[] = this.cartItems.map(item => {
-      return {
-        unit_price: item.price,
-        order_id: 0,
-        product_id: item.id,
-        quantity: 1
-      };
-    });
+  // Convert cart items to OrderItem objects
+const orderItems: OrderItem[] = this.cartItems.map(item => {
+  return {
+    unit_price: item.price,
+    order_id: 0,
+    product_id: item.id!, // Use non-null assertion operator
+    quantity: 1
+  };
+});
+
 
     // Create an order object
     const orderDetails: Order = {

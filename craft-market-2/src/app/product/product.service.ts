@@ -21,10 +21,10 @@ export class ProductService {
     return this.http.get<Product>(`${this.apiUrl}/products/${id}`);
   }
 
-  createProduct(product: Product): Observable<Product> {
+  createProduct(artisanId: number, product: Product): Observable<Product> {
+    product.artisan_id = artisanId; // Set the artisanId property
     return this.http.post<Product>(`${this.apiUrl}/products`, product);
   }
-
   updateProduct(productId: number, product: Product): Observable<Product> {
     return this.http.put<Product>(`${this.apiUrl}/products/${productId}`, product);
   }

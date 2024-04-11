@@ -77,7 +77,7 @@ export class ProductDetailsComponent implements OnInit {
       const review: Review = {
         rating: formData.rating,
         comment: formData.comment,
-        product_id: this.productData.id,
+        product_id: this.productData.id || 0, // Use 0 as a default value if productData.id is undefined
       };
 
       this.reviewService.createReview(review).subscribe(

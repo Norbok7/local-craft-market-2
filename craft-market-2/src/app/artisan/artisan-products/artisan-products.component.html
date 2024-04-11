@@ -1,7 +1,41 @@
-
 <div class="artisans-products-container">
-  <h2>Get Artisans name interpolated here Store</h2>
+  <h2>Artisan Products Store</h2>
 
+  <!-- Button to Toggle Create Product Form -->
+  <button class="btn btn-primary mb-3" (click)="toggleCreateProductForm()">Create New Product</button>
+
+<!-- Create Product Form -->
+<div *ngIf="showCreateProductForm">
+  <form (submit)="createProduct()">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="newProduct.title" name="title" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" [(ngModel)]="newProduct.description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <input type="text" class="form-control" id="category" [(ngModel)]="newProduct.category" name="category" required>
+    </div>
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" class="form-control" id="price" [(ngModel)]="newProduct.price" name="price" required>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="number" class="form-control" id="quantity" [(ngModel)]="newProduct.quantity" name="quantity" required>
+    </div>
+    <div class="form-group">
+      <label for="image_url">Image URL:</label>
+      <input type="text" class="form-control" id="image_url" [(ngModel)]="newProduct.image_url" name="image_url" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Product</button>
+  </form>
+</div>
+
+  <!-- Existing Products -->
   <div *ngIf="products.length > 0; else noProducts">
     <div class="card" *ngFor="let product of products" [routerLink]="['/products', product.id]">
       <img class="card-img-top" [src]="product.image_url" alt="Product Image">

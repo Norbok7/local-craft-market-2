@@ -2,9 +2,9 @@
 <div class="cart-container">
   <div *ngIf="cartItems.length > 0; else emptyCart" class="cart-content">
     <div *ngFor="let item of cartItems" class="cart-item">
-      <img [src]="item.image_url" alt="{{ item.title }}" class="item-image" (click)="navigateToProductDetails(item.id)">
+      <img [src]="item.image_url" alt="{{ item.title }}" class="item-image" (click)="navigateToProductDetails(item.id!)">
       <div class="item-details">
-        <h3 (click)="navigateToProductDetails(item.id)">{{ item.title }}</h3>
+        <h3 (click)="navigateToProductDetails(item.id!)">{{ item.title }}</h3>
         <p class="item-price">$ {{ item.price }}</p>
         <button class="remove-button" (click)="removeFromCart(item)">Remove</button>
       </div>
