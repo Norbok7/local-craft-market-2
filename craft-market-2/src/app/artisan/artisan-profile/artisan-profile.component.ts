@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArtisanService } from '../artisan.service';
 import { Artisan } from '../artisan.model';
+import { AuthService } from '../../shared/login/auth.service';
 
 @Component({
   selector: 'app-artisan-profile',
@@ -11,7 +12,7 @@ import { Artisan } from '../artisan.model';
 export class ArtisanProfileComponent implements OnInit {
   artisan: Artisan | undefined;
 
-  constructor(private router: Router, private route: ActivatedRoute, private artisanService: ArtisanService) { }
+  constructor(private auth: AuthService, private router: Router, private route: ActivatedRoute, private artisanService: ArtisanService) { }
 
   ngOnInit(): void {
     this.getArtisan();
@@ -32,5 +33,10 @@ export class ArtisanProfileComponent implements OnInit {
       console.error('Artisan ID not available.');
     }
   }
-
+  logout(): void {
+    // Call the logout method from the AuthService
+    this.auth.logout();
+    // Redirect to the login page after logout
+    this.router.navigate(['/login']);
+  }
 }

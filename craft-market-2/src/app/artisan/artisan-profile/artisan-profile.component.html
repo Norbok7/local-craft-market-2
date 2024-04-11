@@ -12,7 +12,12 @@
     <button (click)="navigateToProducts()">View Products</button>
   </div>
 
+    <!-- Logout button -->
+    <button (click)="logout()">Logout</button>
+  </div>
+
+
   <div *ngIf="!artisan" class="artisan-not-found">
     <p>Artisan not found.</p>
   </div>
-</div>
+

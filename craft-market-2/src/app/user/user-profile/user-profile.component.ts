@@ -89,7 +89,10 @@ export class UserProfileComponent implements OnInit {
 
 
   logout(): void {
+    // Call the logout method from the AuthService
     this.auth.logout();
+    // Redirect to the login page after logout
+    this.router.navigate(['/login']);
   }
 
   toggleOrderHistory(): void {
