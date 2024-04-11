@@ -13,8 +13,10 @@ import { UserLoginComponent } from './shared/login/user-login/user-login.compone
 import { CartComponent } from './product/cart/cart.component';
 import { ArtisanLoginComponent } from './shared/login/artisan-login/artisan-login.component';
 import { HelpInfoComponent } from './shared/help-info/help-info.component';
+import { HelpSellingComponent } from './shared/help-selling/help-selling.component';
 const routes: Routes = [
   { path: 'help', component: HelpInfoComponent },
+  { path: 'help-selling', component: HelpSellingComponent },
   { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'users/:id/orders', component: UserOrdersComponent, canActivate: [AuthGuard] },
   { path: 'artisan-profile', component: ArtisanProfileComponent, canActivate: [AuthGuard] },
