@@ -1,6 +1,6 @@
 <div class="artisan-profile-container">
   <div *ngIf="artisan" class="artisan-profile">
-    <h2>Artisan Profile</h2>
+    <h1 style="text-align: center;">Artisan Profile</h1>
     <div class="profile-details">
       <p><strong>ID:</strong> {{ artisan.id }}</p>
       <p><strong>Name:</strong> {{ artisan.username }}</p>
@@ -8,16 +8,17 @@
       <p><strong>Bio:</strong> {{ artisan.bio }}</p>
     </div>
 
-    <!-- Button to navigate to artisan products -->
-    <button (click)="navigateToProducts()">View Products</button>
-  </div>
+    <!-- Button container -->
+    <div class="button-container">
+      <!-- Button to navigate to artisan products -->
+      <button (click)="navigateToProducts()" class="view-products-button">View Products</button>
 
-    <!-- Logout button -->
-    <button (click)="logout()">Logout</button>
+      <!-- Logout button -->
+      <button (click)="logout()" class="logout-button">Logout</button>
+    </div>
   </div>
-
 
   <div *ngIf="!artisan" class="artisan-not-found">
     <p>Artisan not found.</p>
   </div>
-
+</div>
