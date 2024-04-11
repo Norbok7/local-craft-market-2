@@ -20,6 +20,7 @@ import { OrderListComponent } from './order/order-history/order-list.component';
 import { HomeComponent } from './shared/home/home.component';
 import { UserOrdersComponent } from './user/user-orders/user-orders.component';
 import { ArtisanLoginComponent } from './shared/login/artisan-login/artisan-login.component';
+import { HelpInfoComponent } from './shared/help-info/help-info.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ArtisanLoginComponent } from './shared/login/artisan-login/artisan-logi
     HomeComponent,
     UserOrdersComponent,
     ArtisanLoginComponent,
-    
+    HelpInfoComponent,
+
   ],
   imports: [
     BrowserModule,

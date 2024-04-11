@@ -12,8 +12,9 @@ import { AuthGuard } from './shared/login/auth.guard';
 import { UserLoginComponent } from './shared/login/user-login/user-login.component';
 import { CartComponent } from './product/cart/cart.component';
 import { ArtisanLoginComponent } from './shared/login/artisan-login/artisan-login.component';
-
+import { HelpInfoComponent } from './shared/help-info/help-info.component';
 const routes: Routes = [
+  { path: 'help', component: HelpInfoComponent },
   { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'users/:id/orders', component: UserOrdersComponent, canActivate: [AuthGuard] },
   { path: 'artisan-profile', component: ArtisanProfileComponent, canActivate: [AuthGuard] },
