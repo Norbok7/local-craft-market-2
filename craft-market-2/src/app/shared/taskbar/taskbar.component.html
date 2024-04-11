@@ -6,16 +6,18 @@
     </div>
     <div class="taskbar">
       <ul>
-        <!-- <li><a routerLink="/home" routerLinkActive="active">Home</a></li> -->
         <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
-        <li *ngIf="!(isLoggedIn$ | async)">
-          <a routerLink="/login/user" routerLinkActive="active">Login</a>
-        </li>
-
+        <!-- Show login links based on user type -->
+        <ng-container *ngIf="!(isLoggedIn$ | async)">
+          <li><a routerLink="/login/user" routerLinkActive="active">User Login</a></li>
+          <li><a routerLink="/artisan-login" routerLinkActive="active">Artisan Login</a></li>
+        </ng-container>
         <li *ngIf="(isLoggedIn$ | async)">
           <a (click)="navigateToUserProfile(userId)" routerLinkActive="active" class="logged-in">User Profile</a>
         </li>
-
+        <li *ngIf="(isLoggedIn$ | async)">
+          <a routerLink="/artisan/:id" routerLinkActive="active">Artisan Profile</a>
+        </li>
         <li>
           <a routerLink="/cart" routerLinkActive="active">
             Cart ({{ cartItemCount }})
@@ -25,39 +27,35 @@
     </div>
     <br>
     <router-outlet></router-outlet>
-
-
-
   </div>
 </div>
-   <!-- Footer Section -->
-   <footer>
-    <div class="footer-links">
-      <div class="footer-column">
-        <h3>Buy</h3>
-        <ul>
-          <li><a href="/login/user">Registration</a></li>
-          <li><a routerLink="/help" routerLinkActive="active">Bidding & buying help</a></li> <!-- Updated link for bidding & buying help -->
-          <!-- Other buy links -->
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h3>Sell</h3>
-        <ul>
-          <li><a href="/help-selling">How to sell</a></li>
-          <li><a href="/artisan-login">Start selling</a></li> <!-- Updated route for start selling -->
-
-          <!-- Other sell links -->
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h3>About</h3>
-        <ul>
-          <li><a href="#">About Local Craft Market</a></li>
-          <!-- <li><a href="#">Company info</a></li> -->
-          <!-- Other about links -->
-        </ul>
-      </div>
-      <!-- Add more columns as needed -->
+<!-- Footer Section -->
+<footer>
+  <div class="footer-links">
+    <div class="footer-column">
+      <h3>Buy</h3>
+      <ul>
+        <li><a routerLink="/login/user">Registration</a></li>
+        <li><a routerLink="/help" routerLinkActive="active">Bidding & buying help</a></li>
+        <!-- Other buy links -->
+      </ul>
     </div>
-  </footer>
+    <div class="footer-column">
+      <h3>Sell</h3>
+      <ul>
+        <li><a routerLink="/help-selling">How to sell</a></li>
+        <li><a routerLink="/login/artisan">Start selling</a></li>
+        <!-- Other sell links -->
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#">About Local Craft Market</a></li>
+        <!-- <li><a href="#">Company info</a></li> -->
+        <!-- Other about links -->
+      </ul>
+    </div>
+    <!-- Add more columns as needed -->
+  </div>
+</footer>
