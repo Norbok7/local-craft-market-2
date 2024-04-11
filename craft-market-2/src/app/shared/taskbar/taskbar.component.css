@@ -89,7 +89,7 @@
 
 /* Footer container */
 footer {
-  background-color: rgba(148, 138, 138, 0.654);
+  background-color: rgba(43, 37, 37, 0.365); /* Semi-transparent dark background */
   padding: 20px 0; /* Add padding to create space around the content */
   text-align: center; /* Center align the content */
   border-radius: 5px;
@@ -122,12 +122,12 @@ footer {
 
 .footer-column ul li {
   margin-bottom: 5px; /* Add margin between list items */
-  
+
 }
 
 .footer-column ul li a {
   text-decoration: none;
-  color: #2e2aa6; /* Adjust color for better readability */
+  color: #ffffff; /* Adjust color for better readability */
 }
 
 .footer-column ul li a:hover {
