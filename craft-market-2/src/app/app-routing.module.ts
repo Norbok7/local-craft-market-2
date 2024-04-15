@@ -14,7 +14,9 @@ import { CartComponent } from './product/cart/cart.component';
 import { ArtisanLoginComponent } from './shared/login/artisan-login/artisan-login.component';
 import { HelpInfoComponent } from './shared/help-info/help-info.component';
 import { HelpSellingComponent } from './shared/help-selling/help-selling.component';
+import { AboutpageComponent } from './shared/aboutpage/aboutpage.component';
 const routes: Routes = [
+  { path: 'about', component: AboutpageComponent },
   { path: 'help', component: HelpInfoComponent },
   { path: 'help-selling', component: HelpSellingComponent },
   { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] },

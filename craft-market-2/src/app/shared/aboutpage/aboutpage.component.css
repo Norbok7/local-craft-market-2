@@ -1,0 +1,25 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.442); /* Dark grey/blackish color with transparency */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+h1, h2 {
+  color: #fff;
+}
+
+p {
+  color: #ccc;
+  margin-top: 20px;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+p {
+  margin-bottom: 20px;
+}
