@@ -5,6 +5,7 @@ import { CartService } from '../../product/cartservice.service';
 import { UserService } from '../../user/user.service';
 import { Product } from '../../product/product.model';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-taskbar',
@@ -16,14 +17,19 @@ export class TaskbarComponent implements OnInit {
   cartItemCount: number = 0; // Initialize with 0
   userId: any | null;
   artisanId: any | null; // Declare artisanId property
+  // URL and title for sharing
+  shareUrl: string;
+  shareTitle = 'Check out these amazing products!';
 
   constructor(
+    private location: Location,
     private authService: AuthService,
     private cartService: CartService,
     private userService: UserService,
     private router: Router,
   ) {
     this.isLoggedIn$ = this.authService.isLoggedIn();
+    this.shareUrl = this.location.path();
   }
 
   ngOnInit(): void {

@@ -23,6 +23,8 @@ import { ArtisanLoginComponent } from './shared/login/artisan-login/artisan-logi
 import { HelpInfoComponent } from './shared/help-info/help-info.component';
 import { HelpSellingComponent } from './shared/help-selling/help-selling.component';
 import { AboutpageComponent } from './shared/aboutpage/aboutpage.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { AboutpageComponent } from './shared/aboutpage/aboutpage.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    ShareButtonsModule,
+    ShareIconsModule,
 
 
   ],

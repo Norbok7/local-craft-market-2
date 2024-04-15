@@ -17,6 +17,7 @@ export class ProductListComponent implements OnInit {
   itemsPerPage = 18;
   currentPage = 1;
   searchTerm: string = '';
+ 
 
   constructor(private cartService: CartService, private router: Router, private productService: ProductService, private route: ActivatedRoute) { }
   @Input() maxDisplayedProducts: number = 18; // Default to display 5 products
