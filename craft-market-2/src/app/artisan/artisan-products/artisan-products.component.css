@@ -1,3 +1,4 @@
+/* Artisans Products Container */
 .artisans-products-container {
   max-width: 600px;
   margin: 50px auto; /* Center the container horizontally and add vertical margin */
@@ -8,15 +9,49 @@
   color: #ffffff; /* Text color */
 }
 
-.product-info p {
-  margin: 10px 0; /* Add more margin between product details */
-}
-
+/* Artisan Products Store Heading */
 .artisans-products-container h2 {
-  color: #ffffff; /* Text color */
   text-align: center; /* Center the heading */
 }
 
+/* Create Product Form */
+.create-product-form {
+  margin-bottom: 20px; /* Add margin below the form */
+}
+
+/* Create Product Button */
+.btn-create-product {
+  background-color: #28a745; /* Green background color */
+  color: #fff; /* White text color */
+  padding: 10px 20px; /* Padding for the button */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor style on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.btn-create-product:hover {
+  background-color: #218838; /* Darker green color on hover */
+}
+
+/* Submit Button */
+.btn-submit-product {
+  background-color: #007bff; /* Blue background color */
+  color: #fff; /* White text color */
+  padding: 10px 20px; /* Padding for the button */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor style on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  display: block; /* Make the button a block element */
+  margin-top: 20px; /* Add margin on top */
+}
+
+.btn-submit-product:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+
+/* Card */
 .card {
   background-color: rgba(43, 37, 37, 0.9); /* Semi-transparent dark background */
   border-radius: 15px; /* Rounded edges */
@@ -24,6 +59,7 @@
   margin-bottom: 20px; /* Add margin between cards */
 }
 
+/* Card Image */
 .card-img-top {
   height: 200px; /* Set a fixed height for the images */
   object-fit: cover; /* Maintain aspect ratio */
@@ -31,16 +67,43 @@
   border-top-right-radius: 15px; /* Rounded corners for the top right */
 }
 
+/* Card Body */
 .card-body {
   color: #ffffff; /* Text color */
 }
 
+/* Card Title */
 .card-title {
-  color: #ffffff; /* Text color */
   font-size: 1.25rem; /* Larger font size for the title */
   font-weight: bold; /* Bold font weight for the title */
 }
 
+/* Card Text */
 .card-text {
   margin-bottom: 0.5rem; /* Add margin between paragraphs */
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 1rem; /* Add margin between form groups */
+}
+
+/* Form Label */
+.form-group label {
+  font-weight: bold; /* Bold label text */
+}
+
+/* Form Control */
+.form-control {
+  border-radius: 4px; /* Rounded corners for form controls */
+}
+
+/* Form Row */
+.form-row {
+  margin-bottom: 1rem; /* Add margin between form rows */
+}
+
+/* Form Column */
+.form-group.col-md-6 {
+  margin-bottom: 0; /* Remove bottom margin for form columns */
 }
