@@ -111,7 +111,7 @@ footer {
 /* Footer column heading */
 .footer-column h3 {
   margin-bottom: 10px;
-  color: #e8e2e2; /* Adjust color for better readability */
+  color: #ffffff; /* Adjust color for better readability */
 }
 
 /* Footer link */
@@ -125,13 +125,15 @@ footer {
 
 }
 
+/* Footer link */
 .footer-column ul li a {
   text-decoration: none;
   color: #ffffff; /* Adjust color for better readability */
+  text-shadow: 2px 2px 10px rgba(26, 5, 211, 0.963); /* Light blue shadow with increased blur and opacity */
 }
 
 .footer-column ul li a:hover {
-  color: #777; /* Adjust color on hover for better visibility */
+  color: #2a10ec; /* Adjust color on hover for better visibility */
 }
 /* For smaller phone screens */
 @media screen and (max-width: 768px) {
@@ -160,4 +162,7 @@ footer {
     flex: 1 1 100%; /* Make footer columns take full width on smaller screens */
     margin: 10px 0; /* Adjust margin for smaller screens */
   }
+
+
+
 }
