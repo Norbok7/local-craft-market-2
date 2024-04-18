@@ -43,7 +43,6 @@
   <!-- Display Reviews -->
   <div *ngIf="reviews.length > 0" class="review-list">
     <div *ngFor="let review of reviews" class="review-item">
-      <p><strong>User: {{ review.user }}</strong></p>
       <p>Comment: {{ review.comment }}</p>
       <p>Rating: {{ review.rating }}/5</p>
     </div>
