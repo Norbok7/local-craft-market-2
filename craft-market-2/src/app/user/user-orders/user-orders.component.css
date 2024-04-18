@@ -40,7 +40,12 @@
 .order-details h3 {
   margin: 0;
   font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.315); /* Add white background */
+  display: inline; /* Ensure the background only covers the text */
+  padding: 5px 10px; /* Add padding to make the background visible */
+  border-radius: 5px; /* Add rounded corners */
 }
+
 
 .order-details p {
   margin: 5px 0;
